@@ -9,7 +9,7 @@ namespace Obligatorio
         private DateTime _fechaPactada;
 
         private bool _estado;
-        private DateTime _fechaCierre;
+        private DateTime _fechaCierre;           
         private string? _comentario;
 
 
