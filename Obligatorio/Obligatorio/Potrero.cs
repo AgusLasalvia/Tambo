@@ -7,8 +7,8 @@ namespace Obligatorio{
         private int _cantidadMaxAnimales;
         private int _cantidadAnimalesPastan;
         private List<Animal> _animales;
-
-        public Portero(string descripcion, int cantidadHectareas, int cantidadMaxAnimales, int cantidadAnimalesPastan, List<Animales> animales) 
+		
+        public Portero(string descripcion, int cantidadHectareas, int cantidadMaxAnimales, int cantidadAnimalesPastan, List<Animal> animales) 
         {
             _id = s_ultId;
             s_ultId ++;
@@ -21,7 +21,7 @@ namespace Obligatorio{
         }
 
 
-        public Validar()
+        public void Validar()
         {
             if (string.IsNullOrEmpty(_descripcion)) throw new Exception("El portero debe tener una descripcion");
 
