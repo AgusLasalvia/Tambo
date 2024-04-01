@@ -2,7 +2,7 @@ namespace Obligatorio{
     internal class Animal: IValidable{
 
         private string _id;
-        private string _genero;
+        private TipoAnimal _genero;
 
         private string _raza;
         private DateTime _fechaNacimiento;
@@ -10,10 +10,10 @@ namespace Obligatorio{
         private double _costoAlimentacion;
         private double _pesoActual;
         private bool _hibrido;
-        private List<Vacuna> _vacunas;
+        private List<Vacunacion> _vacunas;
         private bool _estado;
 
-        public Animal(string genero, string raza, DateTime fechaNacimiento, double costoAdquisicion, double costoAlimentacion, double pesoActual, bool hibrido, List<Vacuna> vacunas, bool estado)
+        public Animal(TipoAnimal genero, string raza, DateTime fechaNacimiento, double costoAdquisicion, double costoAlimentacion, double pesoActual, bool hibrido, List<Vacunacion> vacunas, bool estado)
         {
             _id = GenerarNuevoId();
             _genero = genero;
@@ -27,7 +27,7 @@ namespace Obligatorio{
             _estado = estado;
         }
 
-        private string GenerarNuevoId()
+        private static string GenerarNuevoId()
         {
             string caracteres = "1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ";
             string codigo = "";
@@ -42,7 +42,7 @@ namespace Obligatorio{
         }
 
         public void Validar(){
-            if (string.IsNullOrEmpty(_genero)) throw new Exception("El animal debe tener un genero");
+            if (!Enum.IsDefined(_genero)) throw new Exception("El animal debe tener un genero");
 
             if (string.IsNullOrEmpty(_raza)) throw new Exception("El animal debe tener una raza");
 
