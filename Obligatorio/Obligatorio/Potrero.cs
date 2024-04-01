@@ -19,9 +19,21 @@ namespace Obligatorio{
             _cantidadAnimalesPastan = cantidadAnimalesPastan;
             _animales = animales;
         }
-        
 
 
+        public Validar()
+        {
+            if (string.IsNullOrEmpty(_descripcion)) throw new Exception("El portero debe tener una descripcion");
+
+            if (_cantidadHectareas == 0) throw new Exception("El portero debe tener una cantidad de hectareas");
+
+            if (_cantidadMaxAnimales == 0) throw new Exception("El portero debe tener una cantidad maxima de animales");
+
+            if (_cantidadAnimalesPastan == 0) throw new Exception("El portero debe tener una cantidad de animales pastan");
+
+            if (_animales == null) throw new Exception("El portero debe tener una lista de animales");
+            
+        }
 
     }
 }
