@@ -1,0 +1,41 @@
+namespace Obligatorio
+{
+    internal class Tarea : IValidable
+    {
+        private int _id = 0;
+        static private int s_ultimoId = 0;
+        private string? _descripcion;
+
+        private DateTime _fechaPactada;
+
+        private bool _estado;
+        private DateTime _fechaCierre;           
+        private string? _comentario;
+
+
+        public Tarea(string descripcion, DateTime fechaPactada, bool estado, DateTime fechaCierre, string comentario)
+        {
+            s_ultimoId++;
+            _id = s_ultimoId;
+            _descripcion = descripcion;
+            _fechaPactada = fechaPactada;
+            _estado = estado;
+            _fechaCierre = fechaCierre;
+            _comentario = comentario;
+        }
+
+        public void Validar()
+        {
+            if (string.IsNullOrEmpty(_descripcion)) throw new Exception("La tarea debe tener una descripcion");
+
+            if (_fechaPactada == DateTime.MinValue) throw new Exception("La tarea debe tener una fecha pactada");
+
+            // if (_estado == null) throw new Exception("La tarea debe tener un estado");
+
+            // if (_fechaCierre == null) throw new Exception("La tarea debe tener una fecha de cierre");
+            
+            if (string.IsNullOrEmpty(_comentario)) throw new Exception("La tarea debe tener un comentario");
+        }
+
+    }
+}
