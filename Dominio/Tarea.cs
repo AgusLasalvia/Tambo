@@ -3,7 +3,7 @@ namespace Obligatorio
     internal class Tarea : IValidable
     {
         private int _id = 0;
-        static private int s_ultimoId = 0;
+        private static int s_ultimoId = 0;
         private string? _descripcion;
 
         private DateTime _fechaPactada;

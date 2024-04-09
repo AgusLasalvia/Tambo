@@ -8,7 +8,7 @@ namespace Obligatorio
         private string _patogenoPreviene;
 
 
-        public Vacuna(string nombre, string descripcion, string patogenoPreviene)
+        public Vacuna(string nombre, string descripcion, string patogeno)
         {
             _nombre = nombre;
             _descripcion = descripcion;

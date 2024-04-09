@@ -54,7 +54,8 @@ namespace Obligatorio{
 
             if (_pesoActual == 0) throw new Exception("El animal debe tener un peso actual");
 
-            if (_vacunas.Count == 0) throw new Exception("El animal debe tener al menos una vacuna");}
+            if (_vacunas.Count == 0) throw new Exception("El animal debe tener al menos una vacuna");
+			}
 
     }
 
