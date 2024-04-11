@@ -1,5 +1,5 @@
 
-namespace Obligatorio
+namespace Dominio
 {
     class Capataz : Empleado, IValidable
     {   

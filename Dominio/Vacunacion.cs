@@ -1,6 +1,6 @@
-namespace Obligatorio
+namespace Dominio
 {
-	internal class Vacunacion : IValidable{
+    public class Vacunacion : IValidable{
 		private string? _animalVacunado;
 		private Vacuna? _tipoVacuna;
 

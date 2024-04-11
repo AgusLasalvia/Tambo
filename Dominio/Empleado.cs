@@ -1,12 +1,12 @@
-namespace Obligatorio
+namespace Dominio
 {
     internal class Empleado 
     {
         // Atributos
-        private string _email;
-        private string _password;
-        private string _nombre;
-        private DateTime _fechaIngreso;
+        protected string _email;
+        protected string _password;
+        protected string _nombre;
+        protected DateTime _fechaIngreso;
 
 
         // Constructor

@@ -1,6 +1,6 @@
-namespace Obligatorio
+namespace Dominio
 {
-    internal class Tarea : IValidable
+    public class Tarea : IValidable
     {
         private int _id = 0;
         private static int s_ultimoId = 0;

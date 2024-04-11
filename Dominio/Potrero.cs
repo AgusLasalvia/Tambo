@@ -1,6 +1,6 @@
-namespace Obligatorio
+namespace Dominio
 {
-	internal class Potrero : IValidable
+    public class Potrero : IValidable
 	{
 		private int _id;
 		private int s_ultId = 0;

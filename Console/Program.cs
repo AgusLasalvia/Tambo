@@ -1,11 +1,13 @@
-﻿
-// using Dominio.Sistema;
-namespace Console;
-class Program
+﻿using Dominio;
+using System;
+namespace Console
 {
-    static void Main(string[] args)
+    internal class Program
     {
-		// Sistema sistema = new Sistema();
-        // Console.WriteLine(sistema);
+        static void Main ( string[] args )
+        {
+            Sistema sistema = new();
+            System.Console.WriteLine(sistema);
+        }
     }
 }

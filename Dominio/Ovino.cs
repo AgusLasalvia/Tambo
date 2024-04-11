@@ -1,6 +1,6 @@
-namespace Obligatorio
+namespace Dominio
 {
-	internal class Ovino : Animal, IGanancia,IValidable
+	internal class Ovino : Animal
 	{
 		private static double _precioLana = 0;
 		private static double _precioOvino = 0;
@@ -9,7 +9,7 @@ namespace Obligatorio
 		private double _ganancia;
 
 
-		public Ovino(double pesoKilo, TipoAnimal genero, string raza, DateTime fechaNacimiento, double costoAdquisicion,
+		public Ovino(double pesoKilo, TipoGenero genero, string raza, DateTime fechaNacimiento, double costoAdquisicion,
 					double costoAlimentacion, double pesoActual, bool hibrido, List<Vacunacion> vacunas, bool estado)
 					:
 					base(genero, raza, fechaNacimiento, costoAdquisicion, costoAlimentacion, pesoActual, hibrido, vacunas, estado)

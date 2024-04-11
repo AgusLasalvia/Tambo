@@ -1,14 +1,14 @@
-namespace Obligatorio
+namespace Dominio
 {
 
-    internal class Vacuna: IValidable
+    public class Vacuna: IValidable
     {
         private string _nombre;
         private string _descripcion;
         private string _patogenoPreviene;
 
 
-        public Vacuna(string nombre, string descripcion, string patogeno)
+        public Vacuna(string nombre, string descripcion, string patogenoPreviene)
         {
             _nombre = nombre;
             _descripcion = descripcion;

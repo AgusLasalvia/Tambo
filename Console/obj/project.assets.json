@@ -1,39 +1,61 @@
 {
   "version": 3,
   "targets": {
-    "net8.0": {}
+    "net8.0": {
+      "Dominio/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/Dominio.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Dominio.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "Dominio/1.0.0": {
+      "type": "project",
+      "path": "../Dominio/Dominio.csproj",
+      "msbuildProject": "../Dominio/Dominio.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net8.0": []
+    "net8.0": [
+      "Dominio >= 1.0.0"
+    ]
   },
   "packageFolders": {
-    "C:\\Users\\Agustin\\.nuget\\packages\\": {}
+    "C:\\Users\\agusl\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Agustin\\Obligatorio-p2\\Console\\Console.csproj",
+      "projectUniqueName": "C:\\Users\\agusl\\Documents\\GitHub\\Obligatorio-p2\\Console\\Console.csproj",
       "projectName": "Console",
-      "projectPath": "C:\\Users\\Agustin\\Obligatorio-p2\\Console\\Console.csproj",
-      "packagesPath": "C:\\Users\\Agustin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Agustin\\Obligatorio-p2\\Console\\obj\\",
+      "projectPath": "C:\\Users\\agusl\\Documents\\GitHub\\Obligatorio-p2\\Console\\Console.csproj",
+      "packagesPath": "C:\\Users\\agusl\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\agusl\\Documents\\GitHub\\Obligatorio-p2\\Console\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Agustin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\agusl\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {}
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\agusl\\Documents\\GitHub\\Obligatorio-p2\\Dominio\\Dominio.csproj": {
+              "projectPath": "C:\\Users\\agusl\\Documents\\GitHub\\Obligatorio-p2\\Dominio\\Dominio.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
