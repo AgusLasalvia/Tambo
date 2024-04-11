@@ -2,6 +2,7 @@
 
 public class Sistema
 {
+	
 	private static Sistema s_instancia;
 	private List<Animal> _animales;
 	private List<Potrero> _potreros;

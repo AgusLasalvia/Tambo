@@ -1,0 +1,15 @@
+C:\Users\Agustin\Obligatorio-p2\Console\obj\Debug\net8.0\Console.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Agustin\Obligatorio-p2\Console\obj\Debug\net8.0\Console.AssemblyInfoInputs.cache
+C:\Users\Agustin\Obligatorio-p2\Console\obj\Debug\net8.0\Console.AssemblyInfo.cs
+C:\Users\Agustin\Obligatorio-p2\Console\obj\Debug\net8.0\Console.csproj.CoreCompileInputs.cache
+C:\Users\Agustin\Obligatorio-p2\Console\obj\Debug\net8.0\Console.sourcelink.json
+C:\Users\Agustin\Obligatorio-p2\Console\bin\Debug\net8.0\Console.exe
+C:\Users\Agustin\Obligatorio-p2\Console\bin\Debug\net8.0\Console.deps.json
+C:\Users\Agustin\Obligatorio-p2\Console\bin\Debug\net8.0\Console.runtimeconfig.json
+C:\Users\Agustin\Obligatorio-p2\Console\bin\Debug\net8.0\Console.dll
+C:\Users\Agustin\Obligatorio-p2\Console\bin\Debug\net8.0\Console.pdb
+C:\Users\Agustin\Obligatorio-p2\Console\obj\Debug\net8.0\Console.dll
+C:\Users\Agustin\Obligatorio-p2\Console\obj\Debug\net8.0\refint\Console.dll
+C:\Users\Agustin\Obligatorio-p2\Console\obj\Debug\net8.0\Console.pdb
+C:\Users\Agustin\Obligatorio-p2\Console\obj\Debug\net8.0\Console.genruntimeconfig.cache
+C:\Users\Agustin\Obligatorio-p2\Console\obj\Debug\net8.0\ref\Console.dll

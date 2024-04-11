@@ -1,9 +1,11 @@
-﻿namespace Console;
-
+﻿
+// using Dominio.Sistema;
+namespace Console;
 class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello, World!");
+		// Sistema sistema = new Sistema();
+        // Console.WriteLine(sistema);
     }
 }

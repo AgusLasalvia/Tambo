@@ -1,0 +1,5 @@
+C:\Users\Agustin\Obligatorio-p2\Dominio\obj\Debug\net8.0\Dominio.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Agustin\Obligatorio-p2\Dominio\obj\Debug\net8.0\Dominio.AssemblyInfoInputs.cache
+C:\Users\Agustin\Obligatorio-p2\Dominio\obj\Debug\net8.0\Dominio.AssemblyInfo.cs
+C:\Users\Agustin\Obligatorio-p2\Dominio\obj\Debug\net8.0\Dominio.csproj.CoreCompileInputs.cache
+C:\Users\Agustin\Obligatorio-p2\Dominio\obj\Debug\net8.0\Dominio.sourcelink.json
