@@ -9,7 +9,7 @@ namespace Dominio
         private DateTime _fechaPactada;
 
         private bool _estado;
-        private DateTime _fechaCierre;           
+        private DateTime _fechaCierre;
         private string? _comentario;
 
 
@@ -33,7 +33,7 @@ namespace Dominio
             // if (_estado == null) throw new Exception("La tarea debe tener un estado");
 
             // if (_fechaCierre == null) throw new Exception("La tarea debe tener una fecha de cierre");
-            
+
             if (string.IsNullOrEmpty(_comentario)) throw new Exception("La tarea debe tener un comentario");
         }
 

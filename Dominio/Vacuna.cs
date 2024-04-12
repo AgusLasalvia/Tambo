@@ -1,7 +1,7 @@
 namespace Dominio
 {
 
-    public class Vacuna: IValidable
+    public class Vacuna : IValidable
     {
         private string _nombre;
         private string _descripcion;
@@ -15,7 +15,8 @@ namespace Dominio
             _patogenoPreviene = patogenoPreviene;
         }
 
-        public void Validar(){
+        public void Validar()
+        {
             if (string.IsNullOrEmpty(_nombre)) throw new Exception("La vacuna debe tener un nombre");
 
             if (string.IsNullOrEmpty(_descripcion)) throw new Exception("La vacuna debe tener una descripcion");

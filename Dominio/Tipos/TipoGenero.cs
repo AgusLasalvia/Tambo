@@ -1,4 +1,5 @@
-namespace Dominio{
+namespace Dominio
+{
     public enum TipoGenero
     {
         Macho = 0,
