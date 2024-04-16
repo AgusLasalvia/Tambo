@@ -27,33 +27,34 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\agusl\\.nuget\\packages\\": {}
+    "C:\\Users\\Agustin\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\agusl\\Documents\\GitHub\\Obligatorio-p2\\Console\\Console.csproj",
+      "projectUniqueName": "C:\\Users\\Agustin\\Obligatorio-p2\\Console\\Console.csproj",
       "projectName": "Console",
-      "projectPath": "C:\\Users\\agusl\\Documents\\GitHub\\Obligatorio-p2\\Console\\Console.csproj",
-      "packagesPath": "C:\\Users\\agusl\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\agusl\\Documents\\GitHub\\Obligatorio-p2\\Console\\obj\\",
+      "projectPath": "C:\\Users\\Agustin\\Obligatorio-p2\\Console\\Console.csproj",
+      "packagesPath": "C:\\Users\\Agustin\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Agustin\\Obligatorio-p2\\Console\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\agusl\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Agustin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {}
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\agusl\\Documents\\GitHub\\Obligatorio-p2\\Dominio\\Dominio.csproj": {
-              "projectPath": "C:\\Users\\agusl\\Documents\\GitHub\\Obligatorio-p2\\Dominio\\Dominio.csproj"
+            "C:\\Users\\Agustin\\Obligatorio-p2\\Dominio\\Dominio.csproj": {
+              "projectPath": "C:\\Users\\Agustin\\Obligatorio-p2\\Dominio\\Dominio.csproj"
             }
           }
         }
