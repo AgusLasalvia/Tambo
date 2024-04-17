@@ -24,6 +24,8 @@ namespace Console
 					case 3:
 						sistema.CambiarPrecioLana();
 						break;
+					case 4:
+						
 					case 0:
 						exit = true;
 						break;
@@ -52,6 +54,10 @@ namespace Console
 			}
 		}
 
+		static void AgregarOvino(){
+			
+		}
+
 		static int PedirNumero(string mensaje)
 		{
 			System.Console.WriteLine(mensaje);
@@ -63,6 +69,20 @@ namespace Console
 		{
 			System.Console.WriteLine(mensaje);
 			return System.Console.ReadLine();
+		}
+
+		static DateTime PedirFecha(string mensaje)
+		{
+			System.Console.WriteLine(mensaje);
+			DateTime.TryParse(System.Console.ReadLine(), out DateTime fecha);
+			return fecha;
+		}
+
+		static bool PedirBooleano(string mensaje)
+		{
+			System.Console.WriteLine(mensaje);
+			bool.TryParse(System.Console.ReadLine(), out bool booleano);
+			return booleano;
 		}
 	}
 }

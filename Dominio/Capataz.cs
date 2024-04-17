@@ -15,6 +15,9 @@ namespace Dominio
         }
 
         // Metodos de clase
-        public void Validar(){}
+        public  override void Validar(){
+			base.Validar();
+			if (_cantPersonasACargo == 0) throw new Exception("El capataz debe tener una cantidad de personas a cargo");
+		}
     }
 }

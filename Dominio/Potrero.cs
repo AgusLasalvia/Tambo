@@ -1,9 +1,9 @@
 namespace Dominio
 {
-    public class Potrero : IValidable
+	public class Potrero : IValidable
 	{
 		private int _id;
-		private int s_ultId = 0;
+		private int s_ultId = 1;
 		private string _descripcion;
 		private int _cantidadHectareas;
 		private int _cantidadMaxAnimales;
@@ -12,6 +12,16 @@ namespace Dominio
 		private double _ganancia;
 		private List<Animal> _animales;
 
+
+		public int CantidadHectareas
+		{
+			get { return _cantidadHectareas; }
+		}
+
+		public int CantidadMaxAnimales
+		{
+			get { return _cantidadMaxAnimales; }
+		}
 
 
 		public Potrero(string descripcion, int cantidadHectareas, int cantidadMaxAnimales, int cantidadAnimalesPastan, List<Animal> animales)
@@ -74,6 +84,9 @@ namespace Dominio
 
 
 
-		
+		public override string ToString()
+		{
+			return $"Potrero: {_descripcion} - Hectareas: {_cantidadHectareas} - MaxAnimales: {_cantidadMaxAnimales} - AnimalesPastan: {_cantidadAnimalesPastan}";
+		}
 	}
 }

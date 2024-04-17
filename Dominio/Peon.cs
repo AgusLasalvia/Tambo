@@ -17,6 +17,10 @@ namespace Dominio
 
 
         // Metodos de clase
-        public void Validar(){}
+        public override void Validar(){
+			base.Validar();
+			if (_tareas == null) throw new Exception("El peon debe tener una lista de tareas");
+		}
+		
     }
 }

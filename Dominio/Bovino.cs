@@ -1,6 +1,6 @@
 namespace Dominio
 {
-    internal class Bovino : Animal, IValidable
+    public class Bovino : Animal, IValidable
     {
         private TipoAlimentacion _tipoAlimentacion;
         private static double _pesoKilo;

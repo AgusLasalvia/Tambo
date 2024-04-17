@@ -3,16 +3,16 @@ namespace Dominio
     public class Animal : IValidable
     {
 
-        protected string _id;
-        protected TipoGenero _genero;
-        protected string _raza;
-        protected DateTime _fechaNacimiento;
-        protected double _costoAdquisicion;
-        protected double _costoAlimentacion;
-        protected double _pesoActual;
-        protected bool _hibrido;
-        protected List<Vacunacion> _vacunas;
-        protected bool _estado;
+        private string _id;
+        private TipoGenero _genero;
+        private string _raza;
+        private DateTime _fechaNacimiento;
+        private double _costoAdquisicion;
+        private double _costoAlimentacion;
+        private double _pesoActual;
+        private bool _hibrido;
+        private List<Vacunacion>? _vacunas;
+        private bool _estado;
 
         public Animal(TipoGenero genero, string raza, DateTime fechaNacimiento, double costoAdquisicion, double costoAlimentacion, double pesoActual, bool hibrido, List<Vacunacion> vacunas, bool estado)
         {
@@ -42,7 +42,7 @@ namespace Dominio
 
         }
 
-        public void Validar()
+        public virtual void Validar()
         {
             if (!Enum.IsDefined(typeof(TipoGenero), _genero)) throw new Exception("El animal debe tener un genero");
 
@@ -56,7 +56,7 @@ namespace Dominio
 
             if (_pesoActual == 0) throw new Exception("El animal debe tener un peso actual");
 
-            if (_vacunas.Count == 0) throw new Exception("El animal debe tener al menos una vacuna");
+            if (_vacunas?.Count == 0) throw new Exception("El animal debe tener al menos una vacuna");
 
         }
 
@@ -65,9 +65,19 @@ namespace Dominio
             return $"ID: {_id}, Raza: {_raza}, Peso Actual: {_pesoActual}, Genero: {_genero} ";
         }
 
+		public override bool Equals(object? obj)
+		{
+			return base.Equals(obj);
+		}
+
+		public override int GetHashCode()
+		{
+			return base.GetHashCode();
+		}
 
 
-    }
+
+	}
 
 
 
