@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Dominio
-build_property.ProjectDir = C:\Users\Agustin\Obligatorio-p2\Dominio\
+build_property.ProjectDir = /Users/facun/Desktop/P2Obligatorio/Obligatorio-p2/Dominio/
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
