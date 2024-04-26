@@ -16,6 +16,12 @@ namespace Dominio
         }
 
 
+        public override string ToString()
+        {
+            return base.ToString() + " Reside: " + _reside.ToString() + " Tareas: " + _tareas.Count.ToString();
+        }
+
+
         // Metodos de clase
         public override void Validar(){
 			base.Validar();
