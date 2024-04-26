@@ -14,6 +14,11 @@ namespace Dominio
 
         }
 
+
+        public override string ToString()
+        {
+            return base.ToString() + " Cantidad de personas a cargo: " + _cantPersonasACargo.ToString();
+        }
         // Metodos de clase
         public  override void Validar(){
 			base.Validar();
