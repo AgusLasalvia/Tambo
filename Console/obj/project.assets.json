@@ -32,11 +32,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/facun/Desktop/P2Obligatorio/Obligatorio-p2/Console/Console.csproj",
+      "projectUniqueName": "/Users/facun/Desktop/obligatorioP2/Obligatorio-p2/Console/Console.csproj",
       "projectName": "Console",
-      "projectPath": "/Users/facun/Desktop/P2Obligatorio/Obligatorio-p2/Console/Console.csproj",
+      "projectPath": "/Users/facun/Desktop/obligatorioP2/Obligatorio-p2/Console/Console.csproj",
       "packagesPath": "/Users/facun/.nuget/packages/",
-      "outputPath": "/Users/facun/Desktop/P2Obligatorio/Obligatorio-p2/Console/obj/",
+      "outputPath": "/Users/facun/Desktop/obligatorioP2/Obligatorio-p2/Console/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/facun/.nuget/NuGet/NuGet.Config"
@@ -51,8 +51,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "/Users/facun/Desktop/P2Obligatorio/Obligatorio-p2/Dominio/Dominio.csproj": {
-              "projectPath": "/Users/facun/Desktop/P2Obligatorio/Obligatorio-p2/Dominio/Dominio.csproj"
+            "/Users/facun/Desktop/obligatorioP2/Obligatorio-p2/Dominio/Dominio.csproj": {
+              "projectPath": "/Users/facun/Desktop/obligatorioP2/Obligatorio-p2/Dominio/Dominio.csproj"
             }
           }
         }
