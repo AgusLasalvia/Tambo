@@ -28,6 +28,9 @@ namespace Console
                     case 4:
                         AgregarBovino(sistema);
                         break;
+                    case 5:
+                         sistema.ListarTodasLasTareas();
+                         break;
                     case 0:
                         exit = true;
                         break;
@@ -48,6 +51,8 @@ namespace Console
                 "1. Listar Animales",
                 "2. Potreros Segun Cantidad de Hectareas y Cantidad de Animales",
                 "3. Establecer por Kilogramo de Lana ",
+                "4. Agregar Bovino",
+                "5. Listar Todas las Tareas",
                 "0. Salir ",
 
             };

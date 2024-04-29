@@ -37,5 +37,11 @@ namespace Dominio
             if (string.IsNullOrEmpty(_comentario)) throw new Exception("La tarea debe tener un comentario");
         }
 
+        public override string ToString()
+        {
+            return $"ID: {_id}, Descripcion: {_descripcion}, Plazo: {_fechaPactada} a {_fechaCierre}, Comentario: {_comentario}";
+        }
+
+
     }
 }
