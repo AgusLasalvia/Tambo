@@ -37,6 +37,9 @@ namespace Dominio
 			_animales = animales;
 		}
 
+		public List<Animal> Animales{
+			get { return _animales; }
+		}
 
 		public void Validar()
 		{
