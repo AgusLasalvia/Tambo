@@ -9,6 +9,7 @@ public class Sistema
     private List<Vacuna> _vacunas = new List<Vacuna>();
     private List<Tarea> _tareas = new List<Tarea>();
 
+    private List<Vacunacion> _vacunaciones = new List<Vacunacion>();
     private List<Empleado>? _empleados = new List<Empleado>();
 
     public static Sistema sistema
@@ -24,6 +25,7 @@ public class Sistema
     public Sistema()
     {
         PreCarga();
+        UpdateAnimals();
     }
     public void ListarTodosLosAnimales()
     {
@@ -148,23 +150,8 @@ public class Sistema
         _vacunas.Add(new Vacuna("Vacuna contra la fiebre amarilla", "Vacuna para prevenir la fiebre amarilla", "Virus de la fiebre amarilla"));
         _vacunas.Add(new Vacuna("Vacuna contra el sarampión", "Vacuna para prevenir el sarampión", "Virus del sarampión"));
 
-        // Potreros (10 Potreros)
-        _potreros.Add(new Potrero("Potrero 1", 50, 100, 80, new List<Animal>()));
-        _potreros.Add(new Potrero("Potrero 2", 70, 120, 90, new List<Animal>()));
-        _potreros.Add(new Potrero("Potrero 3", 30, 80, 60, new List<Animal>()));
-        _potreros.Add(new Potrero("Potrero 4", 40, 90, 70, new List<Animal>()));
-        _potreros.Add(new Potrero("Potrero 5", 80, 140, 110, new List<Animal>()));
-        _potreros.Add(new Potrero("Potrero 6", 60, 100, 85, new List<Animal>()));
-        _potreros.Add(new Potrero("Potrero 7", 50, 100, 80, new List<Animal>()));
-        _potreros.Add(new Potrero("Potrero 8", 70, 120, 90, new List<Animal>()));
-        _potreros.Add(new Potrero("Potrero 9", 30, 80, 60, new List<Animal>()));
-        _potreros.Add(new Potrero("Potrero 10", 20, 60, 40, new List<Animal>()));
-
-        // Animales (30 Animales)
-
-
         // Tareas (15 por peon)
-         _tareas.Add(new Tarea("Realizar tratamiento preventivo para mastitis en vacas lecheras", new DateTime(2024, 5, 20), false, new DateTime(2024, 5, 21), "Evitar infecciones"));
+        _tareas.Add(new Tarea("Realizar tratamiento preventivo para mastitis en vacas lecheras", new DateTime(2024, 5, 20), false, new DateTime(2024, 5, 21), "Evitar infecciones"));
         _tareas.Add(new Tarea("Cuidado y revisión de pezuñas en bovinos", new DateTime(2024, 5, 21), false, new DateTime(2024, 5, 22), "Mantener salud"));
         _tareas.Add(new Tarea("Control de estrés en el ganado durante movimientos", new DateTime(2024, 5, 22), false, new DateTime(2024, 5, 23), "Minimizar pérdidas"));
         _tareas.Add(new Tarea("Supervisar y registrar el peso de los corderos", new DateTime(2024, 5, 23), false, new DateTime(2024, 5, 24), "Evaluar crecimiento"));
@@ -285,7 +272,7 @@ public class Sistema
         _tareas.Add(new Tarea("Control de erosión en terrenos de pastoreo", new DateTime(2024, 5, 24), false, new DateTime(2024, 5, 25), "Conservar suelos"));
         _tareas.Add(new Tarea("Revisión y reparación de sistemas de alimentación automatizados", new DateTime(2024, 5, 25), false, new DateTime(2024, 5, 26), "Optimizar alimentación"));
         _tareas.Add(new Tarea("Mantenimiento de silos y depósitos de alimento", new DateTime(2024, 5, 26), false, new DateTime(2024, 5, 27), "Prevenir contaminación de alimento"));
-         _tareas.Add(new Tarea("Castración de terneros machos", new DateTime(2024, 5, 20), false, new DateTime(2024, 5, 21), "Control de población"));
+        _tareas.Add(new Tarea("Castración de terneros machos", new DateTime(2024, 5, 20), false, new DateTime(2024, 5, 21), "Control de población"));
         _tareas.Add(new Tarea("Supervisar el destete de corderos", new DateTime(2024, 5, 21), false, new DateTime(2024, 5, 22), "Minimizar estrés"));
         _tareas.Add(new Tarea("Control de calidad de la leche en vacas lecheras", new DateTime(2024, 5, 22), false, new DateTime(2024, 5, 23), "Mantener estándares"));
         _tareas.Add(new Tarea("Revisar y limpiar las instalaciones de ordeño", new DateTime(2024, 5, 23), false, new DateTime(2024, 5, 24), "Mantener higiene"));
@@ -304,12 +291,71 @@ public class Sistema
         _tareas.Add(new Tarea("Reparación de pisos en los corrales", new DateTime(2024, 5, 22), false, new DateTime(2024, 5, 23), "Evitar lesiones"));
 
 
+        // Animales (30 Animales)
+
+        //Bovinos
+        _animales.Add(new Bovino(TipoAlimentacion.Concentrado, 500, TipoGenero.Macho, "Hereford", new DateTime(2024, 5, 22), 200, 100, 600, true, new List<Vacunacion>(), true));
+        _animales.Add(new Bovino(TipoAlimentacion.Pastura, 500, TipoGenero.Macho, "Hereford", new DateTime(2024, 5, 22), 200, 100, 600, true, new List<Vacunacion>(), true));
+        _animales.Add(new Bovino(TipoAlimentacion.Concentrado, 450, TipoGenero.Hembra, "Angus", new DateTime(2024, 4, 18), 180, 90, 550, false, new List<Vacunacion>(), true));
+        _animales.Add(new Bovino(TipoAlimentacion.Mezcla, 520, TipoGenero.Macho, "Simmental", new DateTime(2024, 3, 15), 250, 120, 480, false, new List<Vacunacion>(), true));
+        _animales.Add(new Bovino(TipoAlimentacion.Pastura, 480, TipoGenero.Hembra, "Brahman", new DateTime(2024, 2, 10), 220, 110, 500, false, new List<Vacunacion>(), true));
+        _animales.Add(new Bovino(TipoAlimentacion.Concentrado, 510, TipoGenero.Macho, "Limousin", new DateTime(2024, 1, 5), 230, 115, 490, true, new List<Vacunacion>(), true));
+        _animales.Add(new Bovino(TipoAlimentacion.Pastura, 490, TipoGenero.Hembra, "Charolais", new DateTime(2023, 12, 1), 210, 105, 520, false, new List<Vacunacion>(), true));
+        _animales.Add(new Bovino(TipoAlimentacion.Mezcla, 530, TipoGenero.Macho, "Aberdeen Angus", new DateTime(2023, 10, 27), 240, 125, 470, false, new List<Vacunacion>(), true));
+        _animales.Add(new Bovino(TipoAlimentacion.Pastura, 470, TipoGenero.Hembra, "Gyr", new DateTime(2023, 9, 23), 200, 100, 540, true, new List<Vacunacion>(), true));
+        _animales.Add(new Bovino(TipoAlimentacion.Concentrado, 560, TipoGenero.Macho, "Holstein", new DateTime(2023, 8, 19), 260, 130, 460, false, new List<Vacunacion>(), true));
+        _animales.Add(new Bovino(TipoAlimentacion.Pastura, 440, TipoGenero.Hembra, "Jersey", new DateTime(2023, 7, 15), 190, 95, 570, false, new List<Vacunacion>(), true));
+        _animales.Add(new Bovino(TipoAlimentacion.Mezcla, 580, TipoGenero.Macho, "Wagyu", new DateTime(2023, 6, 10), 280, 140, 450, true, new List<Vacunacion>(), true));
+        _animales.Add(new Bovino(TipoAlimentacion.Pastura, 420, TipoGenero.Hembra, "Normando", new DateTime(2023, 5, 6), 170, 85, 580, false, new List<Vacunacion>(), true));
+        _animales.Add(new Bovino(TipoAlimentacion.Mezcla, 600, TipoGenero.Macho, "Friesian", new DateTime(2023, 4, 1), 300, 150, 440, false, new List<Vacunacion>(), true));
+        _animales.Add(new Bovino(TipoAlimentacion.Pastura, 400, TipoGenero.Hembra, "Chianina", new DateTime(2023, 2, 25), 160, 80, 590, true, new List<Vacunacion>(), true));
+
+        //Ovinos
+        _animales.Add(new Ovino(30, TipoGenero.Hembra, "Dorper", new DateTime(2023, 2, 25), 160, 80, 590, true, new List<Vacunacion>(), true)); _animales.Add(new Ovino(25, TipoGenero.Hembra, "Merino", new DateTime(2023, 3, 15), 170, 85, 580, false, new List<Vacunacion>(), true));
+        _animales.Add(new Ovino(35, TipoGenero.Macho, "Suffolk", new DateTime(2023, 4, 20), 180, 90, 570, true, new List<Vacunacion>(), true));
+        _animales.Add(new Ovino(28, TipoGenero.Hembra, "Texel", new DateTime(2023, 5, 10), 190, 95, 560, false, new List<Vacunacion>(), true));
+        _animales.Add(new Ovino(38, TipoGenero.Macho, "Dorper", new DateTime(2023, 6, 5), 200, 100, 550, true, new List<Vacunacion>(), true));
+        _animales.Add(new Ovino(22, TipoGenero.Hembra, "Romney", new DateTime(2023, 7, 2), 210, 105, 540, false, new List<Vacunacion>(), true));
+        _animales.Add(new Ovino(32, TipoGenero.Macho, "Cotswold", new DateTime(2023, 8, 12), 220, 110, 530, true, new List<Vacunacion>(), true));
+        _animales.Add(new Ovino(27, TipoGenero.Hembra, "Lincoln", new DateTime(2023, 9, 8), 230, 115, 520, false, new List<Vacunacion>(), true));
+        _animales.Add(new Ovino(37, TipoGenero.Macho, "Border Leicester", new DateTime(2023, 10, 4), 240, 120, 510, true, new List<Vacunacion>(), true));
+        _animales.Add(new Ovino(24, TipoGenero.Hembra, "Cheviot", new DateTime(2023, 11, 1), 250, 125, 500, false, new List<Vacunacion>(), true));
+        _animales.Add(new Ovino(34, TipoGenero.Macho, "Columbia", new DateTime(2023, 12, 10), 260, 130, 490, true, new List<Vacunacion>(), true));
+        _animales.Add(new Ovino(29, TipoGenero.Hembra, "Jacob", new DateTime(2024, 1, 18), 270, 135, 480, false, new List<Vacunacion>(), true));
+        _animales.Add(new Ovino(39, TipoGenero.Macho, "Rambouillet", new DateTime(2024, 2, 25), 280, 140, 470, true, new List<Vacunacion>(), true));
+        _animales.Add(new Ovino(26, TipoGenero.Hembra, "Polypay", new DateTime(2024, 3, 30), 290, 145, 460, false, new List<Vacunacion>(), true));
+        _animales.Add(new Ovino(36, TipoGenero.Macho, "Shetland", new DateTime(2024, 4, 28), 300, 150, 450, true, new List<Vacunacion>(), true));
+
+        // Potreros (10 Potreros)
+        _potreros.Add(new Potrero("Potrero 1", 50, 100, 80, new List<Animal>()));
+        _potreros.Add(new Potrero("Potrero 2", 70, 120, 90, new List<Animal>()));
+        _potreros.Add(new Potrero("Potrero 3", 30, 80, 60, new List<Animal>()));
+        _potreros.Add(new Potrero("Potrero 4", 40, 90, 70, new List<Animal>()));
+        _potreros.Add(new Potrero("Potrero 5", 80, 140, 110, new List<Animal>()));
+        _potreros.Add(new Potrero("Potrero 6", 60, 100, 85, new List<Animal>()));
+        _potreros.Add(new Potrero("Potrero 7", 50, 100, 80, new List<Animal>()));
+        _potreros.Add(new Potrero("Potrero 8", 70, 120, 90, new List<Animal>()));
+        _potreros.Add(new Potrero("Potrero 9", 30, 80, 60, new List<Animal>()));
+        _potreros.Add(new Potrero("Potrero 10", 20, 60, 40, new List<Animal>()));
+
+
+
+
+
         /* TODO:
-
-
-            - 15 tareas por peon
+    
+        
             - todos los animales a un potrero
         */
     }
-
+    public void UpdateAnimals()
+    {
+        foreach (var potrero in _potreros)
+        {
+            for (int i = 0; i % 3 == 0; i++)
+            {
+                potrero.Animales.Add(_animales[i]);
+            }
+        }
+    }
 }

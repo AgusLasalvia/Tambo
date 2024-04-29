@@ -24,8 +24,7 @@ namespace Dominio
 			}
 		}
 
-		public Ovino(double pesoKilo, TipoGenero genero, string raza, DateTime fechaNacimiento, double costoAdquisicion,
-					double costoAlimentacion, double pesoActual, bool hibrido, List<Vacunacion> vacunas, bool estado)
+		public Ovino(double pesoKilo, TipoGenero genero, string raza, DateTime fechaNacimiento, double costoAdquisicion, double costoAlimentacion, double pesoActual, bool hibrido, List<Vacunacion> vacunas, bool estado)
 					:
 					base(genero, raza, fechaNacimiento, costoAdquisicion, costoAlimentacion, pesoActual, hibrido, vacunas, estado)
 		{
@@ -42,5 +41,10 @@ namespace Dominio
 			base.Validar();
 			if (_pesoKilo == 0) throw new Exception("El ovino debe tener un peso por kilo");
 		}
+
+		public override string ToString()
+        {
+            return base.ToString() + $", Peso por kilo: {_pesoKilo}";
+        }
 	}
 }
