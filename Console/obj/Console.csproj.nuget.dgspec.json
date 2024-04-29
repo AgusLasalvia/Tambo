@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/facun/Desktop/obligatorioP2/Obligatorio-p2/Console/Console.csproj": {}
+    "/Users/facun/Documents/GitHub/Obligatorio-p2/Console/Console.csproj": {}
   },
   "projects": {
-    "/Users/facun/Desktop/obligatorioP2/Obligatorio-p2/Console/Console.csproj": {
+    "/Users/facun/Documents/GitHub/Obligatorio-p2/Console/Console.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/facun/Desktop/obligatorioP2/Obligatorio-p2/Console/Console.csproj",
+        "projectUniqueName": "/Users/facun/Documents/GitHub/Obligatorio-p2/Console/Console.csproj",
         "projectName": "Console",
-        "projectPath": "/Users/facun/Desktop/obligatorioP2/Obligatorio-p2/Console/Console.csproj",
+        "projectPath": "/Users/facun/Documents/GitHub/Obligatorio-p2/Console/Console.csproj",
         "packagesPath": "/Users/facun/.nuget/packages/",
-        "outputPath": "/Users/facun/Desktop/obligatorioP2/Obligatorio-p2/Console/obj/",
+        "outputPath": "/Users/facun/Documents/GitHub/Obligatorio-p2/Console/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/facun/.nuget/NuGet/NuGet.Config"
@@ -26,8 +26,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "/Users/facun/Desktop/obligatorioP2/Obligatorio-p2/Dominio/Dominio.csproj": {
-                "projectPath": "/Users/facun/Desktop/obligatorioP2/Obligatorio-p2/Dominio/Dominio.csproj"
+              "/Users/facun/Documents/GitHub/Obligatorio-p2/Dominio/Dominio.csproj": {
+                "projectPath": "/Users/facun/Documents/GitHub/Obligatorio-p2/Dominio/Dominio.csproj"
               }
             }
           }
@@ -66,14 +66,14 @@
         }
       }
     },
-    "/Users/facun/Desktop/obligatorioP2/Obligatorio-p2/Dominio/Dominio.csproj": {
+    "/Users/facun/Documents/GitHub/Obligatorio-p2/Dominio/Dominio.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/facun/Desktop/obligatorioP2/Obligatorio-p2/Dominio/Dominio.csproj",
+        "projectUniqueName": "/Users/facun/Documents/GitHub/Obligatorio-p2/Dominio/Dominio.csproj",
         "projectName": "Dominio",
-        "projectPath": "/Users/facun/Desktop/obligatorioP2/Obligatorio-p2/Dominio/Dominio.csproj",
+        "projectPath": "/Users/facun/Documents/GitHub/Obligatorio-p2/Dominio/Dominio.csproj",
         "packagesPath": "/Users/facun/.nuget/packages/",
-        "outputPath": "/Users/facun/Desktop/obligatorioP2/Obligatorio-p2/Dominio/obj/",
+        "outputPath": "/Users/facun/Documents/GitHub/Obligatorio-p2/Dominio/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/facun/.nuget/NuGet/NuGet.Config"
