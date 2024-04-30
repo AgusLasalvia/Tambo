@@ -8,7 +8,7 @@ namespace Dominio
 
 		private DateTime _fechaVencimiento;
 
-
+		//Constructor
 		public Vacunacion(Vacuna tipoVacuna, DateTime fechaVacunacion)
 		{
 			_tipoVacuna = tipoVacuna;
@@ -16,7 +16,7 @@ namespace Dominio
 			// _fechaVencimiento 
 		}
 
-
+		//Funcion Validar() que valida los datos ingresados por el usuario
 		public void Validar()
 		{
 			if (_tipoVacuna == null) throw new Exception("La vacunacion debe tener un tipo de vacuna");

@@ -6,6 +6,8 @@ namespace Console
 
         static void Main(string[] args)
         {
+
+            // Inicio de program
             Sistema sistema = Sistema.sistema;
             bool exit = false;
             while (!exit)
@@ -43,7 +45,9 @@ namespace Console
         }
 
 
+        // -------------------------------
 
+        // Funcion de Menu
         static void MostrarMenu()
         {
             List<string> menu = new List<string> {
@@ -62,6 +66,8 @@ namespace Console
             }
         }
 
+
+        //Funcion que agraga bovinos
         private static void AgregarBovino(Sistema sistema)
         {
             try
@@ -79,13 +85,19 @@ namespace Console
                 Bovino bovino = new Bovino(alimentacion, peso, genero, raza, fechaNacimiento, costoAdquisicion, costoAlimentacion, pesoActual, hibrido, new List<Vacunacion>(), estado);
                 sistema.AgregarAnimal(bovino);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                System.Console.WriteLine(ex.Message);
                 System.Console.WriteLine("Verifique los datos ingresados");
             }
 
         }
 
+
+        //------------------------------
+        //Funaciones para pedir al datos al usuario      
+
+        //Funcion para pedir numero al usuario
         static int PedirNumero(string mensaje)
         {
             try
@@ -101,6 +113,8 @@ namespace Console
             }
         }
 
+
+        //Funcion para pedir palabra el usuario
         static string PedirPalabra(string mensaje)
         {
             try
@@ -118,6 +132,8 @@ namespace Console
 
         }
 
+
+        //Funcion para pedir fecha el usuario
         static DateTime PedirFecha(string mensaje)
         {
             try
@@ -134,12 +150,14 @@ namespace Console
 
         }
 
+
+        //Funcion para pedir booleano el usuario
         static bool PedirBooleano(string mensaje)
         {
             try
             {
                 System.Console.WriteLine(mensaje);
-                bool booleano = bool.Parse(System.Console.ReadLine());
+                bool.TryParse(System.Console.ReadLine(), out bool booleano);
                 return booleano;
             }
             catch (Exception)

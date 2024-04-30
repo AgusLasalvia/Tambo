@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "rUEnlrHCxMCbdiE6bkrSkSAAJZWc6dvCOPE5wDvGdxUrKBkjQ6MxsmKfYeOK8A44w0hNXv8f5th3z14QXd/s8g==",
+  "dgSpecHash": "WhlgeiFICqREa11cixUMOddQHu0doewbb8eCBB86afD/3zkV6LaBhpCmKnIb2zqY9hie/5dpZXl56vN46pI1gg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\agusl\\Documents\\GitHub\\Obligatorio-p2\\Dominio\\Dominio.csproj",
+  "projectFilePath": "/Users/facun/Documents/GitHub/Obligatorio-p2/Dominio/Dominio.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

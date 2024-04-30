@@ -1,13 +1,16 @@
 namespace Dominio
 {
+    // Clase Hija de Animal
+    // Clase Bovino
     public class Bovino : Animal, IValidable
     {
+        //  Propiedades de la clase Bovino
         private TipoAlimentacion _tipoAlimentacion;
         private static double _pesoKilo;
 
         private double _ganancia;
 
-
+        //  Constructor de la clase Bovino
         public Bovino(TipoAlimentacion tipoAliemntacion, double pesoKilo, TipoGenero genero, string raza, DateTime fechaNacimiento, double costoAdquisicion, double costoAlimentacion, double pesoActual, bool hibrido, List<Vacunacion> vacunas, bool estado)
                     :
                     base(genero, raza, fechaNacimiento, costoAdquisicion, costoAlimentacion, pesoActual, hibrido, vacunas, estado)
@@ -23,7 +26,8 @@ namespace Dominio
             return _ganancia;
         }
 
-        public new void Validar()
+
+        public override void Validar()
         {
             base.Validar();
             if (_pesoKilo == 0) throw new Exception("El bovino debe tener un peso por kilo");

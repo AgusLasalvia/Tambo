@@ -1,7 +1,9 @@
 namespace Dominio
 {
+    // Clase Tarea
     public class Tarea : IValidable
     {
+        // Propiedades de clase Tarea
         private int _id = 0;
         private static int s_ultimoId = 0;
         private string? _descripcion;
@@ -12,7 +14,7 @@ namespace Dominio
         private DateTime _fechaCierre;
         private string? _comentario;
 
-
+        // Constructor de la clase Tarea
         public Tarea(string descripcion, DateTime fechaPactada, bool estado, DateTime fechaCierre, string comentario)
         {
             s_ultimoId++;
@@ -24,6 +26,7 @@ namespace Dominio
             _comentario = comentario;
         }
 
+        // Metodo para Validar los datos de la clase Tarea
         public void Validar()
         {
             if (string.IsNullOrEmpty(_descripcion)) throw new Exception("La tarea debe tener una descripcion");
@@ -34,11 +37,13 @@ namespace Dominio
 
             if (_fechaCierre < _fechaPactada) throw new Exception("La fecha de cierre no puede ser anterior a la fecha pactada");
 
-            if (_estado == null) throw new Exception("La tarea debe tener un estado");
+            // if (_estado == null) throw new Exception("La tarea debe tener un estado");
 
             if (string.IsNullOrEmpty(_comentario)) throw new Exception("La tarea debe tener un comentario");
         }
 
+
+        // Metodo para obtener todos 
         public override string ToString()
         {
             return $"ID: {_id}, Descripcion: {_descripcion}, Plazo: {_fechaPactada} a {_fechaCierre}, Comentario: {_comentario}";

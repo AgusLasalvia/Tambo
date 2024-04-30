@@ -1,8 +1,8 @@
 ﻿namespace Dominio;
-
+// Clase Principal del Sistema
 public class Sistema
 {
-
+    // Listas de Objetos para el Sistema
     private static Sistema? s_instancia = null;
     private List<Animal> _animales = new List<Animal>();
     private List<Potrero> _potreros = new List<Potrero>();
@@ -12,21 +12,24 @@ public class Sistema
     private List<Vacunacion> _vacunaciones = new List<Vacunacion>();
     private List<Empleado>? _empleados = new List<Empleado>();
 
+    // Getter de Sistema
     public static Sistema sistema
     {
         get
         {
-            s_instancia ??= new Sistema();
-            return s_instancia;
+            s_instancia ??= new Sistema(); // Si s_instancia es null, crea una nueva instancia de Sistema
+            return s_instancia; // Retorna la instancia de Sistema
         }
     }
 
-
+    // Constructor de Sistema
     public Sistema()
     {
         PreCarga();
         UpdateAnimals();
     }
+
+    // Método para Listar los Animales
     public void ListarTodosLosAnimales()
     {
         foreach (Animal animal in _animales)
@@ -37,18 +40,22 @@ public class Sistema
     }
 
 
-    public void ListarTodasLasTareas()
-    {
-        foreach (Tarea t in _tareas)
-        {
-            Console.WriteLine(t.ToString());
+    // public void ListarTodasLasTareas()
+    // {
+    //     foreach (Tarea t in _tareas)
+    //     {
+    //         Console.WriteLine(t.ToString());
 
-        }
-    }
+    //     }
+    // }
+
+
+    // Metodo para agregar Animal al sistema
     public void AgregarAnimal(Animal animal)
     {
         if (!_animales.Contains(animal))
         {
+            animal.Validar();
             _animales.Add(animal);
         }
         else
@@ -57,24 +64,31 @@ public class Sistema
         }
     }
 
+
+    // Metodo para agregar Potrero al sistema
     public void AgregarPotrero(Potrero potrero)
     {
         potrero.Validar();
         _potreros?.Add(potrero);
     }
 
+
+    // Metodo para agregar Vacuna al sistema
     public void AgregarVacuna(Vacuna vacuna)
     {
         vacuna.Validar();
         _vacunas?.Add(vacuna);
     }
 
+    // Metodo para recivir una lista especifica de Potreros
     public void PotreroEspecifico()
     {
         int cantHectareas = PedirNumero("Ingrese la cantidad de hectareas");
-        int cantPotrero = PedirNumero("Ingrese la cantidad de potreros");
+        int cantPotrero = PedirNumero("Ingrese la cantidad maxima de animales");
         PotreroSegunHectareaYPotrero(cantHectareas, cantPotrero);
     }
+
+    // Metodo para recivir una lista especifica de Potreros
     public void PotreroSegunHectareaYPotrero(int cantHectareas, int cantPotrero)
     {
         foreach (Potrero potrero in _potreros)
@@ -88,6 +102,7 @@ public class Sistema
     }
 
 
+    // Metodo que utiliza el setter para cambiar el precio de la lana
     public void CambiarPrecioLana()
     {
         double precioLana = PedirNumero("Ingrese el precio de la lana");
@@ -101,7 +116,7 @@ public class Sistema
         return numero;
     }
 
-
+    // Pre carga de datos para el funcionamiento de Sistema
     private void PreCarga()
     {
         // Capatazes (2 Capataces)
@@ -343,13 +358,16 @@ public class Sistema
             - todos los animales a un potrero
         */
     }
+
+    //  Metodo para ingresar los animales existentes dentro de un potrero
     public void UpdateAnimals()
     {
+        Random rnd = new Random();
         foreach (Animal animal in _animales)
         {
-            Random rnd = new Random();
-			int random = rnd.Next(1, 10);
-			_potreros[random].AgregarAnimal(animal);
-		}
+            
+            int random = rnd.Next(1, 10);
+            _potreros[random].AgregarAnimal(animal);
+        }
     }
 }

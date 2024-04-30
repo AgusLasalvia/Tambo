@@ -15,12 +15,15 @@ namespace Dominio
         }
 
 
+        //Funcion que sobre escribe la funcion ToString
         public override string ToString()
         {
             return base.ToString() + " Cantidad de personas a cargo: " + _cantPersonasACargo.ToString();
         }
-        // Metodos de clase
-        public  override void Validar(){
+
+
+        //Funcion que sobre escribe la funcion Validar() de su clase padre
+        public override void Validar(){
 			base.Validar();
 			if (_cantPersonasACargo == 0) throw new Exception("El capataz debe tener una cantidad de personas a cargo");
 		}

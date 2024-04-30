@@ -1,15 +1,16 @@
 namespace Dominio
 {
+	// Clase padre Abstracta Empleado
 	public abstract class Empleado : IValidable
 	{
-		// Atributos
+		// Atributos de clase
 		protected string _email;
 		protected string _password;
 		protected string _nombre;
 		protected DateTime _fechaIngreso;
 
 
-		// Constructor
+		// Constructor de clase
 		public Empleado(string email, string password, string nombre, DateTime fechaIngreso)
 		{
 			_email = email;
@@ -20,12 +21,13 @@ namespace Dominio
 
 
 
-		// Metodos de clase
+		// Metodos de clase 
 		public override string ToString()
 		{
 			return "Nombre: " + _nombre + " Email: " + _email + " Fecha de ingreso: " + _fechaIngreso.ToString("dd/MM/yyyy");
 		}
 
+		// Metodos de clase para Validar datos del animal
 		public virtual void Validar()
 		{
 			if (string.IsNullOrEmpty(_email)) throw new Exception("El empleado debe tener un email");

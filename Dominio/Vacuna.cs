@@ -8,6 +8,7 @@ namespace Dominio
         private string _patogenoPreviene;
 
 
+        //Constructor
         public Vacuna(string nombre, string descripcion, string patogenoPreviene)
         {
             _nombre = nombre;
@@ -15,6 +16,8 @@ namespace Dominio
             _patogenoPreviene = patogenoPreviene;
         }
 
+
+        //Funcion Validar() que valida los datos ingresados por el usuario
         public void Validar()
         {
             if (string.IsNullOrEmpty(_nombre)) throw new Exception("La vacuna debe tener un nombre");

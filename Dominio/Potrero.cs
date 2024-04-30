@@ -23,7 +23,7 @@ namespace Dominio
 			get { return _cantidadMaxAnimales; }
 		}
 
-
+		//Constructor
 		public Potrero(string descripcion, int cantidadHectareas, int cantidadMaxAnimales, List<Animal> animales)
 		{
 
@@ -35,6 +35,7 @@ namespace Dominio
 			_cantidadMaxAnimales = cantidadMaxAnimales;
 		}
 
+		//Funcion para validar los datos ingresados por el usuario
 		public void Validar()
 		{
 			if (string.IsNullOrEmpty(_descripcion)) throw new Exception("El portero debe tener una descripcion");
@@ -49,9 +50,10 @@ namespace Dominio
 
 		}
 
+		//Función la cual agreara un animal a la lista de animales
 		public void AgregarAnimal(Animal animal)
 		{
-			if (_animales.Count <= _cantidadMaxAnimales)
+			if (_animales?.Count <= _cantidadMaxAnimales)
 			{
 				_animales.Add(animal);
 				_cantidadAnimalesPastan = _animales.Count;
@@ -62,6 +64,11 @@ namespace Dominio
 				throw new Exception("No se pueden agregar mas animales al portero");
 			}
 		}
+
+
+		/* 
+
+		//Esta funcion lo que hara es calcular la ganancia del animal
 
 		public double CalcularGanancia()
 		{
@@ -79,10 +86,10 @@ namespace Dominio
 			}
 			return _ganancia;
 		}
+		*/
 
 
-
-
+		//Funcion Validar() que valida los datos ingresados por el usuario 
 		public override string ToString()
 		{
 			return $"Potrero: {_descripcion} - Hectareas: {_cantidadHectareas} - MaxAnimales: {_cantidadMaxAnimales} - AnimalesPastan: {_cantidadAnimalesPastan}";

@@ -16,13 +16,14 @@ namespace Dominio
         }
 
 
+        //Funcion que sobre escribe la funcion ToString()
         public override string ToString()
         {
             return base.ToString() + " Reside: " + _reside.ToString() + " Tareas: " + _tareas.Count.ToString();
         }
 
 
-        // Metodos de clase
+        //Funcion que sobre escribe la funcion Validar() de su clase padre
         public override void Validar(){
 			base.Validar();
 			if (_tareas == null) throw new Exception("El peon debe tener una lista de tareas");
