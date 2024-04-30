@@ -30,9 +30,11 @@ namespace Dominio
 
             if (_fechaPactada == DateTime.MinValue) throw new Exception("La tarea debe tener una fecha pactada");
 
-            // if (_estado == null) throw new Exception("La tarea debe tener un estado");
+            if (_fechaCierre == DateTime.MinValue) throw new Exception("La tarea debe tener una fecha de cierre");
 
-            // if (_fechaCierre == null) throw new Exception("La tarea debe tener una fecha de cierre");
+            if (_fechaCierre < _fechaPactada) throw new Exception("La fecha de cierre no puede ser anterior a la fecha pactada");
+
+            if (_estado == null) throw new Exception("La tarea debe tener un estado");
 
             if (string.IsNullOrEmpty(_comentario)) throw new Exception("La tarea debe tener un comentario");
         }
