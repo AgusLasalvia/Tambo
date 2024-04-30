@@ -2,8 +2,8 @@ namespace Dominio
 {
     public enum TipoAlimentacion
     {
-        Pastura = 0,
-        Concentrado = 1,
-        Mezcla = 2
+        Pastura = 1,
+        Concentrado = 2,
+        Mezcla = 3
     }
 }

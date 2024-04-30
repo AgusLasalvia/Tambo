@@ -32,7 +32,7 @@ namespace Dominio
 
         public override string ToString()
         {
-            return base.ToString() + $", Peso por kilo: {_pesoKilo}, Tipo de alimentacion: {_tipoAlimentacion}";
+            return base.ToString();
         }
     }
 }

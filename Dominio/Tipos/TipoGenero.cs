@@ -2,7 +2,7 @@ namespace Dominio
 {
     public enum TipoGenero
     {
-        Macho = 0,
-        Hembra = 1
+        Macho = 1,
+        Hembra = 2
     }
 }

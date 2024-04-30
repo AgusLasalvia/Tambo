@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ZC7XjRzp2iirJkIV3l+jQY8VWbJj9gLY36OFfe7gGA17Naob968eiokYA/GeeVYrjZP8+ftyqJj0kh1wJivGjA==",
+  "dgSpecHash": "EYNZGt9fUPJo3dyiuPq7RyJjQEjLmr6iiUdPGMAygU+voXFx702x+zWhOBAphgjkkh129Sp5CrTHEh+ZRtSQAQ==",
   "success": true,
-  "projectFilePath": "/Users/facun/Documents/GitHub/Obligatorio-p2/Console/Console.csproj",
+  "projectFilePath": "C:\\Users\\Agustin\\Obligatorio-p2\\Console\\Console.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

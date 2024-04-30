@@ -1,6 +1,6 @@
 namespace Dominio
 {
-	internal class Ovino : Animal
+	public class Ovino : Animal
 	{
 		private static double _precioLana = 0.0;
 		private static double _precioOvino = 0.0;
@@ -44,7 +44,7 @@ namespace Dominio
 
 		public override string ToString()
         {
-            return base.ToString() + $", Peso por kilo: {_pesoKilo}";
+            return base.ToString();
         }
 	}
 }

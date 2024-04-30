@@ -79,7 +79,7 @@ public class Sistema
     {
         foreach (Potrero potrero in _potreros)
         {
-            if (potrero.CantidadHectareas == cantHectareas && potrero.CantidadMaxAnimales == cantPotrero)
+            if (potrero.CantidadHectareas > cantHectareas && potrero.CantidadMaxAnimales > cantPotrero)
             {
                 Console.WriteLine(potrero.ToString());
             }
@@ -327,35 +327,29 @@ public class Sistema
         _animales.Add(new Ovino(36, TipoGenero.Macho, "Shetland", new DateTime(2024, 4, 28), 300, 150, 450, true, new List<Vacunacion>(), true));
 
         // Potreros (10 Potreros)
-        _potreros.Add(new Potrero("Potrero 1", 50, 100, 80, new List<Animal>()));
-        _potreros.Add(new Potrero("Potrero 2", 70, 120, 90, new List<Animal>()));
-        _potreros.Add(new Potrero("Potrero 3", 30, 80, 60, new List<Animal>()));
-        _potreros.Add(new Potrero("Potrero 4", 40, 90, 70, new List<Animal>()));
-        _potreros.Add(new Potrero("Potrero 5", 80, 140, 110, new List<Animal>()));
-        _potreros.Add(new Potrero("Potrero 6", 60, 100, 85, new List<Animal>()));
-        _potreros.Add(new Potrero("Potrero 7", 50, 100, 80, new List<Animal>()));
-        _potreros.Add(new Potrero("Potrero 8", 70, 120, 90, new List<Animal>()));
-        _potreros.Add(new Potrero("Potrero 9", 30, 80, 60, new List<Animal>()));
-        _potreros.Add(new Potrero("Potrero 10", 20, 60, 40, new List<Animal>()));
-
-
-
+        _potreros.Add(new Potrero("Potrero 1", 50, 100, new List<Animal>()));
+        _potreros.Add(new Potrero("Potrero 2", 70, 120, new List<Animal>()));
+        _potreros.Add(new Potrero("Potrero 3", 30, 80, new List<Animal>()));
+        _potreros.Add(new Potrero("Potrero 4", 40, 90, new List<Animal>()));
+        _potreros.Add(new Potrero("Potrero 5", 80, 140, new List<Animal>()));
+        _potreros.Add(new Potrero("Potrero 6", 60, 100, new List<Animal>()));
+        _potreros.Add(new Potrero("Potrero 7", 50, 100, new List<Animal>()));
+        _potreros.Add(new Potrero("Potrero 8", 70, 120, new List<Animal>()));
+        _potreros.Add(new Potrero("Potrero 9", 30, 80, new List<Animal>()));
+        _potreros.Add(new Potrero("Potrero 10", 20, 60, new List<Animal>()));
 
 
         /* TODO:
-    
-        
             - todos los animales a un potrero
         */
     }
     public void UpdateAnimals()
     {
-        foreach (var potrero in _potreros)
+        foreach (Animal animal in _animales)
         {
-            for (int i = 0; i % 3 == 0; i++)
-            {
-                potrero.Animales.Add(_animales[i]);
-            }
-        }
+            Random rnd = new Random();
+			int random = rnd.Next(1, 10);
+			_potreros[random].AgregarAnimal(animal);
+		}
     }
 }

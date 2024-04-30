@@ -10,7 +10,7 @@ namespace Dominio
 		private int _cantidadAnimalesPastan;
 
 		private double _ganancia;
-		private List<Animal> _animales;
+		private List<Animal>? _animales;
 
 
 		public int CantidadHectareas
@@ -24,7 +24,7 @@ namespace Dominio
 		}
 
 
-		public Potrero(string descripcion, int cantidadHectareas, int cantidadMaxAnimales, int cantidadAnimalesPastan, List<Animal> animales)
+		public Potrero(string descripcion, int cantidadHectareas, int cantidadMaxAnimales, List<Animal> animales)
 		{
 
 			_id = s_ultId;
@@ -33,12 +33,6 @@ namespace Dominio
 			_animales = animales;
 			_cantidadHectareas = cantidadHectareas;
 			_cantidadMaxAnimales = cantidadMaxAnimales;
-			_cantidadAnimalesPastan = cantidadAnimalesPastan;
-			_animales = animales;
-		}
-
-		public List<Animal> Animales{
-			get { return _animales; }
 		}
 
 		public void Validar()
@@ -60,6 +54,8 @@ namespace Dominio
 			if (_animales.Count <= _cantidadMaxAnimales)
 			{
 				_animales.Add(animal);
+				_cantidadAnimalesPastan = _animales.Count;
+
 			}
 			else
 			{
