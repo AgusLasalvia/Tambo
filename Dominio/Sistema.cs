@@ -7,7 +7,6 @@ public class Sistema
     private List<Animal> _animales = new List<Animal>();
     private List<Potrero> _potreros = new List<Potrero>();
     private List<Vacuna> _vacunas = new List<Vacuna>();
-    private List<Vacunacion> _vacunaciones = new List<Vacunacion>();
     private List<Empleado>? _empleados = new List<Empleado>();
 
     // Getter de Sistema
