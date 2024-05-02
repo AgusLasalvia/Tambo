@@ -25,6 +25,20 @@ namespace Dominio
 
 		}
 
+		public override string ToString()
+		{
+			return $"Tipo de vacuna: {_tipoVacuna}, Fecha de vacunacion: {_fechaVacunacion}, Fecha de vencimiento: {_fechaVencimiento}";
+		}
+
+		public override bool Equals(object? obj)
+		{
+			return base.Equals(obj);
+		}
+
+		public override int GetHashCode()
+		{
+			return base.GetHashCode();
+		}
 	}
 
 }

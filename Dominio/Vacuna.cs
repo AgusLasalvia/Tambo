@@ -26,5 +26,20 @@ namespace Dominio
 
             if (string.IsNullOrEmpty(_patogenoPreviene)) throw new Exception("La vacuna debe tener un patogeno que previene");
         }
+
+        public override string ToString()
+        {
+            return "Nombre: " + _nombre + " Descripcion: " + _descripcion + " Patogeno que previene: " + _patogenoPreviene;
+        }
+
+        public override bool Equals(object? obj)
+        {
+            return base.Equals(obj);
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 }

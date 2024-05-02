@@ -35,12 +35,25 @@ namespace Dominio
         }
 
 
+
+
         //Funcion que sobre escribe la funcion Validar() de su clase padre
         public override void Validar()
         {
             base.Validar();
             if (_tareas == null) throw new Exception("El peon debe tener una lista de tareas");
         }
+
+        public override bool Equals(object? obj)
+        {
+            return base.Equals(obj);
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+
 
     }
 }

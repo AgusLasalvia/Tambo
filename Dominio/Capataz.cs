@@ -2,7 +2,7 @@
 namespace Dominio
 {
     class Capataz : Empleado, IValidable
-    {   
+    {
         // Atributos
         private int _cantPersonasACargo;
 
@@ -22,10 +22,22 @@ namespace Dominio
         }
 
 
+
         //Funcion que sobre escribe la funcion Validar() de su clase padre
-        public override void Validar(){
-			base.Validar();
-			if (_cantPersonasACargo == 0) throw new Exception("El capataz debe tener una cantidad de personas a cargo");
-		}
+        public override void Validar()
+        {
+            base.Validar();
+            if (_cantPersonasACargo == 0) throw new Exception("El capataz debe tener una cantidad de personas a cargo");
+        }
+
+        public override bool Equals(object? obj)
+        {
+            return base.Equals(obj);
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 }
