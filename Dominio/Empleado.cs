@@ -10,6 +10,27 @@ namespace Dominio
 		protected DateTime _fechaIngreso;
 
 
+		// Propiedades de clase
+		public string Email
+		{
+			get { return _email; }
+		}
+
+		public string Password
+		{
+			get { return _password; }
+		}
+
+		public string Nombre
+		{
+			get { return _nombre; }
+		}
+
+		public DateTime FechaIngreso
+		{
+			get { return _fechaIngreso; }
+		}
+
 		// Constructor de clase
 		public Empleado(string email, string password, string nombre, DateTime fechaIngreso)
 		{
