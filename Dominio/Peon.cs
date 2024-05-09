@@ -5,7 +5,7 @@ namespace Dominio
 	{
 		// Atributos 
 		private bool _reside;
-		private List<Tarea>? _tareas;
+		private List<Tarea> _tareas;
 
 
 		public List<Tarea> Tareas

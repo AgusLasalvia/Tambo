@@ -72,7 +72,6 @@ namespace Console
             try
             {
                 TipoAlimentacion alimentacion = (TipoAlimentacion)PedirNumero("Ingrese el tipo de alimentacion (1. Pasto, 2. Balanceado 3. Mixto)");
-                double peso = PedirNumero("Ingrese el peso por kilo");
                 TipoGenero genero = (TipoGenero)PedirNumero("Ingrese el genero (1. Macho, 2. Hembra)");
                 string raza = PedirPalabra("Ingrese la raza");
                 DateTime fechaNacimiento = PedirFecha("Ingrese la fecha de nacimiento (YYYY-MM-DD)");
@@ -81,7 +80,7 @@ namespace Console
                 double pesoActual = PedirNumero("Ingrese el peso actual");
                 bool hibrido = PedirBooleano("Es hibrido? (true/false)");
                 bool estado = PedirBooleano("Es libre? (true/false)");
-                Bovino bovino = new Bovino(alimentacion, peso, genero, raza, fechaNacimiento, costoAdquisicion, costoAlimentacion, pesoActual, hibrido, new List<Vacunacion>(), estado);
+                Bovino bovino = new Bovino(alimentacion, genero, raza, fechaNacimiento, costoAdquisicion, costoAlimentacion, pesoActual, hibrido, new List<Vacunacion>(), estado);
                 sistema.AgregarAnimal(bovino);
             }
             catch (Exception ex)

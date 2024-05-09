@@ -7,7 +7,7 @@ public class Sistema
 	private List<Animal> _animales = new List<Animal>();
 	private List<Potrero> _potreros = new List<Potrero>();
 	private List<Vacuna> _vacunas = new List<Vacuna>();
-	private List<Empleado>? _empleados = new List<Empleado>();
+	private List<Empleado> _empleados = new List<Empleado>();
 
 	// Getter de Sistema
 	public static Sistema sistema
@@ -326,40 +326,41 @@ public class Sistema
 		// Animales (30 Animales)
 
 		//Bovinos
-		_animales.Add(new Bovino(TipoAlimentacion.Concentrado, 500, TipoGenero.Macho, "Hereford", new DateTime(2024, 5, 22), 200, 100, 600, true, new List<Vacunacion>(), true));
-		_animales.Add(new Bovino(TipoAlimentacion.Pastura, 500, TipoGenero.Macho, "Hereford", new DateTime(2024, 5, 22), 200, 100, 600, true, new List<Vacunacion>(), true));
-		_animales.Add(new Bovino(TipoAlimentacion.Concentrado, 450, TipoGenero.Hembra, "Angus", new DateTime(2024, 4, 18), 180, 90, 550, false, new List<Vacunacion>(), true));
-		_animales.Add(new Bovino(TipoAlimentacion.Mezcla, 520, TipoGenero.Macho, "Simmental", new DateTime(2024, 3, 15), 250, 120, 480, false, new List<Vacunacion>(), true));
-		_animales.Add(new Bovino(TipoAlimentacion.Pastura, 480, TipoGenero.Hembra, "Brahman", new DateTime(2024, 2, 10), 220, 110, 500, false, new List<Vacunacion>(), true));
-		_animales.Add(new Bovino(TipoAlimentacion.Concentrado, 510, TipoGenero.Macho, "Limousin", new DateTime(2024, 1, 5), 230, 115, 490, true, new List<Vacunacion>(), true));
-		_animales.Add(new Bovino(TipoAlimentacion.Pastura, 490, TipoGenero.Hembra, "Charolais", new DateTime(2023, 12, 1), 210, 105, 520, false, new List<Vacunacion>(), true));
-		_animales.Add(new Bovino(TipoAlimentacion.Mezcla, 530, TipoGenero.Macho, "Aberdeen Angus", new DateTime(2023, 10, 27), 240, 125, 470, false, new List<Vacunacion>(), true));
-		_animales.Add(new Bovino(TipoAlimentacion.Pastura, 470, TipoGenero.Hembra, "Gyr", new DateTime(2023, 9, 23), 200, 100, 540, true, new List<Vacunacion>(), true));
-		_animales.Add(new Bovino(TipoAlimentacion.Concentrado, 560, TipoGenero.Macho, "Holstein", new DateTime(2023, 8, 19), 260, 130, 460, false, new List<Vacunacion>(), true));
-		_animales.Add(new Bovino(TipoAlimentacion.Pastura, 440, TipoGenero.Hembra, "Jersey", new DateTime(2023, 7, 15), 190, 95, 570, false, new List<Vacunacion>(), true));
-		_animales.Add(new Bovino(TipoAlimentacion.Mezcla, 580, TipoGenero.Macho, "Wagyu", new DateTime(2023, 6, 10), 280, 140, 450, true, new List<Vacunacion>(), true));
-		_animales.Add(new Bovino(TipoAlimentacion.Pastura, 420, TipoGenero.Hembra, "Normando", new DateTime(2023, 5, 6), 170, 85, 580, false, new List<Vacunacion>(), true));
-		_animales.Add(new Bovino(TipoAlimentacion.Mezcla, 600, TipoGenero.Macho, "Friesian", new DateTime(2023, 4, 1), 300, 150, 440, false, new List<Vacunacion>(), true));
-		_animales.Add(new Bovino(TipoAlimentacion.Concentrado, 550, TipoGenero.Hembra, "Angus", new DateTime(2023, 2, 25), 170, 75, 600, true, new List<Vacunacion>(), true));
-		_animales.Add(new Bovino(TipoAlimentacion.Pastura, 480, TipoGenero.Macho, "Hereford", new DateTime(2023, 5, 22), 180, 80, 590, false, new List<Vacunacion>(), true));
-		_animales.Add(new Bovino(TipoAlimentacion.Concentrado, 520, TipoGenero.Macho, "Limousin", new DateTime(2023, 4, 18), 190, 85, 580, true, new List<Vacunacion>(), true));
-		_animales.Add(new Bovino(TipoAlimentacion.Pastura, 450, TipoGenero.Hembra, "Charolais", new DateTime(2023, 3, 15), 200, 90, 570, false, new List<Vacunacion>(), true));
-		_animales.Add(new Bovino(TipoAlimentacion.Mezcla, 510, TipoGenero.Macho, "Aberdeen Angus", new DateTime(2023, 2, 10), 210, 95, 560, true, new List<Vacunacion>(), true));
-		_animales.Add(new Bovino(TipoAlimentacion.Pastura, 490, TipoGenero.Hembra, "Gyr", new DateTime(2023, 1, 5), 220, 100, 550, false, new List<Vacunacion>(), true));
-		_animales.Add(new Bovino(TipoAlimentacion.Concentrado, 460, TipoGenero.Macho, "Holstein", new DateTime(2023, 12, 1), 230, 105, 540, true, new List<Vacunacion>(), true));
-		_animales.Add(new Bovino(TipoAlimentacion.Pastura, 530, TipoGenero.Hembra, "Jersey", new DateTime(2023, 10, 27), 240, 110, 530, false, new List<Vacunacion>(), true));
-		_animales.Add(new Bovino(TipoAlimentacion.Mezcla, 570, TipoGenero.Macho, "Wagyu", new DateTime(2023, 9, 23), 250, 115, 520, true, new List<Vacunacion>(), true));
-		_animales.Add(new Bovino(TipoAlimentacion.Pastura, 540, TipoGenero.Hembra, "Normando", new DateTime(2023, 8, 19), 260, 120, 510, false, new List<Vacunacion>(), true));
-		_animales.Add(new Bovino(TipoAlimentacion.Concentrado, 520, TipoGenero.Macho, "Friesian", new DateTime(2023, 7, 15), 270, 125, 500, true, new List<Vacunacion>(), true));
-		_animales.Add(new Bovino(TipoAlimentacion.Pastura, 590, TipoGenero.Hembra, "Chianina", new DateTime(2023, 6, 10), 280, 130, 490, false, new List<Vacunacion>(), true));
-		_animales.Add(new Bovino(TipoAlimentacion.Concentrado, 480, TipoGenero.Macho, "Hereford", new DateTime(2023, 5, 6), 290, 135, 480, true, new List<Vacunacion>(), true));
-		_animales.Add(new Bovino(TipoAlimentacion.Pastura, 600, TipoGenero.Hembra, "Brahman", new DateTime(2023, 4, 1), 300, 140, 470, false, new List<Vacunacion>(), true));
-		_animales.Add(new Bovino(TipoAlimentacion.Mezcla, 440, TipoGenero.Macho, "Simmental", new DateTime(2023, 2, 25), 310, 145, 460, true, new List<Vacunacion>(), true));
+		_animales.Add(new Bovino(TipoAlimentacion.Concentrado, TipoGenero.Macho, "Hereford", new DateTime(2024, 5, 22), 200, 100, 600, true, new List<Vacunacion>(), true));
+		_animales.Add(new Bovino(TipoAlimentacion.Pastura, TipoGenero.Macho, "Hereford", new DateTime(2024, 5, 22), 200, 100, 600, true, new List<Vacunacion>(), true));
+		_animales.Add(new Bovino(TipoAlimentacion.Concentrado, TipoGenero.Hembra, "Angus", new DateTime(2024, 4, 18), 180, 90, 550, false, new List<Vacunacion>(), true));
+		_animales.Add(new Bovino(TipoAlimentacion.Mezcla, TipoGenero.Macho, "Simmental", new DateTime(2024, 3, 15), 250, 120, 480, false, new List<Vacunacion>(), true));
+		_animales.Add(new Bovino(TipoAlimentacion.Pastura, TipoGenero.Hembra, "Brahman", new DateTime(2024, 2, 10), 220, 110, 500, false, new List<Vacunacion>(), true));
+		_animales.Add(new Bovino(TipoAlimentacion.Concentrado, TipoGenero.Macho, "Limousin", new DateTime(2024, 1, 5), 230, 115, 490, true, new List<Vacunacion>(), true));
+		_animales.Add(new Bovino(TipoAlimentacion.Pastura, TipoGenero.Hembra, "Charolais", new DateTime(2023, 12, 1), 210, 105, 520, false, new List<Vacunacion>(), true));
+		_animales.Add(new Bovino(TipoAlimentacion.Mezcla, TipoGenero.Macho, "Aberdeen Angus", new DateTime(2023, 10, 27), 240, 125, 470, false, new List<Vacunacion>(), true));
+		_animales.Add(new Bovino(TipoAlimentacion.Pastura, TipoGenero.Hembra, "Gyr", new DateTime(2023, 9, 23), 200, 100, 540, true, new List<Vacunacion>(), true));
+		_animales.Add(new Bovino(TipoAlimentacion.Concentrado, TipoGenero.Macho, "Holstein", new DateTime(2023, 8, 19), 260, 130, 460, false, new List<Vacunacion>(), true));
+		_animales.Add(new Bovino(TipoAlimentacion.Pastura, TipoGenero.Hembra, "Jersey", new DateTime(2023, 7, 15), 190, 95, 570, false, new List<Vacunacion>(), true));
+		_animales.Add(new Bovino(TipoAlimentacion.Mezcla, TipoGenero.Macho, "Wagyu", new DateTime(2023, 6, 10), 280, 140, 450, true, new List<Vacunacion>(), true));
+		_animales.Add(new Bovino(TipoAlimentacion.Pastura, TipoGenero.Hembra, "Normando", new DateTime(2023, 5, 6), 170, 85, 580, false, new List<Vacunacion>(), true));
+		_animales.Add(new Bovino(TipoAlimentacion.Mezcla, TipoGenero.Macho, "Friesian", new DateTime(2023, 4, 1), 300, 150, 440, false, new List<Vacunacion>(), true));
+		_animales.Add(new Bovino(TipoAlimentacion.Concentrado, TipoGenero.Hembra, "Angus", new DateTime(2023, 2, 25), 170, 75, 600, true, new List<Vacunacion>(), true));
+		_animales.Add(new Bovino(TipoAlimentacion.Pastura, TipoGenero.Macho, "Hereford", new DateTime(2023, 5, 22), 180, 80, 590, false, new List<Vacunacion>(), true));
+		_animales.Add(new Bovino(TipoAlimentacion.Concentrado, TipoGenero.Macho, "Limousin", new DateTime(2023, 4, 18), 190, 85, 580, true, new List<Vacunacion>(), true));
+		_animales.Add(new Bovino(TipoAlimentacion.Pastura, TipoGenero.Hembra, "Charolais", new DateTime(2023, 3, 15), 200, 90, 570, false, new List<Vacunacion>(), true));
+		_animales.Add(new Bovino(TipoAlimentacion.Mezcla, TipoGenero.Macho, "Aberdeen Angus", new DateTime(2023, 2, 10), 210, 95, 560, true, new List<Vacunacion>(), true));
+		_animales.Add(new Bovino(TipoAlimentacion.Pastura, TipoGenero.Hembra, "Gyr", new DateTime(2023, 1, 5), 220, 100, 550, false, new List<Vacunacion>(), true));
+		_animales.Add(new Bovino(TipoAlimentacion.Concentrado, TipoGenero.Macho, "Holstein", new DateTime(2023, 12, 1), 230, 105, 540, true, new List<Vacunacion>(), true));
+		_animales.Add(new Bovino(TipoAlimentacion.Pastura, TipoGenero.Hembra, "Jersey", new DateTime(2023, 10, 27), 240, 110, 530, false, new List<Vacunacion>(), true));
+		_animales.Add(new Bovino(TipoAlimentacion.Mezcla, TipoGenero.Macho, "Wagyu", new DateTime(2023, 9, 23), 250, 115, 520, true, new List<Vacunacion>(), true));
+		_animales.Add(new Bovino(TipoAlimentacion.Pastura, TipoGenero.Hembra, "Normando", new DateTime(2023, 8, 19), 260, 120, 510, false, new List<Vacunacion>(), true));
+		_animales.Add(new Bovino(TipoAlimentacion.Concentrado, TipoGenero.Macho, "Friesian", new DateTime(2023, 7, 15), 270, 125, 500, true, new List<Vacunacion>(), true));
+		_animales.Add(new Bovino(TipoAlimentacion.Pastura, TipoGenero.Hembra, "Chianina", new DateTime(2023, 6, 10), 280, 130, 490, false, new List<Vacunacion>(), true));
+		_animales.Add(new Bovino(TipoAlimentacion.Concentrado, TipoGenero.Macho, "Hereford", new DateTime(2023, 5, 6), 290, 135, 480, true, new List<Vacunacion>(), true));
+		_animales.Add(new Bovino(TipoAlimentacion.Pastura, TipoGenero.Hembra, "Brahman", new DateTime(2023, 4, 1), 300, 140, 470, false, new List<Vacunacion>(), true));
+		_animales.Add(new Bovino(TipoAlimentacion.Mezcla, TipoGenero.Macho, "Simmental", new DateTime(2023, 2, 25), 310, 145, 460, true, new List<Vacunacion>(), true));
 
 
 
 		//Ovinos
-		_animales.Add(new Ovino(30, TipoGenero.Hembra, "Dorper", new DateTime(2023, 2, 25), 160, 80, 590, true, new List<Vacunacion>(), true)); _animales.Add(new Ovino(25, TipoGenero.Hembra, "Merino", new DateTime(2023, 3, 15), 170, 85, 580, false, new List<Vacunacion>(), true));
+		_animales.Add(new Ovino(30, TipoGenero.Hembra, "Dorper", new DateTime(2023, 2, 25), 160, 80, 590, true, new List<Vacunacion>(), true)); 
+		_animales.Add(new Ovino(25, TipoGenero.Hembra, "Merino", new DateTime(2023, 3, 15), 170, 85, 580, false, new List<Vacunacion>(), true));
 		_animales.Add(new Ovino(35, TipoGenero.Macho, "Suffolk", new DateTime(2023, 4, 20), 180, 90, 570, true, new List<Vacunacion>(), true));
 		_animales.Add(new Ovino(28, TipoGenero.Hembra, "Texel", new DateTime(2023, 5, 10), 190, 95, 560, false, new List<Vacunacion>(), true));
 		_animales.Add(new Ovino(38, TipoGenero.Macho, "Dorper", new DateTime(2023, 6, 5), 200, 100, 550, true, new List<Vacunacion>(), true));

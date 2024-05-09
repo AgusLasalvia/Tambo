@@ -6,13 +6,13 @@ namespace Dominio
         // Propiedades de clase Tarea
         private int _id = 0;
         private static int s_ultimoId = 0;
-        private string? _descripcion;
+        private string _descripcion;
 
         private DateTime _fechaPactada;
 
         private bool _estado;
         private DateTime _fechaCierre;
-        private string? _comentario;
+        private string _comentario;
 
         // Constructor de la clase Tarea
         public Tarea(string descripcion, DateTime fechaPactada, bool estado, DateTime fechaCierre, string comentario)
@@ -46,7 +46,7 @@ namespace Dominio
         // Metodo para obtener todos 
         public override string ToString()
         {
-            return $"ID: {_id}, Descripcion: {_descripcion}, Plazo: {_fechaPactada} a {_fechaCierre}, Comentario: {_comentario}";
+            return $"ID: {_id}, Descripcion: {_descripcion}, Plazo: {_fechaPactada} a {_fechaCierre}, Comentario: {_comentario} Estado: {_estado}";
         }
 
         public override bool Equals(object? obj)
