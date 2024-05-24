@@ -10,7 +10,7 @@ public class Sistema
 	private List<Empleado> _empleados = new List<Empleado>();
 
 	// Getter de Sistema
-	public static Sistema sistema
+	public static Sistema instancia
 	{
 		get
 		{
