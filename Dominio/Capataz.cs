@@ -1,7 +1,7 @@
 
 namespace Dominio
 {
-    class Capataz : Empleado, IValidable
+    public class Capataz : Empleado, IValidable
     {
         // Atributos
         private int _cantPersonasACargo;

@@ -1,7 +1,7 @@
 
 namespace Dominio
 {
-	class Peon : Empleado, IValidable
+	public class Peon : Empleado, IValidable
 	{
 		// Atributos 
 		private bool _reside;

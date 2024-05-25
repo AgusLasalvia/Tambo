@@ -26,20 +26,62 @@ public class Sistema
 		UpdateAnimals();
 	}
 
-	// Login de Usarios
-	public bool Login(string email, string password)
-	{
+    // Login de Usarios
+    public Empleado? Login(string email, string password)
+    {
 		foreach (Empleado empleado in _empleados)
 		{
-			if (empleado.Email == email && empleado.Password == password) return true;
+            if (empleado.Email == email && empleado.Password == password) return empleado;
+        }
+        return null;
+    }
+
+
+    public bool VerificarUsuario(string email)
+    {
+		bool validacion = false;
+        foreach (Empleado empleado in _empleados)
+        {
+            if (empleado.Email == email) validacion = true;
+        }
+        return validacion;
+    }
+
+	// Metodo para agregar Empleado al sistema
+	public bool AltaUsuario(string email, string password, string nombre, bool reside) 
+	{
+		_empleados.Add(new Peon(reside,email,password,nombre,DateTime.Today));
+        return VerificarUsuario(email);
+
+    }
+
+	// Metodo para c
+
+	public Peon? PeonEspecifico(string email)
+	{
+		Peon? p = null;
+		int i = 0;
+		while( p == null && i < _empleados.Count)
+		{
+			if(_empleados[i].Email == email) p = _empleados[i] as Peon;
+			i++;
 		}
-		throw new Exception("Usuario o contraseña incorrectos");
+		return p;
 	}
+    
 
+    // public Peon PeonEspecifico(string email){
+    //     Peon? p = null;
+    //     foreach(Empleado em in _empleados){
+    //         Console.WriteLine(em.Email);
+    //         if (em.Email == email && em is Peon) p = em as Peon;
+    //     }
+    //     return p;
+        
+    // }
 
-
-	// Método para Listar los Animales
-	public void ListarTodosLosAnimales()
+    // Método para Listar los Animales
+    public void ListarTodosLosAnimales()
 	{
 		foreach (Animal animal in _animales)
 		{
