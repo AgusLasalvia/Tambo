@@ -1,15 +1,89 @@
-<form action="~/Usuario/Registro" method="post">
-	<div>
-		<input type="text" name="nombre" />
-	</div>
-	<div>
-		<input type="text" name="email" />
-	</div>
-	<div class="">
-		<input type="text" name="password" placeholder="Password"/>
-	</div>
-	<select name="reside" id="" aria-placeholder="Reside?">
-		<option value="true">Si</option>
-		<option value="false">No</option>
-	</select>
-</form>
+<section class="d-flex flex-column justify-content-center align-items-center ">
+    <div>
+        <article>
+            <h2 class="text-center">Registrar usuario</h2>
+            <form action="~/Usuario/AltaUsuario" method="post">
+                <div>
+                    <input type="text" class="form-control " name="nombre" placeholder="Nombre" />
+                </div>
+                <div>
+                    <input type="text" class="form-control " name="email" placeholder="Email" />
+                </div>
+                <div>
+                    <input type="password" class="form-control " name="password" placeholder="Password" />
+                </div>
+                <div>
+                    <label for="">Residente</label>
+                    <select name="reside" class="form-control " id="" aria-placeholder="Reside?">
+                        <option value="true">Si</option>
+                        <option value="false">No</option>
+                    </select>
+                </div>
+                @{
+                    if (ViewBag.Error != null)
+                    {
+                        <p class="alert alert-danger">@ViewBag.Error</p>
+                    }
+                    else if (ViewBag.Exito != null)
+                    {
+                        <p class="alert alert-success">@ViewBag.Exito</p>
+                    }
+                }
+                <input type="submit" class="btn btn-primary" value="Registrarse">
+            </form>
+        </article>
+    </div>
+</section>
+
+
+<style>
+    body {
+        font-family: sans-serif;
+        background: url("https://images.unsplash.com/photo-1568038100292-c75e7d6b9d82?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") center center no-repeat;
+        background-size: cover;
+    }
+
+    section {
+        width: 100%;
+        height: 80vh;
+    }
+
+
+    section>div {
+        width: 100%;
+        max-width: 600px;
+        background-color: #e2e2e2;
+        padding: 3rem 2rem;
+        border-radius: 8px;
+    }
+
+    article {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    form input[type="text"],
+    form input[type="password"] {
+        margin-top: .5rem;
+        width: 100%;
+    }
+
+    form input[type="submit"] {
+        margin-top: 2rem;
+        width: 100%;
+        background-color: #48bf78;
+        border-color: #48bf78;
+    }
+
+    form label {
+        font-weight: 600;
+        padding: 1rem 0 .5rem 0;
+
+    }
+
+    form input[type="submit"]:hover {
+        background-color: #3c9e63;
+        border-color: #3c9e63;
+    }
+</style>
