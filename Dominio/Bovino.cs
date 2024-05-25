@@ -9,6 +9,14 @@ namespace Dominio
 		private static double _pesoKilo = 0;
 
 		private double _ganancia;
+        public double Ganancia{
+            get{
+                return _ganancia;
+            }
+            set{
+                _ganancia = value;
+            }
+        }
 
 		public double PesoKilo
 		{
