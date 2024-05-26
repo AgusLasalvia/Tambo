@@ -1,0 +1,80 @@
+@*--------------- HTLM TEMPALTE DEL LOGIN ---------------*@
+
+<section class="d-flex flex-column justify-content-center align-items-center text-center">
+    <div>
+        <article>
+            <h2>Iniciar sesión</h2>
+            <form action="~/Usuario/BuscarUsuario" method="post">
+                <div> <input class="form-control " type="text" placeholder="Email" name="email" /> </div>
+                <div> <input class="form-control " type="password" placeholder="Password" name="password"> </div>
+                @{
+                    if (ViewBag.Error != null)
+                    {
+                        <p class="alert alert-danger">@ViewBag.Error</p>
+                    }
+                }
+                
+                <input type="submit" class="btn btn-primary" value="Ingresar">
+            </form>
+            <a href="~/Usuario/Registro">Registrar usuario</a>
+        </article>
+    </div>
+</section>
+
+
+@*---------------LOGICA --------------- *@
+
+
+@*--------------- ESTILOS ---------------*@
+<style>
+
+    body {
+        font-family: sans-serif;
+        background: url("https://images.unsplash.com/photo-1454179083322-198bb4daae41?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") center center no-repeat;
+        background-size: cover;
+    }
+
+    section {
+        width: 100%;
+        height: 80vh;
+    }
+
+
+    section>div {
+        width: 100%;
+        max-width: 600px;
+        background-color: #e2e2e2;
+        padding: 3rem 2rem;
+        border-radius: 8px;
+    }
+
+    article {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    form input[type="text"] {
+        margin-top: .5rem;
+    }
+
+    form input[type="password"] {
+        margin-top: .5rem;
+    }
+
+    form>input[type="submit"] {
+        margin-top: 2rem;
+        width: 100%;
+        background-color: #48bf78;
+        border-color: #48bf78;
+    }
+
+    form>input[type="submit"]:hover {
+        background-color: #3c9e63;
+        border-color: #3c9e63;
+    }
+
+    a{
+        text-align: left;
+    }
+</style>
