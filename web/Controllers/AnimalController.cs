@@ -36,7 +36,7 @@ public class AnimalController : Controller
     // ------------------------------------------------------------------// 
     [HttpPost]
     public IActionResult AgregarVacuancion(string id,Vacuna vacuna){
-        
+        return View();
     }
 
 }

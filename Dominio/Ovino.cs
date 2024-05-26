@@ -5,6 +5,7 @@ namespace Dominio
 	// Clase Ovino
 	public class Ovino : Animal
 	{
+
 		// Propiedades de clase Ovino
 		private static double _precioLana = 0.0;
 		private static double _precioOvino = 0.0;
