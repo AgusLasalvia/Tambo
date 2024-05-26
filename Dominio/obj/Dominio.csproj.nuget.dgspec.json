@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\agusl\\GitHub\\Obligatorio-p2\\Dominio\\Dominio.csproj": {}
+    "C:\\Users\\agusl\\Obligatorio-p2\\Dominio\\Dominio.csproj": {}
   },
   "projects": {
-    "C:\\Users\\agusl\\GitHub\\Obligatorio-p2\\Dominio\\Dominio.csproj": {
+    "C:\\Users\\agusl\\Obligatorio-p2\\Dominio\\Dominio.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\agusl\\GitHub\\Obligatorio-p2\\Dominio\\Dominio.csproj",
+        "projectUniqueName": "C:\\Users\\agusl\\Obligatorio-p2\\Dominio\\Dominio.csproj",
         "projectName": "Dominio",
-        "projectPath": "C:\\Users\\agusl\\GitHub\\Obligatorio-p2\\Dominio\\Dominio.csproj",
+        "projectPath": "C:\\Users\\agusl\\Obligatorio-p2\\Dominio\\Dominio.csproj",
         "packagesPath": "C:\\Users\\agusl\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\agusl\\GitHub\\Obligatorio-p2\\Dominio\\obj\\",
+        "outputPath": "C:\\Users\\agusl\\Obligatorio-p2\\Dominio\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\agusl\\AppData\\Roaming\\NuGet\\NuGet.Config",
