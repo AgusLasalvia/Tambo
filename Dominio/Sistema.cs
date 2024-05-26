@@ -135,7 +135,7 @@ public class Sistema
             if (_animales[index].Id == id)
             {
                 _animales[index].AgregarVacunacion(vacuna);
-                verificacion
+                verificacion = true;
             }
             index++;
         }
