@@ -1,0 +1,115 @@
+<section class="d-flex flex-column justify-content-center align-items-center ">
+    <div>
+        <article>
+            <h2 class="text-center">Registrar Bovino</h2>
+            <form action="~/Usuario/AltaBovino" method="post">
+                <div>
+                    <input type="text" class="form-control " name="raza" placeholder="Raza" />
+                </div>
+                <div>
+                    <label for="genero">Genero</label>
+                    <select name="genero" class="form-control" aria-placeholder="Genero">
+                        <option value="1">Macho</option>
+                        <option value="2">Hembra</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="fechaNacimiento">Fecha de nacimiento</label>
+                    <input type="date" class="form-control " name="fechaNacimiento" placeholder="" />
+                </div>
+                <div>
+                    <input type="text" class="form-control " name="costoAdquisicion"
+                        placeholder="Costo de adquisición" />
+                </div>
+                <div>
+                    <input type="text" class="form-control " name="costoAlimentacion"
+                        placeholder="Costo de alimentación" />
+                </div>
+                <div>
+                    <input type="text" class="form-control " name="pesoActual" placeholder="Peso actual" />
+                </div>
+                <div>
+                    <label for="genero">¿Es hibrido?</label>
+                    <select name="genero" class="form-control" aria-placeholder="Genero">
+                        <option value="true">Si</option>
+                        <option value="false">No</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="genero">Tipo de alimentación</label>
+                    <select name="genero" class="form-control" aria-placeholder="Genero">
+                        <option value="1">Pastura</option>
+                        <option value="2">Concentrado</option>
+                        <option value="3">Mezcla</option>
+                    </select>
+                </div>
+
+                @{
+                    if (ViewBag.Error != null)
+                    {
+                        <p class="alert alert-danger">@ViewBag.Error</p>
+                    }
+                    else if (ViewBag.Exito != null)
+                    {
+                        <p class="alert alert-success">@ViewBag.Exito</p>
+                    }
+                }
+                <input type="submit" class="btn btn-primary" value="Registrar">
+            </form>
+        </article>
+    </div>
+</section>
+
+
+<style>
+    body {
+        font-family: sans-serif;
+        background: url("https://images.unsplash.com/photo-1440428099904-c6d459a7e7b5?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") center center no-repeat;
+        background-size: cover;
+    }
+
+    section {
+        width: 100%;
+        min-height: 80vh;
+        margin: 2rem 0;
+    }
+
+
+    section>div {
+        width: 100%;
+        max-width: 600px;
+        background-color: #e2e2e2;
+        padding: 3rem 2rem;
+        border-radius: 8px;
+    }
+
+    article {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    form input[type="text"],
+    form input[type="password"] {
+        margin-top: .5rem;
+        width: 100%;
+    }
+
+    form input[type="submit"] {
+        margin-top: 2rem;
+        width: 100%;
+        background-color: #48bf78;
+        border-color: #48bf78;
+    }
+
+    form label {
+        font-weight: 600;
+        padding: 1rem 0 .5rem 0;
+
+    }
+
+    form input[type="submit"]:hover {
+        background-color: #3c9e63;
+        border-color: #3c9e63;
+    }
+</style>

@@ -47,6 +47,14 @@ public class UsuarioController : Controller
         return View();
     }
 
+    [HttpGet]
+    public IActionResult RegistroBovino()
+    {
+        if (TempData["AltaBovinoError"] != null) ViewBag.Error = TempData["AltaBovinoError"];
+        if (TempData["AltaBovinoExito"] != null) ViewBag.Exito = TempData["AltaBovinoExito"];
+        return View();
+    }
+
 
     [HttpGet]
     public IActionResult PeonHome(){
@@ -107,6 +115,23 @@ public class UsuarioController : Controller
 
 		
     }
+
+    [HttpPost]
+    public IActionResult AltaBovino(TipoAlimentacion tipoAliemntacion, TipoGenero genero, string raza, DateTime fechaNacimiento, double costoAdquisicion, double costoAlimentacion, double pesoActual, bool hibrido, List<Vacunacion> vacunas, bool estado)
+    {
+        Bovino b = new Bovino(tipoAliemntacion, genero, raza, fechaNacimiento, costoAdquisicion, costoAlimentacion, pesoActual, hibrido, vacunas, estado);
+
+        if (b == null)
+        {
+            TempData["AltaBovinoError"] = "Bovino no creado exitosamente, revise datos";
+            return Redirect("RegistroBovino");
+        }
+        sistema.AltaBovino(b);
+        TempData["AltaBovinoExito"] = "Bovino creado exitosamente!!";
+        return Redirect("RegistroBovino");
+
+    }
+
 
 
 }

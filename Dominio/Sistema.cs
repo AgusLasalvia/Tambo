@@ -109,6 +109,13 @@ public class Sistema
         }
     }
 
+    public void AltaBovino(Bovino bovino){
+        
+        if(bovino != null){
+            bovino.Validar();
+            _animales.Add(bovino);
+        }
+    }
 
     // Metodo para agregar Potrero al sistema
     public void AgregarPotrero(Potrero potrero)
