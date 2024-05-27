@@ -144,8 +144,8 @@ public class Sistema
     // Metodo para recivir una lista especifica de Potreros
     public List<Potrero> PotreroEspecifico()
     {
-        int cantHectareas = PedirNumero("Ingrese la cantidad de hectareas");
-        int cantPotrero = PedirNumero("Ingrese la cantidad maxima de animales");
+        int cantHectareas = 0;
+        int cantPotrero = 0;
         return PotreroSegunHectareaYPotrero(cantHectareas, cantPotrero);
     }
 
@@ -166,17 +166,10 @@ public class Sistema
 
 
     // Metodo que utiliza el setter para cambiar el precio de la lana
-    public void CambiarPrecioLana()
+    public void CambiarPrecioLana(double precioLana)
     {
-        double precioLana = PedirNumero("Ingrese el precio de la lana");
         Ovino.PrecioLana = precioLana;
 
-    }
-    public int PedirNumero(string mensaje)
-    {
-        System.Console.WriteLine(mensaje);
-        int.TryParse(Console.ReadLine(), out int numero);
-        return numero;
     }
 
     // Pre carga de datos para el funcionamiento de Sistema
