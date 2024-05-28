@@ -8,14 +8,6 @@ public class TareaController : Controller
 	Sistema sistema = Sistema.instancia;
 
 
-	private readonly ILogger<TareaController> _logger;
-
-	public TareaController(ILogger<TareaController> logger)
-	{
-
-		_logger = logger;
-	}
-
 
 	[HttpGet]
 	public ActionResult TareasIncompletas(){
