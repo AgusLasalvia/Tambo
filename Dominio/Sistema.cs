@@ -40,11 +40,14 @@ public class Sistema
 	{
 		Empleado? empleado = null;
 		int index = 0;
-		while (empleado == null && index < _empleados.Count)
+		if (email != null || password != null)
 		{
+			while (empleado == null && index < _empleados.Count)
+			{
 
-			if (_empleados[index].Email == email && _empleados[index].Password == password) empleado = _empleados[index];
-			index++;
+				if (_empleados[index].Email == email && _empleados[index].Password == password) empleado = _empleados[index];
+				index++;
+			}
 		}
 		return empleado;
 	}
@@ -65,7 +68,9 @@ public class Sistema
 	// Metodo para agregar Empleado al sistema
 	public bool AltaUsuario(string email, string password, string nombre, bool reside)
 	{
-		_empleados.Add(new Peon(reside, email, password, nombre, DateTime.Today));
+		Peon p = new Peon(reside, email, password, nombre, DateTime.Today);
+		p.Validar();
+		_empleados.Add(p);
 		return VerificarUsuario(email);
 
 	}
