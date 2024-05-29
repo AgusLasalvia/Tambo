@@ -52,6 +52,29 @@ public class Sistema
 		return empleado;
 	}
 
+	public bool AnimalEspecificoLibre(string codigo)
+	{
+		bool esLibre = false;
+		int i = 0;
+		while (!esLibre && i < _animales.Count)
+		{
+			if (_animales[i].Id == codigo && !_animales[i].Estado) esLibre = true;
+			i++;
+		}
+		return esLibre;
+	}
+
+	public bool LugarEnPotreroEspecifico(int id)
+	{
+		bool disponeLugar = false;
+		int i = 0;
+		while (!disponeLugar && i < _potreros.Count)
+		{
+			if (_potreros[i].Id == id && _potreros[i].CantidadMaxAnimales + 1 <= _potreros[i].CantidadMaxAnimales) disponeLugar = true;
+			i++;
+		}
+		return disponeLugar;
+	}
 
 	public bool VerificarUsuario(string email)
 	{
@@ -116,6 +139,45 @@ public class Sistema
 		{
 			throw new Exception("El animal ya existe");
 		}
+	}
+
+	//Metodo para agregar animal libre a un potrero en espesifico
+	public void AgregarAnimalAPotrero(string a, int p)
+	{
+		Animal animal = ObtenerAnimal(a);
+		int i = 0;
+		while (i < _potreros.Count)
+		{
+			if (LugarEnPotreroEspecifico(p) && AnimalEspecificoLibre(a) && _potreros[i].Id == p)
+			{
+				_potreros[i].Animales?.Add(animal);
+				_potreros[i].CantidadAnimalesPastan++;
+				animal.Estado = true;
+			}
+		}
+	}
+
+	public List<Potrero> ObtenerPotrerosDisponibles()
+	{
+		List<Potrero> buscados = new List<Potrero>();
+		foreach (Potrero p in _potreros)
+		{
+			if (LugarEnPotreroEspecifico(p.Id)) buscados.Add(p);
+		}
+		return buscados;
+	}
+
+	// Metodo para obteenr un animal mediante id
+	public Animal ObtenerAnimal(string a)
+	{
+		Animal animal = null;
+		int index = 0;
+		while (animal == null && index < _animales.Count)
+		{
+			if (_animales[index].Id == a) animal = _animales[index];
+			index++;
+		}
+		return animal;
 	}
 
 	public void AltaBovino(Bovino bovino)

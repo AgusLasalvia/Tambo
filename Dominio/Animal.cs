@@ -23,7 +23,16 @@ namespace Dominio
             }
         }
 
-
+        public bool Estado
+        {
+            get
+            {
+                return _estado;
+            }
+            set{
+                _estado = value;
+            }
+        }
 
         // Constructor de la clase Animal
         public Animal(TipoGenero genero, string raza, DateTime fechaNacimiento, double costoAdquisicion, double costoAlimentacion, double pesoActual, bool hibrido, List<Vacunacion> vacunas, bool estado)
