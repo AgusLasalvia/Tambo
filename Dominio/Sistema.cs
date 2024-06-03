@@ -19,6 +19,14 @@ public class Sistema
 		}
 	}
 
+	public List<Potrero> Potreros
+	{
+		get
+		{
+			return _potreros;
+		}
+	}
+
 	public List<Animal> Animales
 	{
 		get
@@ -64,7 +72,7 @@ public class Sistema
 		return esLibre;
 	}
 
-	public bool LugarEnPotreroEspecifico(int id)
+	public bool LugarEnPotreroDisponible(int id)
 	{
 		bool disponeLugar = false;
 		int i = 0;
@@ -148,7 +156,7 @@ public class Sistema
 		int i = 0;
 		while (i < _potreros.Count)
 		{
-			if (LugarEnPotreroEspecifico(p) && AnimalEspecificoLibre(a) && _potreros[i].Id == p)
+			if (LugarEnPotreroDisponible(p) && AnimalEspecificoLibre(a) && _potreros[i].Id == p)
 			{
 				_potreros[i].Animales?.Add(animal);
 				_potreros[i].CantidadAnimalesPastan++;
@@ -159,11 +167,13 @@ public class Sistema
 
 	public List<Potrero> ObtenerPotrerosDisponibles()
 	{
+
 		List<Potrero> buscados = new List<Potrero>();
 		foreach (Potrero p in _potreros)
 		{
-			if (LugarEnPotreroEspecifico(p.Id)) buscados.Add(p);
+			if (LugarEnPotreroDisponible(p.Id)) buscados.Add(p);
 		}
+		Console.WriteLine(buscados.Count);
 		return buscados;
 	}
 

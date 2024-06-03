@@ -1,4 +1,5 @@
 @*--------------- HTLM TEMPALTE DEL LOGIN ---------------*@
+@using Dominio;
 
 <section class="d-flex flex-column justify-content-center align-items-center text-center">
 	<div>
@@ -17,6 +18,14 @@
 						<p class="alert alert-success">@ViewBag.Exito</p>
 					}
 				}
+
+				<select name="" id="">
+					@foreach (Potrero p in ViewBag.Potreros)
+					{
+						<option value="@p.Id">Desc:@p.Descripcion || CantAnimales:@p.CantidadAnimalesPastan ||
+							MaxAnimales:@p.CantidadMaxAnimales</option>
+					}
+				</select>
 
 				<input type="submit" class="btn btn-primary" value="Ingresar">
 			</form>
