@@ -12,15 +12,32 @@ namespace Dominio
 		private double _ganancia;
 		private List<Animal>? _animales;
 
-
+		public int Id { get { return _id; } }
 		public int CantidadHectareas
 		{
 			get { return _cantidadHectareas; }
 		}
 
+		public string Descripcion
+		{
+			get { return _descripcion; }
+		}
+
+		public int CantidadAnimalesPastan
+		{
+			get { return _cantidadAnimalesPastan; }
+			set { _cantidadAnimalesPastan = value; }
+		}
+
 		public int CantidadMaxAnimales
 		{
 			get { return _cantidadMaxAnimales; }
+		}
+
+		public List<Animal>? Animales
+		{
+			get { return _animales; }
+			set { _animales = value; }
 		}
 
 		//Constructor
@@ -34,7 +51,6 @@ namespace Dominio
 			_cantidadHectareas = cantidadHectareas;
 			_cantidadMaxAnimales = cantidadMaxAnimales;
 		}
-
 		//Funcion para validar los datos ingresados por el usuario
 		public void Validar()
 		{
