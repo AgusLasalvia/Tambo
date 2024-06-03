@@ -8,14 +8,6 @@ public class PeonController : Controller
 	Sistema sistema = Sistema.instancia;
 
 
-	private readonly ILogger<PeonController> _logger;
-
-	public PeonController(ILogger<PeonController> logger)
-	{
-
-		_logger = logger;
-	}
-
 	[HttpGet]
 	public IActionResult PeonHome()
 	{

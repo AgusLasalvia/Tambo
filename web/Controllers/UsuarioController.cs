@@ -8,14 +8,6 @@ public class UsuarioController : Controller
 	Sistema sistema = Sistema.instancia;
 
 
-	private readonly ILogger<UsuarioController> _logger;
-
-	public UsuarioController(ILogger<UsuarioController> logger)
-	{
-
-		_logger = logger;
-	}
-
 	//-------------------------------------------------------------------//
 	// GET's
 	// ------------------------------------------------------------------// 

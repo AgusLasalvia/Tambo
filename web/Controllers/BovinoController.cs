@@ -8,16 +8,6 @@ public class BovinoController : Controller
 	Sistema sistema = Sistema.instancia;
 
 
-	private readonly ILogger<BovinoController> _logger;
-
-	public BovinoController(ILogger<BovinoController> logger)
-	{
-
-		_logger = logger;
-	}
-
-
-
 	//-------------------------------------------------------------------//
 	// GET's
 	// ------------------------------------------------------------------// 
