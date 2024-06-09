@@ -7,13 +7,17 @@ public class TareaController : Controller
 {
 	Sistema sistema = Sistema.instancia;
 
-
-
 	[HttpGet]
-	public ActionResult TareasIncompletas(){
+	public IActionResult TareasIncompletas(){
 		
 		return View();
 	}
 
+	[HttpGet]
+	public IActionResult TareasAPeon()
+	{
+		ViewBag.ListaPeones = sistema.ListarPeones();
+		return View();
+	}
 
 }

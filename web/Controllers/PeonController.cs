@@ -8,6 +8,14 @@ public class PeonController : Controller
 	Sistema sistema = Sistema.instancia;
 
 
+
+	[HttpGet]
+	public ActionResult ListaPeones()
+	{
+		ViewBag.Listado = sistema.ListarPeones();
+		return View();
+	}
+
 	[HttpGet]
 	public IActionResult PeonHome()
 	{

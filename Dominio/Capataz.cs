@@ -39,5 +39,10 @@ namespace Dominio
         {
             return base.GetHashCode();
         }
+
+        public override string GetTipo()
+        {
+            return "Capataz";
+        }
     }
 }

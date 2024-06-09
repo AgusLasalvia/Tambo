@@ -69,5 +69,7 @@ namespace Dominio
 		{
 			return base.GetHashCode();
 		}
+
+		public abstract string GetTipo();
 	}
 }

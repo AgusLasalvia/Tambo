@@ -1,0 +1,38 @@
+<h1>Aignar tarea</h1>
+
+<p><strong>Email:</strong></p>
+<p><strong>Nombre:</strong></p>
+<p><strong>Fecha de ingreso:</strong></p>
+@if (true)
+{
+    <p><strong>Nombre:</strong></p>
+}
+else
+{
+    <p><strong>Nombre:</strong></p>
+}
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Descripción</th>
+            <th>Fecha de apertura</th>
+            <th>Fecha de cierre</th>
+            <th><a href="" class="btn btn-primary">Asignar</a></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Tarea u in ViewBag.ListaTareasSinTerminar)
+        {
+            <tr>
+                <td>@u.Id</td>
+                <td>@u.Descripcion</td>
+                <td>@u.FechaPactada.ToString("dd/MM/yyyy")</td>
+                <td>@u.FechaCierre.ToString("dd/MM/yyyy")</td>
+                <td><a href="~/Usuario/UsuarioEspecifico?id=@u.Id">Asignar</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
