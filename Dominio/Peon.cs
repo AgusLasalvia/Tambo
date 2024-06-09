@@ -32,18 +32,11 @@ namespace Dominio
 			_tareas.Add(tarea);
 		}
 
-
-
-
-
 		//Funcion que sobre escribe la funcion ToString()
 		public override string ToString()
 		{
 			return base.ToString() + " Reside: " + _reside.ToString() + " Tareas: " + _tareas.Count.ToString();
 		}
-
-
-
 
 		//Funcion que sobre escribe la funcion Validar() de su clase padre
 		public override void Validar()
@@ -61,6 +54,11 @@ namespace Dominio
 		{
 			return base.GetHashCode();
 		}
+
+		public override string GetTipo(){
+			return "Peon";
+		}
+
 
 
 	}

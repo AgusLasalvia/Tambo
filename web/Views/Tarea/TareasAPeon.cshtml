@@ -7,18 +7,18 @@
             <th>Email</th>
             <th>Fecha de Ingreso</th>
             <th>Es residente</th>
-            <th>Detalles</th>
+            <th>Nueva tarea</th>
         </tr>
     </thead>
     <tbody>
-        @foreach (Peon u in ViewBag.Listado)
+        @foreach (Peon u in ViewBag.ListaPeones)
         {
             <tr>
                 <td>@u.Nombre</td>
                 <td>@u.Email</td>
                 <td>@u.FechaIngreso.ToString("dd/MM/yyyy")</td>
                 <td>@u.Reside</td>
-                <td><a href="~/Usuario/UsuarioEspecifico?id=@u.Email">Detalles</a></td>
+                <td><a href="~/Usuario/UsuarioEspecifico?id=@u.Email">Asignar</a></td>
             </tr>
         }
     </tbody>

@@ -15,6 +15,21 @@ namespace Dominio
 		private string _comentario;
 
 
+		public string Descripcion
+		{
+			get { return _descripcion; }
+		}
+
+		public DateTime FechaPactada
+		{
+			get { return _fechaPactada; }
+		}
+
+
+		public DateTime FechaCierre
+		{
+			get { return _fechaCierre; }
+		}
 
 		public bool Estado
 		{

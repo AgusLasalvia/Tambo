@@ -42,6 +42,7 @@ public class Sistema
 		UpdateAnimals();
 	}
 
+	//METODOS PARA EMPLEADO
 
 	// Login de Usarios
 	public Empleado? Login(string email, string password)
@@ -58,30 +59,6 @@ public class Sistema
 			}
 		}
 		return empleado;
-	}
-
-	public bool AnimalEspecificoLibre(string codigo)
-	{
-		bool esLibre = false;
-		int i = 0;
-		while (!esLibre && i < _animales.Count)
-		{
-			if (_animales[i].Id == codigo && !_animales[i].Estado) esLibre = true;
-			i++;
-		}
-		return esLibre;
-	}
-
-	public bool LugarEnPotreroDisponible(int id)
-	{
-		bool disponeLugar = false;
-		int i = 0;
-		while (!disponeLugar && i < _potreros.Count)
-		{
-			if (_potreros[i].Id == id && _potreros[i].CantidadMaxAnimales + 1 <= _potreros[i].CantidadMaxAnimales) disponeLugar = true;
-			i++;
-		}
-		return disponeLugar;
 	}
 
 	public bool VerificarUsuario(string email)
@@ -132,7 +109,30 @@ public class Sistema
 			}
 		}
 		return lista;
+	}
 
+	public List<Empleado> ListarPeones()
+	{
+		List<Empleado> buscados = new List<Empleado>();
+		foreach (Empleado p in _empleados)
+		{
+			if (p.GetTipo() == "Peon") buscados.Add(p);
+		}
+		return buscados;
+	}
+
+	//METODOS PARA ANIMAL
+
+	public bool AnimalEspecificoLibre(string codigo)
+	{
+		bool esLibre = false;
+		int i = 0;
+		while (!esLibre && i < _animales.Count)
+		{
+			if (_animales[i].Id == codigo && !_animales[i].Estado) esLibre = true;
+			i++;
+		}
+		return esLibre;
 	}
 
 	// Metodo para agregar Animal al sistema
@@ -165,18 +165,6 @@ public class Sistema
 		}
 	}
 
-	public List<Potrero> ObtenerPotrerosDisponibles()
-	{
-
-		List<Potrero> buscados = new List<Potrero>();
-		foreach (Potrero p in _potreros)
-		{
-			if (LugarEnPotreroDisponible(p.Id)) buscados.Add(p);
-		}
-		Console.WriteLine(buscados.Count);
-		return buscados;
-	}
-
 	// Metodo para obteenr un animal mediante id
 	public Animal ObtenerAnimal(string a)
 	{
@@ -200,13 +188,10 @@ public class Sistema
 		}
 	}
 
-	// Metodo para agregar Potrero al sistema
-	public void AgregarPotrero(Potrero potrero)
-	{
-		potrero.Validar();
-		_potreros?.Add(potrero);
-	}
 
+
+
+	//METODOS PARA VACUNA
 
 	// Metodo para agregar Vacuna al sistema
 	public void AgregarVacuna(Vacuna vacuna)
@@ -231,12 +216,47 @@ public class Sistema
 		}
 	}
 
+
+
+	//METODOS PARA POTRERO
+
+	public bool LugarEnPotreroDisponible(int id)
+	{
+		bool disponeLugar = false;
+		int i = 0;
+		while (!disponeLugar && i < _potreros.Count)
+		{
+			if (_potreros[i].Id == id && _potreros[i].CantidadMaxAnimales + 1 <= _potreros[i].CantidadMaxAnimales) disponeLugar = true;
+			i++;
+		}
+		return disponeLugar;
+	}
+
+	public List<Potrero> ObtenerPotrerosDisponibles()
+	{
+
+		List<Potrero> buscados = new List<Potrero>();
+		foreach (Potrero p in _potreros)
+		{
+			if (LugarEnPotreroDisponible(p.Id)) buscados.Add(p);
+		}
+		Console.WriteLine(buscados.Count);
+		return buscados;
+	}
+
 	// Metodo para recivir una lista especifica de Potreros
 	public List<Potrero> PotreroEspecifico()
 	{
 		int cantHectareas = 0;
 		int cantPotrero = 0;
 		return PotreroSegunHectareaYPotrero(cantHectareas, cantPotrero);
+	}
+
+	// Metodo para agregar Potrero al sistema
+	public void AgregarPotrero(Potrero potrero)
+	{
+		potrero.Validar();
+		_potreros?.Add(potrero);
 	}
 
 	// Metodo para recivir una lista especifica de Potreros
