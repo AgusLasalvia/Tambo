@@ -1,4 +1,6 @@
-﻿namespace Dominio;
+﻿using System.Net.Mail;
+
+namespace Dominio;
 // Clase Principal del Sistema
 public class Sistema
 {
@@ -96,6 +98,17 @@ public class Sistema
             i++;
         }
         return p;
+    }
+
+    public void AltaTarea(string email, string descripcion, DateTime fechaIngreso, DateTime fechaCierre)
+    {
+        if (fechaCierre <= fechaIngreso && fechaIngreso <= DateTime.Today) throw new Exception("Las fechas deben estar correctas");
+        Peon? p = PeonEspecifico(email);
+        if (p != null)
+        {
+            Tarea t = new Tarea(descripcion, fechaIngreso, false, fechaCierre, "");
+            p.AgregarTarea(t);
+        }
     }
 
     public List<Tarea> TareasIncompletas(string email)

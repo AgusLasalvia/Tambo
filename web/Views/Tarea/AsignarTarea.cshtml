@@ -1,45 +1,36 @@
-NO TIENE NADA QUE VER CON EL NOMBRE DE LA VIEW
-TareaIncompleta != TareasSinAsignar
-
-
-
-@* <h1>Aignar tarea</h1>
+<h1>Aignar tarea</h1>
 
 <p><strong>Email:</strong></p>
 <p><strong>Nombre:</strong></p>
 <p><strong>Fecha de ingreso:</strong></p>
-
-IF ELSE sin sentido
-@if (true)
+@* @if (true)
 {
     <p><strong>Nombre:</strong></p>
 }
 else
 {
     <p><strong>Nombre:</strong></p>
+} *@
+
+
+@if (ViewBag.Exito != null)
+{
+    <p class="alert alert-success">@ViewBag.Exito</p>
 }
+else
+{
+    <p class="alert alert-danger">@ViewBag.Error</p>
+}
+<form action="AsignarTarea" method="post">
+    <input type="text" name="email" value="" hidden>
+    <label for="">Descripción</label>
+    <textarea class="form-control " name="descripcion"></textarea>
 
+    <label for="">Fecha Apertura</label>
+    <input class="form-control " name="fechaIngreso" type="date">
 
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Descripción</th>
-            <th>Fecha de apertura</th>
-            <th>Fecha de cierre</th>
-            <th><a href="" class="btn btn-primary">Asignar</a></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (Tarea u in ViewBag.ListaTareasSinTerminar)
-        {
-            <tr>
-                <td>@u.Id</td>
-                <td>@u.Descripcion</td>
-                <td>@u.FechaPactada.ToString("dd/MM/yyyy")</td>
-                <td>@u.FechaCierre.ToString("dd/MM/yyyy")</td>
-                <td><a class="btn btn-primary" href="~/Usuario/UsuarioEspecifico?id=@u.Id">Asignar</a></td>
-            </tr>
-        }
-    </tbody>
-</table> *@
+    <label for="">Fecha Cierre</label>
+    <input class="form-control " name="fechaCierre" type="date">
+
+    <input class="form-control btn btn-primary " type="submit" value="Crear Tarea">
+</form>
