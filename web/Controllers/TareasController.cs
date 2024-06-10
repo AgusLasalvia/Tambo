@@ -17,10 +17,37 @@ public class TareaController : Controller
     }
 
     [HttpGet]
+    public IActionResult AsignarTarea()
+    {
+        return View();
+    }
+
+    [HttpGet]
     public IActionResult TareasIncompletas(string email)
     {
         ViewBag.ListaTareasSinTerminar = sistema.TareasIncompletas(email);
         return View();
+    }
+
+
+
+
+
+    [HttpPost]
+    public IActionResult AsignarTarea(string email, string descripcion, DateTime fechaIngreso, DateTime fechaCierre)
+    {
+        try
+        {
+            if (string.IsNullOrEmpty(descripcion) || string.IsNullOrEmpty(email)) throw new Exception("Datos nulos, revisar");
+            sistema.AltaTarea(email, descripcion, fechaIngreso, fechaCierre);
+            ViewBag.Exito = "Tarea creada correctamente";
+            return View("AsignarTarea");
+        }
+        catch (Exception ex)
+        {
+            ViewBag.Error = ex.Message;
+            return View("AsignarTarea");
+        }
     }
 
 }
