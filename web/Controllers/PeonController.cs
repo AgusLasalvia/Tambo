@@ -10,15 +10,15 @@ public class PeonController : Controller
 
 
 	[HttpGet]
-	public ActionResult ListaPeones()
+	public IActionResult Home()
 	{
-		ViewBag.Listado = sistema.ListarPeones();
 		return View();
 	}
 
 	[HttpGet]
-	public IActionResult PeonHome()
+	public ActionResult ListaPeones()
 	{
+		ViewBag.Listado = sistema.ListarPeones();
 		return View();
 	}
 

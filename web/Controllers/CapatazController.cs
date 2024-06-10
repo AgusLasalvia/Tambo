@@ -7,4 +7,9 @@ public class CapatazController : Controller
 {
 	Sistema sistema = Sistema.instancia;
 
+    public IActionResult Home()
+    {
+        return View();
+    }
+
 }

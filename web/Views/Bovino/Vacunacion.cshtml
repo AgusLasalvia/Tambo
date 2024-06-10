@@ -1,12 +1,12 @@
 @* Animal Select para vacunacion *@
 <select name="">
-	@foreach (Animal a in ViewBag.Animales)
-	{
-		<option value="@a.Id">@a.Id</option>
-	}
+    @foreach (Animal a in ViewBag.Animales)
+    {
+        <option value="@a.Id">@a.Id</option>
+    }
 </select>
 
 @if (ViewBag.VacunacionExito != null)
 {
-	<p class="alert alert-success">@ViewBag.VacunacionExito</p>
+    <p class="alert alert-success">@ViewBag.VacunacionExito</p>
 }

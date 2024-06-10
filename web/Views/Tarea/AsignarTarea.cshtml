@@ -1,8 +1,15 @@
-<h1>Aignar tarea</h1>
+NO TIENE NADA QUE VER CON EL NOMBRE DE LA VIEW
+TareaIncompleta != TareasSinAsignar
+
+
+
+@* <h1>Aignar tarea</h1>
 
 <p><strong>Email:</strong></p>
 <p><strong>Nombre:</strong></p>
 <p><strong>Fecha de ingreso:</strong></p>
+
+IF ELSE sin sentido
 @if (true)
 {
     <p><strong>Nombre:</strong></p>
@@ -31,8 +38,8 @@ else
                 <td>@u.Descripcion</td>
                 <td>@u.FechaPactada.ToString("dd/MM/yyyy")</td>
                 <td>@u.FechaCierre.ToString("dd/MM/yyyy")</td>
-                <td><a href="~/Usuario/UsuarioEspecifico?id=@u.Id">Asignar</a></td>
+                <td><a class="btn btn-primary" href="~/Usuario/UsuarioEspecifico?id=@u.Id">Asignar</a></td>
             </tr>
         }
     </tbody>
-</table>
+</table> *@
