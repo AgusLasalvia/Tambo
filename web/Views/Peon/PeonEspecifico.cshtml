@@ -1,0 +1,56 @@
+<div class="">
+	<div class=" grid">
+		<div>
+			<label for="nombre">Nombre</label><br>
+			<input name="nombre" type="text" class="form-control" readonly value="@ViewBag.Peon.Nombre">
+		</div>
+		<div>
+			<label for="email">Email</label><br>
+			<input name="email" type="text" class="form-control" readonly value="@ViewBag.Peon.Email"><br>
+		</div>
+		<div>
+			<label for="password">Password</label><br>
+			<input name="password" type="text" class="form-control" readonly value="@ViewBag.Peon.Password">
+		</div>
+		<div>
+			<label for="fechaIngreso">Fecha Ingreso</label><br>
+			<input name="fechaIngreso" type="text" class="form-control"
+				value="@ViewBag.Peon.FechaIngreso.ToString("dd/mm/yyyy")" readonly>
+		</div>
+	</div>
+
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Descripción</th>
+				<th>Fecha de apertura</th>
+				<th>Fecha de cierre</th>
+				<th>Estado</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (Tarea t in ViewBag.Peon.Tareas)
+			{
+				<tr>
+					<td>@t.Id</td>
+					<td>@t.Descripcion</td>
+					<td>@t.FechaPactada.ToString("dd/MM/yyyy")</td>
+					<td>@t.FechaCierre.ToString("dd/MM/yyyy")</td>
+					<td>@t.Estado</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+</div>
+
+
+<style>
+	div label {}
+
+	.grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 5px;
+	}
+</style>

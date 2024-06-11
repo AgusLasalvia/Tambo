@@ -16,7 +16,6 @@ public class UsuarioController : Controller
 	[HttpGet]
 	public IActionResult Index()
 	{
-
 		return Redirect("~/Usuario/Login");
 	}
 
@@ -30,6 +29,12 @@ public class UsuarioController : Controller
 		return View();
 	}
 
+	[HttpGet]
+	public IActionResult Logout()
+	{
+		HttpContext.Session.Clear();
+		return Redirect("~/Usuario/Login");
+	}
 
 
 	// Funciones para el Registro
@@ -49,6 +54,7 @@ public class UsuarioController : Controller
 	public IActionResult BuscarUsuario(string email, string password)
 	{
 		Empleado? empleado = sistema.Login(email, password);
+		Console.WriteLine(empleado);
 		if (empleado == null)
 		{
 			TempData["LoginError"] = "Usuario no encontrado";
@@ -56,9 +62,13 @@ public class UsuarioController : Controller
 		}
 		if (empleado is Peon)
 		{
-			return RedirectToAction("PeonHome", "Peon");
+			HttpContext.Session.SetString("NombreUsuario", empleado.Nombre);
+			HttpContext.Session.SetString("Email", empleado.Email);
+			return RedirectToAction("Home", "Peon");
 
 		}
+		HttpContext.Session.SetString("NombreUsuario", empleado.Nombre);
+		HttpContext.Session.SetString("Email", empleado.Email);
 		return RedirectToAction("CapatazHome", "Capataz");
 
 	}

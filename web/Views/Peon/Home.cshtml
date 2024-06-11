@@ -1,41 +1,49 @@
+@using Microsoft.AspNetCore.Http
+
 <section>
-    <div>
-        <h1>Bienvenido Peón: </h1>
-        <div class="icons-grid">
-            <article></article>
-            <article></article>
-            <article></article>
-            <article></article>
-            <article></article>
-            <article></article>
-        </div>
-    </div>
+	<div>
+		<h1>Bienvenido Peón: </h1>
+		<div class="icons-grid">
+			<article>
+				<a href="~/Peon/PeonEspecifico?email=@Context.Session.GetString("Email")">Mis Datos</a>
+			</article>
+			<article>
+				<a href="~/Bovino/Vacunacion">Registrar Vacunacion</a>
+			</article>
+			<article>
+				<a href="~/Tarea/TareasIncompletas">Tareas Incompletas</a>
+			</article>
+			<article>
+				<a href="~/Usuario/Logout">Cerrar Sesion</a>
+			</article>
+		</div>
+	</div>
 </section>
 
 <style>
-    section {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 80vh;
-    }
+	section {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 80vh;
+	}
 
-    section>div {
-        width: 100%;
-        max-width: 1000px;
-    }
+	section>div {
+		width: 100%;
+		max-width: 1000px;
+	}
 
-    .icons-grid{
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        justify-content: space-between;
-        align-items: center;
-        grid-row-gap: 20px;
-    }
+	.icons-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		justify-content: space-between;
+		align-items: center;
+		grid-row-gap: 20px;
+	}
 
-    .icons-grid article{
-        background-color: red;
-        width: 200px;
-        height: 200px;
-    }
+	.icons-grid article {
+		background-color: red;
+		width: 200px;
+		height: 200px;
+	}
 </style>

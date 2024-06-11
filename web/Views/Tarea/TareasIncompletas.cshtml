@@ -1,23 +1,23 @@
 <table class="table table-striped">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Descripción</th>
-            <th>Fecha de apertura</th>
-            <th>Fecha de cierre</th>
-            <th><a href="" class="btn btn-primary">Asignar</a></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (Tarea u in ViewBag.ListaTareasSinTerminar)
-        {
-            <tr>
-                <td>@u.Id</td>
-                <td>@u.Descripcion</td>
-                <td>@u.FechaPactada.ToString("dd/mm/yyyy")</td>
-                <td>@u.FechaCierre.ToString("dd/mm/yyyy")</td>
-                <td><input type="button" value="Terminar" class="btn btn-primary"></td>
-            </tr>
-        }
-    </tbody>
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>Descripción</th>
+			<th>Fecha de apertura</th>
+			<th>Fecha de cierre</th>
+			<th><a href="" class="btn btn-primary">Asignar</a></th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (Tarea u in ViewBag.ListaTareasSinTerminar)
+		{
+			<tr>
+				<td>@u.Id</td>
+				<td>@u.Descripcion</td>
+				<td>@u.FechaPactada.ToString("dd/mm/yyyy")</td>
+				<td>@u.FechaCierre.ToString("dd/mm/yyyy")</td>
+				<td><input type="button" value="Terminar" class="btn btn-primary"></td>
+			</tr>
+		}
+	</tbody>
 </table>

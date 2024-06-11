@@ -7,22 +7,10 @@ public class PotrerosController : Controller
 {
     Sistema miSistema = Sistema.instancia;
 
-    private readonly ILogger<PotrerosController> _logger;
-
-    public PotrerosController(ILogger<PotrerosController> logger)
-    {
-        _logger = logger;
-    }
-
-    public IActionResult Index()
-    {
-        return View();
-    }
-
-
     //-------------------------------------------------------------------//
     // GET's
     // ------------------------------------------------------------------// 
+
     [HttpGet]
     public IActionResult AnimalAPotrero()
     {
