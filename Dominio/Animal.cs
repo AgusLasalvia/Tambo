@@ -12,6 +12,7 @@ namespace Dominio
         protected double _costoAlimentacion;
         protected double _pesoActual;
         protected bool _hibrido;
+        protected double _ganancia = 0;
         protected List<Vacunacion>? _vacunas;
         protected bool _estado;
 
@@ -23,6 +24,16 @@ namespace Dominio
             }
         }
 
+        public double PesoActual
+        {
+            get { return _pesoActual; }
+        }
+
+        public TipoGenero Genero
+        {
+            get { return _genero; }
+        }
+
         public bool Estado
         {
             get
@@ -31,6 +42,22 @@ namespace Dominio
             }
             set{
                 _estado = value;
+            }
+        }
+
+        public double CostoAdquisicion
+        {
+            get
+            {
+                return _costoAdquisicion;
+            }
+        }
+
+        public double Ganancia
+        {
+            get
+            {
+                return _ganancia;
             }
         }
 
@@ -106,7 +133,13 @@ namespace Dominio
         }
 
 
+        public abstract string GetTipo();
 
+        public virtual double CalcularGanancia()
+        {
+            _ganancia = _costoAdquisicion + _costoAlimentacion + (200 * _vacunas.Count);
+            return _ganancia;
+        }
     }
 
 

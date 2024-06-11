@@ -6,11 +6,12 @@ namespace Dominio
 	{
 		//  Propiedades de la clase Bovino
 		private TipoAlimentacion _tipoAlimentacion;
-		private static double _pesoKilo = 0;
+		private static double _precioKilo = 0;
 
-		private double _ganancia;
-        public double Ganancia{
-            get{
+		public double Ganancia
+		{
+			get
+			{
                 return _ganancia;
             }
             set{
@@ -18,9 +19,9 @@ namespace Dominio
             }
         }
 
-		public double PesoKilo
+		public double PrecioKilo
 		{
-			set { _pesoKilo = value; }
+			set { _precioKilo = value; }
 		}
 
 		//  Constructor de la clase Bovino
@@ -31,12 +32,7 @@ namespace Dominio
 			_tipoAlimentacion = tipoAliemntacion;
 		}
 
-		public double CalcularGanancia()
-		{
-			_ganancia = 0;
 
-			return _ganancia;
-		}
 
 
 		public override void Validar()
@@ -47,7 +43,7 @@ namespace Dominio
 
 		public override string ToString()
 		{
-			return base.ToString() + " Tipo de alimentacion: " + _tipoAlimentacion.ToString() + " Peso por kilo: " + _pesoKilo.ToString() + " Ganancia: " + _ganancia.ToString();
+			return base.ToString() + " Tipo de alimentacion: " + _tipoAlimentacion.ToString() + " Peso por kilo: " + _precioKilo.ToString() + " Ganancia: " + _ganancia.ToString();
 		}
 
 		public override bool Equals(object? obj)
@@ -58,6 +54,21 @@ namespace Dominio
 		public override int GetHashCode()
 		{
 			return base.GetHashCode();
+		}
+
+		public override string GetTipo()
+		{
+			return "Bovino";
+		}
+
+		public override double CalcularGanancia()
+		{
+			_ganancia = base.CalcularGanancia();
+			_ganancia += _precioKilo * _pesoActual;
+			if (_tipoAlimentacion == TipoAlimentacion.Grano) _ganancia += _ganancia * 0.30;
+			if (_genero == TipoGenero.Hembra) _ganancia += _ganancia * 0.10;
+
+			return _ganancia;
 		}
 	}
 }

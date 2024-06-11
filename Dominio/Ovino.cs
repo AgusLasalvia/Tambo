@@ -11,7 +11,6 @@ namespace Dominio
 		private static double _precioOvino = 0.0;
 		private double _pesoKilo;
 
-		private double _ganancia;
 
 		// Setter de la propiedad PrecioLana
 		public static double PrecioLana
@@ -45,11 +44,6 @@ namespace Dominio
 			_pesoKilo = pesoKilo;
 		}
 
-		// Metodo para calcular la ganancia de un ovino
-		public double CalcularGanancia()
-		{
-			return _ganancia;
-		}
 
 		// Metodo para Validar datos del Ovino
 		public override void Validar()
@@ -73,6 +67,19 @@ namespace Dominio
 		public override int GetHashCode()
 		{
 			return base.GetHashCode();
+		}
+
+		public override string GetTipo()
+		{
+			return "Ovino";
+		}
+
+		public override double CalcularGanancia()
+		{
+			_ganancia = base.CalcularGanancia();
+			_ganancia += (_pesoKilo * _precioLana) + (_precioOvino * _pesoActual);
+			if (_hibrido) _ganancia *= 0.95;
+			return _ganancia;
 		}
 	}
 }

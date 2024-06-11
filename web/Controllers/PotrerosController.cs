@@ -12,6 +12,14 @@ public class PotrerosController : Controller
     // ------------------------------------------------------------------// 
 
     [HttpGet]
+    public IActionResult ListaPotreros()
+    {
+        ViewBag.Potreros = miSistema.Potreros;
+        ViewBag.Potreros.Sort();
+        return View();
+    }
+
+    [HttpGet]
     public IActionResult AnimalAPotrero()
     {
         ViewBag.Potreros = miSistema.ObtenerPotrerosDisponibles();

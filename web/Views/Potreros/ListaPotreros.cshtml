@@ -1,0 +1,25 @@
+<h1>Lista de Potreros</h1>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Descripción</th>
+            <th>Cant Hectareas</th>
+            <th>Max Animales</th>
+            <th>Cant Actual Animales</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Potrero p in ViewBag.Potreros)
+        {
+            <tr>
+                <td>@p.Id</td>
+                <td>@p.Descripcion</td>
+                <td>@p.CantidadHectareas</td>
+                <td>@p.CantidadMaxAnimales</td>
+                <td>@p.CantidadAnimalesPastan</td>
+            </tr>
+        }
+    </tbody>
+</table>
