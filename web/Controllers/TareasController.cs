@@ -19,8 +19,9 @@ public class TareaController : Controller
 	}
 
 	[HttpGet]
-	public IActionResult AsignarTarea()
+	public IActionResult AsignarTarea(string id)
 	{
+		ViewBag.PeonEspecifico = sistema.PeonEspecifico(id);
 		return View();
 	}
 
@@ -42,13 +43,13 @@ public class TareaController : Controller
 		{
 			if (string.IsNullOrEmpty(descripcion) || string.IsNullOrEmpty(email)) throw new Exception("Datos nulos, revisar");
 			sistema.AltaTarea(email, descripcion, fechaIngreso, fechaCierre);
-			ViewBag.Exito = "Tarea creada correctamente";
-			return View("AsignarTarea");
+			TempData["Exito"] = "Tarea creada correctamente";
+			return RedirectToAction("ListaPeones", "Peon");
 		}
 		catch (Exception ex)
 		{
-			ViewBag.Error = ex.Message;
-			return View("AsignarTarea");
+			TempData["Error"] = ex.Message;
+			return RedirectToAction("AsignarTarea/", "Peon");
 		}
 	}
 

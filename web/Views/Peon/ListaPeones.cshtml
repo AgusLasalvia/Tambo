@@ -1,5 +1,23 @@
 <h1>Lista de Peones</h1>
 
+
+
+@if (ViewBag.Listado == null || ViewBag.Listado.Count == 0)
+{
+    <p class="alert alert-danger">No hay peones registrados</p>
+
+}
+else
+{
+
+    @if (ViewBag.Exito != null)
+    {
+        <div class="alert alert-success">@ViewBag.Exito</div>
+    }
+    else if (ViewBag.Error != null)
+    {
+        <div class="alert alert-danger">@ViewBag.Error</div>
+    }
 <table class="table table-striped">
     <thead>
         <tr>
@@ -7,7 +25,8 @@
             <th>Email</th>
             <th>Fecha de Ingreso</th>
             <th>Es residente</th>
-            <th>Detalles</th>
+            <th>Acciones</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -18,8 +37,10 @@
                 <td>@u.Email</td>
                 <td>@u.FechaIngreso.ToString("dd/MM/yyyy")</td>
                 <td>@u.Reside</td>
-                <td><a href="~/Peon/PeonEspecifico?email=@u.Email">Detalles</a></td>
+                    <td><a class="btn btn-primary" href="~/Peon/PeonEspecifico?email=@u.Email">Detalles</a></td>
+                    <td><a class="btn btn-primary" href="~/tarea/AsignarTarea/@u.Email">Asignar Tarea</a></td>
             </tr>
         }
     </tbody>
 </table>
+}

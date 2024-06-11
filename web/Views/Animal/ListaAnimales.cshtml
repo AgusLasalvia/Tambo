@@ -1,0 +1,38 @@
+<h1>Filtrar animales segun peso</h1>
+
+<form action="ListaAnimales" method="post">
+    <label for="">Tipo de animal</label>
+    <select>
+        <option value="ovino">Ovino</option>
+        <option value="bovino">Bovino</option>
+    </select>
+    <label for="">Peso</label>
+    <input class="form-control " type="number" name="peso">
+    <input type="submit" class="btn btn-primary" value="Buscar">
+</form>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Tipo de animal</th>
+            <th>Peso Actual</th>
+            <th>Sexo</th>
+            <th>Posible ganancia</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Animal a in ViewBag.Animales)
+        {
+            <tr>
+                <td>@a.Id</td>
+                <td>@a.GetTipo()</td>
+                <td>@a.PesoActual</td>
+                <td>@a.Genero</td>
+                <td>@a.CalcularGanancia()</td>
+                <td>@a.CostoAdquisicion</td>
+
+            </tr>
+        }
+    </tbody>
+</table>

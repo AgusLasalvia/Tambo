@@ -1,36 +1,57 @@
-<h1>Aignar tarea</h1>
+@using Dominio;
 
-<p><strong>Email:</strong></p>
-<p><strong>Nombre:</strong></p>
-<p><strong>Fecha de ingreso:</strong></p>
-@* @if (true)
+
+@if (ViewBag.Peon == "")
 {
-    <p><strong>Nombre:</strong></p>
+    <div class="alert alert-danger">No se encontro el peon</div>
 }
 else
 {
-    <p><strong>Nombre:</strong></p>
-} *@
+    Peon p = ViewBag.PeonEspecifico;
+
+    <h1>Asignar tarea a @p.Nombre</h1>
+    <br>
+
+    <p><strong>Email: </strong>@p.Email</p>
+    <p><strong>Fecha de ingreso: </strong>@p.FechaIngreso.ToString("dd/MM/yyyy")</p>
+
+    @* <table class="table table-striped">
+<thead>
+<tr>
+<th>ID</th>
+<th>Descripción</th>
+<th>Fecha de apertura</th>
+<th>Fecha de cierre</th>
+<th>Estado</th>
+</tr>
+</thead>
+<tbody>
+@foreach (Tarea t in p.Tareas)
+{
+<tr>
+<td>@t.Id</td>
+<td>@t.Descripcion</td>
+<td>@t.FechaPactada.ToString("dd/MM/yyyy")</td>
+<td>@t.FechaCierre.ToString("dd/MM/yyyy")</td>
+<td>@t.Estado</td>
+</tr>
+}
+</tbody>
+</table> *@
 
 
-@if (ViewBag.Exito != null)
-{
-    <p class="alert alert-success">@ViewBag.Exito</p>
-}
-else
-{
-    <p class="alert alert-danger">@ViewBag.Error</p>
-}
-<form action="AsignarTarea" method="post">
-    <input type="text" name="email" value="" hidden>
+
+    <form action="AsignarTarea" method="post">
+    <input type="text" name="email" value="@p.Email" hidden>
     <label for="">Descripción</label>
-    <textarea class="form-control " name="descripcion"></textarea>
+    <textarea class="form-control " name="descripcion" required></textarea>
 
     <label for="">Fecha Apertura</label>
-    <input class="form-control " name="fechaIngreso" type="date">
+    <input class="form-control " name="fechaIngreso" type="date" required>
 
     <label for="">Fecha Cierre</label>
-    <input class="form-control " name="fechaCierre" type="date">
+    <input class="form-control " name="fechaCierre" type="date" required>
 
     <input class="form-control btn btn-primary " type="submit" value="Crear Tarea">
 </form>
+}

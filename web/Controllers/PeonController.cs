@@ -19,6 +19,8 @@ public class PeonController : Controller
 	public ActionResult ListaPeones()
 	{
 		ViewBag.Listado = sistema.ListarPeones();
+		if (TempData["Error"] != null) ViewBag.Error = TempData["Error"];
+		if (TempData["Exito"] != null) ViewBag.Exito = TempData["Exito"];
 		return View();
 	}
 

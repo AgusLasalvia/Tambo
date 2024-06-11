@@ -1,6 +1,6 @@
 namespace Dominio
 {
-	public class Potrero : IValidable
+	public class Potrero : IComparable, IValidable
 	{
 		private int _id;
 		private int s_ultId = 1;
@@ -114,6 +114,20 @@ namespace Dominio
 		public override bool Equals(object? obj)
 		{
 			return base.Equals(obj);
+		}
+
+		public int CompareTo(object? obj)
+		{
+			Potrero? other = obj as Potrero;
+
+			int comparacion = this._cantidadMaxAnimales.CompareTo(other._cantidadMaxAnimales);
+
+			if (comparacion == 0)
+			{
+				comparacion = this._cantidadAnimalesPastan.CompareTo(other._cantidadAnimalesPastan) * -1;
+			}
+
+			return comparacion;
 		}
 
 		public override int GetHashCode()
