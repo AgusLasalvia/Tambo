@@ -1,6 +1,6 @@
 namespace Dominio
 {
-	public class Potrero : IComparable, IValidable
+	public class Potrero : IComparable<Potrero>, IValidable
 	{
 		private int _id;
 		private int s_ultId = 1;
@@ -9,7 +9,6 @@ namespace Dominio
 		private int _cantidadMaxAnimales;
 		private int _cantidadAnimalesPastan;
 
-		private double _ganancia;
 		private List<Animal>? _animales;
 
 		public int Id { get { return _id; } }
@@ -81,30 +80,6 @@ namespace Dominio
 			}
 		}
 
-
-		/* 
-
-		//Esta funcion lo que hara es calcular la ganancia del animal
-
-		public double CalcularGanancia()
-		{
-			_ganancia = 0;
-			foreach (Animal animal in _animales)
-			{
-				if (animal is Bovino)
-				{
-					_ganancia += ((Bovino)animal).CalcularGanancia();
-				}
-				else if (animal is Ovino)
-				{
-					_ganancia += ((Ovino)animal).CalcularGanancia();
-				}
-			}
-			return _ganancia;
-		}
-		*/
-
-
 		//Funcion Validar() que valida los datos ingresados por el usuario 
 		public override string ToString()
 		{
@@ -116,23 +91,16 @@ namespace Dominio
 			return base.Equals(obj);
 		}
 
-		public int CompareTo(object? obj)
+		public int CompareTo(Potrero other)
 		{
-			Potrero? other = obj as Potrero;
-
-			int comparacion = this._cantidadMaxAnimales.CompareTo(other._cantidadMaxAnimales);
+			int comparacion = this._cantidadMaxAnimales.CompareTo(other?._cantidadMaxAnimales);
 
 			if (comparacion == 0)
 			{
-				comparacion = this._cantidadAnimalesPastan.CompareTo(other._cantidadAnimalesPastan) * -1;
+				comparacion = this._cantidadAnimalesPastan.CompareTo(other?._cantidadAnimalesPastan) * -1;
 			}
 
 			return comparacion;
-		}
-
-		public override int GetHashCode()
-		{
-			return base.GetHashCode();
 		}
 	}
 }

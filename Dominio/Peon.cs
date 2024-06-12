@@ -50,10 +50,10 @@ namespace Dominio
 			return base.Equals(obj);
 		}
 
-		public override int GetHashCode()
-		{
-			return base.GetHashCode();
-		}
+		// public override int GetHashCode()
+		// {
+		// 	return base.GetHashCode();
+		// }
 
 		public override string GetTipo(){
 			return "Peon";
