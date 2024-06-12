@@ -1,16 +1,22 @@
 <h1>Filtrar animales segun peso</h1>
 
-<form action="ListaAnimales" method="post">
+<form action="~/Animal/ListaAnimalesPorPeso" method="get">
     <label for="">Tipo de animal</label>
-    <select>
-        <option value="ovino">Ovino</option>
-        <option value="bovino">Bovino</option>
+    <select class="form-control" name="tipoAnimal">
+        <option value="Ovino">Ovino</option>
+        <option value="Bovino">Bovino</option>
     </select>
     <label for="">Peso</label>
     <input class="form-control " type="number" name="peso">
     <input type="submit" class="btn btn-primary" value="Buscar">
 </form>
 
+@if (ViewBag.Animales == null || ViewBag.Animales.Count == 0)
+{
+    <p class="alert alert-danger">No se encontraron animales</p>
+}
+else
+{
 <table class="table table-striped">
     <thead>
         <tr>
@@ -29,10 +35,9 @@
                 <td>@a.GetTipo()</td>
                 <td>@a.PesoActual</td>
                 <td>@a.Genero</td>
-                <td>@a.CalcularGanancia()</td>
-                <td>@a.CostoAdquisicion</td>
-
+                    <td>@a.CalcularGanancia()</td>
             </tr>
         }
     </tbody>
 </table>
+}
