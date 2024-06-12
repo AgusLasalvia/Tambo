@@ -37,9 +37,5 @@ namespace Dominio
             return base.Equals(obj);
         }
 
-        public override int GetHashCode()
-        {
-            return base.GetHashCode();
-        }
     }
 }

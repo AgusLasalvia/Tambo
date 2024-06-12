@@ -1,3 +1,5 @@
+@using Dominio;
+
 <div class="">
 	<br>
 	<h1>@ViewBag.Peon.Nombre</h1>
@@ -18,7 +20,7 @@
 		<div>
 			<label for="fechaIngreso">Fecha Ingreso</label><br>
 			<input name="fechaIngreso" type="text" class="form-control"
-				value="@ViewBag.Peon.FechaIngreso.ToString("dd/mm/yyyy")" readonly>
+				value="@ViewBag.Peon.FechaIngreso.ToString("dd/MM/yyyy")" readonly>
 		</div>
 	</div>
 	<br>

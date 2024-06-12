@@ -146,8 +146,6 @@ public class Sistema
 
 	public List<Animal> AnimalesPorTipoYPeso(double p, string t)
 	{
-		Console.WriteLine(t);
-		Console.WriteLine(p);
 		List<Animal> buscados = new List<Animal>();
 		foreach (Animal a in _animales)
 		{
@@ -280,7 +278,7 @@ public class Sistema
 		return buscados;
 	}
 
-	// Metodo para recivir una lista especifica de Potreros
+	// Metodo para recibir una lista especifica de Potreros
 	public List<Potrero> PotreroEspecifico()
 	{
 		int cantHectareas = 0;

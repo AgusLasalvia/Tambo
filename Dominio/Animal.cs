@@ -141,7 +141,4 @@ namespace Dominio
             return _ganancia;
         }
     }
-
-
-
 }
