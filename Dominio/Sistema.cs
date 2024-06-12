@@ -139,7 +139,25 @@ public class Sistema
 		return buscados;
 	}
 
+
+
+
 	//METODOS PARA ANIMAL
+
+	public List<Animal> AnimalesPorTipoYPeso(double p, string t)
+	{
+		Console.WriteLine(t);
+		Console.WriteLine(p);
+		List<Animal> buscados = new List<Animal>();
+		foreach (Animal a in _animales)
+		{
+			if (a.GetTipo() == t && p < a.PesoActual) buscados.Add(a);
+		}
+
+		return buscados;
+	}
+
+
 
 	public bool AnimalEspecificoLibre(string codigo)
 	{
