@@ -1,6 +1,8 @@
+@using Microsoft.AspNetCore.Http;
+
 <section>
     <div>
-        <h1>Bienvenido Capataz: </h1>
+        <h1>Bienvenido Capataz: @Context.Session.GetString("NombreUsuario") </h1>
         <div class="icons-grid">
             <article></article>
             <article></article>
