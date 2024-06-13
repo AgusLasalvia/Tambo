@@ -70,7 +70,7 @@ public class UsuarioController : Controller
 		}
 		HttpContext.Session.SetString("NombreUsuario", empleado.Nombre);
 		HttpContext.Session.SetString("Email", empleado.Email);
-		return RedirectToAction("CapatazHome", "Capataz");
+		return RedirectToAction("Home", "Capataz");
 
 	}
 
