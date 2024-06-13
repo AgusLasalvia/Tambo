@@ -51,7 +51,7 @@ public class Sistema
 	{
 		Empleado? empleado = null;
 		int index = 0;
-		if (email != null || password != null)
+		if (!string.IsNullOrEmpty(email) && !string.IsNullOrEmpty(password))
 		{
 			while (empleado == null && index < _empleados.Count)
 			{
@@ -76,7 +76,7 @@ public class Sistema
 	}
 
 	// Metodo para agregar Empleado al sistema
-	public bool AltaUsuario(string email, string password, string nombre, bool reside)
+	public bool AltaUsuario( string nombre,string email, string password, bool reside)
 	{
 		Peon p = new Peon(reside, email, password, nombre, DateTime.Today);
 		p.Validar();
