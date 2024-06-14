@@ -1,43 +1,79 @@
 @using Microsoft.AspNetCore.Http;
-
 <section>
     <div>
         <h1>Bienvenido Capataz: @Context.Session.GetString("NombreUsuario") </h1>
         <div class="icons-grid">
-            <article></article>
-            <article></article>
-            <article></article>
-            <article></article>
-            <article></article>
-            <article></article>
+            <article>
+                <a href="~/Bovino/RegistroBovino">Registrar Bovino</a>
+            </article>
+            <article>
+                <a href="~/Potreros/AnimalAPotrero">Asignar Animal a Potrero</a>
+            </article>
+            <article>
+                <a href="~/Peon/ListaPeones">Lista de Peones</a>
+            </article>
+            <article>
+                <a href="~/Animal/ListaAnimales">Animales Según Peso</a>
+            </article>
+            <article>
+                <a href="~/Usuario/Logout">Cerrar Sesion</a>
+            </article>
         </div>
     </div>
 </section>
 
 <style>
+    body {
+        background: url(https://images.unsplash.com/photo-1566040924976-f837330d1a5b?q=80&w=3174&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D) center center;
+    }
+
     section {
         display: flex;
         justify-content: center;
         align-items: center;
         height: 80vh;
+        col
+    }
+
+    h1 {
+        text-align: center;
+        margin-bottom: 80px;
     }
 
     section>div {
         width: 100%;
         max-width: 1000px;
+        background: #ffffffa3;
+        padding: 50px 0;
+        border-radius: 10px;
     }
 
     .icons-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        justify-content: space-between;
-        align-items: center;
+        justify-items: center;
         grid-row-gap: 20px;
     }
 
     .icons-grid article {
-        background-color: red;
-        width: 200px;
-        height: 200px;
+        background-color: #48bf78;
+        width: 100%;
+        max-width: 150px;
+        aspect-ratio: 1/1;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+
+
+    .icons-grid article a {
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+        height: 100%;
+        width: 100%;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
     }
 </style>

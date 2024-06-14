@@ -139,7 +139,31 @@ public class Sistema
 		return buscados;
 	}
 
+	public void CambiarEstadoTarea(int id, string comentario)
+	{
 
+		int i = 0;
+		while (i < _empleados.Count)
+		{
+			if (_empleados[i].GetTipo() == "Peon")
+			{
+				Peon? p = _empleados[i] as Peon;
+				if (p != null)
+				{
+					foreach (Tarea t in p.Tareas)
+					{
+						if (t.Id == id)
+						{
+							t.Estado = true;
+							t.Comentario = comentario;
+							t.FechaCierre = DateTime.Today;
+						}
+					}
+				}
+			}
+			i++;
+		}
+	}
 
 
 	//METODOS PARA ANIMAL

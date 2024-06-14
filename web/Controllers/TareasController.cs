@@ -1,5 +1,6 @@
 using Dominio;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 
 namespace web.Controllers;
 
@@ -26,10 +27,28 @@ public class TareaController : Controller
 	}
 
 	[HttpGet]
-	public IActionResult TareasIncompletas(string email)
+	public IActionResult TareasIncompletas()
 	{
-		ViewBag.ListaTareasSinTerminar = sistema.TareasIncompletas(email);
+		if (TempData["Error"] != null) ViewBag.Error = TempData["Error"];
+		if (TempData["Exito"] != null) ViewBag.Exito = TempData["Exito"];
+		ViewBag.ListaTareasSinTerminar = sistema.TareasIncompletas(HttpContext.Session.GetString("Email"));
 		return View();
+	}
+
+	[HttpGet]
+	public IActionResult CambioEstado(int id, string comentario)
+	{
+		try
+		{
+			if (comentario == "") throw new Exception("Se debe ingresar un comentario");
+			sistema.CambiarEstadoTarea(id, comentario);
+			TempData["Exito"] = $"Tarea {id} modificada correctamente";
+		}
+		catch (Exception ex)
+		{
+			TempData["Error"] = ex.Message;
+		}
+		return RedirectToAction("TareasIncompletas");
 	}
 
 	// ----------------------------------------------------------------------- //

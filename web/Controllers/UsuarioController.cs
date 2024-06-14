@@ -65,11 +65,13 @@ public class UsuarioController : Controller
 		{
 			HttpContext.Session.SetString("NombreUsuario", empleado.Nombre);
 			HttpContext.Session.SetString("Email", empleado.Email);
+			HttpContext.Session.SetString("TipoUsuario", empleado.GetTipo());
 			return RedirectToAction("Home", "Peon");
 
 		}
 		HttpContext.Session.SetString("NombreUsuario", empleado.Nombre);
 		HttpContext.Session.SetString("Email", empleado.Email);
+		HttpContext.Session.SetString("TipoUsuario", empleado.Email);
 		return RedirectToAction("Home", "Capataz");
 
 	}
