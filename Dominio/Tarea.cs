@@ -29,11 +29,19 @@ namespace Dominio
 		public DateTime FechaCierre
 		{
 			get { return _fechaCierre; }
+			set { _fechaCierre = value; }
+		}
+
+		public string Comentario
+		{
+			get { return _comentario; }
+            set { _comentario = value; }
 		}
 
 		public bool Estado
 		{
 			get { return _estado; }
+			set { _estado = value; }
 		}
 
 		public int Id{

@@ -1,3 +1,32 @@
+<div class="back-button d-flex justify-content-center align-items-center position-absolute"
+	style="top: 40px; left: 100px; background-color: #48bf78; width: 100px; height: 50px; border-radius: 10px;">
+	<a href="~/Peon/Home"
+		class="d-flex justify-content-center align-items-center text-white text-decoration-none fw-bold"
+		style="gap: 5px;">
+		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" style="width: 20px; height: 20px;">
+			<path fill="#ffffff"
+				d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z" />
+		</svg>
+		Volver
+	</a>
+</div>
+
+
+
+<h1>Tares por realizar</h1>
+@if (ViewBag.Exito != null)
+{
+	<div class="alert alert-success">
+	@ViewBag.Exito
+</div>
+}
+
+@if (ViewBag.Error != null)
+{
+	<div class="alert alert-success">
+	@ViewBag.Error
+</div>
+}
 <table class="table table-striped">
 	<thead>
 		<tr>
@@ -5,7 +34,8 @@
 			<th>Descripción</th>
 			<th>Fecha de apertura</th>
 			<th>Fecha de cierre</th>
-			<th><a href="" class="btn btn-primary">Asignar</a></th>
+			<th>Comentario</th>
+			<th></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -16,8 +46,21 @@
 				<td>@u.Descripcion</td>
 				<td>@u.FechaPactada.ToString("dd/mm/yyyy")</td>
 				<td>@u.FechaCierre.ToString("dd/mm/yyyy")</td>
-				<td><input type="button" value="Terminar" class="btn btn-primary"></td>
+				<td class="d-flex">
+					<form action="~/tarea/CambioEstado" method="get">
+						<input type="text" name="id" value="@u.Id" hidden>
+						<input type="text" placeholder="Comentario" name="comentario">
+						<input style="margin-left: 20px;" type="submit" value="Confirmar" class="btn btn-primary">
+					</form>
+				</td>
+
 			</tr>
 		}
 	</tbody>
 </table>
+
+<style>
+	h1 {
+		margin-top: 100px;
+	}
+</style>
