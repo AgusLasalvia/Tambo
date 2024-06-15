@@ -61,6 +61,14 @@ namespace Dominio
             }
         }
 
+        public List<Vacunacion> Vancunas
+        {
+            get
+            {
+                return _vacunas;
+            }
+        }
+
         // Constructor de la clase Animal
         public Animal(TipoGenero genero, string raza, DateTime fechaNacimiento, double costoAdquisicion, double costoAlimentacion, double pesoActual, bool hibrido, List<Vacunacion> vacunas, bool estado)
         {
@@ -92,9 +100,9 @@ namespace Dominio
 
         }
 
-        public void AgregarVacunacion(Vacuna vacuna){
-            _vacunas?.Add(new Vacunacion(vacuna));
-        }
+        // public void AgregarVacunacion(Vacuna vacuna){
+        //     _vacunas?.Add(new Vacunacion(vacuna));
+        // }
 
 
         // Funcion para Validar los datos del animal

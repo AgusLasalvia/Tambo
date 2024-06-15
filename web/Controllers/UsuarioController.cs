@@ -53,9 +53,7 @@ public class UsuarioController : Controller
 	[HttpPost]
 	public IActionResult BuscarUsuario(string email, string password)
 	{
-		Console.WriteLine(email, password);
 		Empleado? empleado = sistema.Login(email, password);
-		//Console.WriteLine(empleado);
 		if (empleado == null)
 		{
 			TempData["LoginError"] = "Usuario no encontrado";

@@ -12,25 +12,24 @@
         Volver
     </a>
 </div>
+
+
 <section class="d-flex flex-column justify-content-center align-items-center text-center">
 	<div>
 		<article>
-			<h2>Asignar animal libre a potrero</h2>
-			<form action="~/Potreros/AsignarAnimalAPotrero" method="post">
-				<div> <input class="form-control " type="text" placeholder="ID del animal" name="id" /> </div>
-				<div> <input class="form-control " type="password" placeholder="ID potrero" name="potrero"> </div> <br>
-				@{
-					if (ViewBag.Error != null)
-					{
-						<p class="alert alert-danger">@ViewBag.Error</p>
-					}
-					if (ViewBag.Exito != null)
-					{
-						<p class="alert alert-success">@ViewBag.Exito</p>
-					}
-				}
+			<h1>Asignar animal libre a potrero</h1>
 
-				<select name="" id="">
+			@if (ViewBag.Error != null)
+			{
+				<div class="alert alert-danger">@ViewBag.Error</div>
+					}
+			@if (ViewBag.Exito != null)
+			{
+				<div class="alert alert-success">@ViewBag.Exito</div>
+			}
+
+			<form action="~/Potreros/AsignarAnimalAPotrero" method="get">
+				<select name="potrero" class="form-control">
 					@foreach (Potrero p in ViewBag.Potreros)
 					{
 						<option value="@p.Id">Desc:@p.Descripcion || CantAnimales:@p.CantidadAnimalesPastan ||
@@ -38,34 +37,17 @@
 					}
 				</select>
 
+
+				<select name="id" class="form-control">
+					@foreach (Animal a in ViewBag.Animales)
+					{
+						<option value="@a.Id">Tipo:@a.GetTipo() || Peso Actual:@a.PesoActual ||
+							Sexo:@a.Genero || Ganancia Posible: @a.CalcularGanancia()</option>
+					}
+				</select>
+
 				<input type="submit" class="btn btn-primary" value="Ingresar">
 			</form>
-			<a href="~/Usuario/Registro">Registrar usuario</a>
-		</article>
-		<article>
-			<table>
-				<thead>
-					<tr>
-						<th>ID</th>
-						<th>Descripción</th>
-						<th>Max animales</th>
-						<th>Hectareas</th>
-						<th>Animales Pastando</th>
-					</tr>
-				</thead>
-				<tbody>
-					@foreach (Potrero p in ViewBag.Potreros)
-					{
-						<tr>
-							<td>@p.Id</td>
-							<td>@p.Descripcion</td>
-							<td>@p.CantidadMaxAnimales</td>
-							<td>@p.CantidadHectareas</td>
-							<td>@p.CantidadAnimalesPastan</td>
-						</tr>
-					}
-				</tbody>
-			</table>
 		</article>
 	</div>
 </section>

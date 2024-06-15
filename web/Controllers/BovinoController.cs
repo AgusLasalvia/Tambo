@@ -12,14 +12,7 @@ public class BovinoController : Controller
 	// GET's
 	// ------------------------------------------------------------------// 
 
-	[HttpGet]
-	public IActionResult Vacunacion()
-	{
-		
-		if (TempData["VacunacionExito"] != null) ViewBag.Exito = TempData["VacunacionExito"];
-		ViewBag.Animales = sistema.Animales;
-		return View();
-	}
+	
 
 	[HttpGet]
 	public IActionResult RegistroBovino()
@@ -33,14 +26,7 @@ public class BovinoController : Controller
 	//-------------------------------------------------------------------//
 	// POST's
 	// ------------------------------------------------------------------// 
-	[HttpPost]
-	public IActionResult AgregarVacuancion(string id, Vacuna vacuna)
-	{
-		sistema.AgregarVacunacion(id, vacuna);
-		TempData["VacunacionExito"] = "Vacunacion Agregada exitosamente";
-		return Redirect("Vacunacion");
-	}
-
+	
 
 	[HttpPost]
 	public IActionResult AltaBovino(TipoAlimentacion tipoAliemntacion, TipoGenero genero, string raza, DateTime fechaNacimiento, double costoAdquisicion, double costoAlimentacion, double pesoActual, bool hibrido, List<Vacunacion> vacunas, bool estado)

@@ -37,6 +37,14 @@ public class Sistema
 		}
 	}
 
+	public List<Vacuna> Vacunas
+	{
+		get
+		{
+			return _vacunas;
+		}
+	}
+
 	// Constructor de Sistema
 	public Sistema()
 	{
@@ -193,6 +201,17 @@ public class Sistema
 		return esLibre;
 	}
 
+	public List<Animal> ListadoAnimalesLibre()
+	{
+		List<Animal> buscados = new List<Animal>();
+		foreach (Animal a in _animales)
+		{
+			if (!a.Estado) buscados.Add(a);
+		}
+
+		return buscados;
+	}
+
 	// Metodo para agregar Animal al sistema
 	public void AgregarAnimal(Animal animal)
 	{
@@ -251,6 +270,37 @@ public class Sistema
 
 	//METODOS PARA VACUNA
 
+	public Vacuna ObtenerVacuna(string nombre)
+	{
+		Vacuna? vacuna = null;
+		int index = 0;
+		while (vacuna == null && index < _vacunas.Count)
+		{
+			if (_vacunas[index].Nombre == nombre) vacuna = _vacunas[index];
+			index++;
+		}
+		return vacuna;
+	}
+
+
+
+	public void RegistrarVacunacion(string id, string nombre, DateTime fVacunacion, DateTime fVencimiento)
+	{
+		Vacuna vacuna = ObtenerVacuna(nombre);
+		if (vacuna == null && fVacunacion > fVencimiento) throw new Exception("Datos incorrectos, verifique");
+		Animal a = null;
+		int i = 0;
+		while (a != null && i <= a.Vancunas.Count)
+		{
+			if (a.Id == id)
+			{
+				a.Vancunas.Add(new Vacunacion(ObtenerVacuna(nombre), fVacunacion, fVencimiento));
+			}
+		}
+	}
+
+
+
 	// Metodo para agregar Vacuna al sistema
 	public void AgregarVacuna(Vacuna vacuna)
 	{
@@ -259,20 +309,20 @@ public class Sistema
 	}
 
 
-	public void AgregarVacunacion(string id, Vacuna vacuna)
-	{
-		int index = 0;
-		bool verificacion = false;
-		while (!verificacion && index < _animales.Count)
-		{
-			if (_animales[index].Id == id)
-			{
-				_animales[index].AgregarVacunacion(vacuna);
-				verificacion = true;
-			}
-			index++;
-		}
-	}
+	// public void AgregarVacunacion(string id, Vacuna vacuna)
+	// {
+	// 	int index = 0;
+	// 	bool verificacion = false;
+	// 	while (!verificacion && index < _animales.Count)
+	// 	{
+	// 		if (_animales[index].Id == id)
+	// 		{
+	// 			_animales[index].AgregarVacunacion(vacuna);
+	// 			verificacion = true;
+	// 		}
+	// 		index++;
+	// 	}
+	// }
 
 
 
@@ -284,7 +334,7 @@ public class Sistema
 		int i = 0;
 		while (!disponeLugar && i < _potreros.Count)
 		{
-			if (_potreros[i].Id == id && _potreros[i].CantidadMaxAnimales + 1 <= _potreros[i].CantidadMaxAnimales) disponeLugar = true;
+			if (_potreros[i].Id == id && _potreros[i].CantidadAnimalesPastan + 1 <= _potreros[i].CantidadMaxAnimales) disponeLugar = true;
 			i++;
 		}
 		return disponeLugar;
@@ -292,13 +342,11 @@ public class Sistema
 
 	public List<Potrero> ObtenerPotrerosDisponibles()
 	{
-
 		List<Potrero> buscados = new List<Potrero>();
 		foreach (Potrero p in _potreros)
 		{
 			if (LugarEnPotreroDisponible(p.Id)) buscados.Add(p);
 		}
-		Console.WriteLine(buscados.Count);
 		return buscados;
 	}
 
@@ -543,20 +591,20 @@ public class Sistema
 		_animales.Add(new Bovino(TipoAlimentacion.Pastura, TipoGenero.Macho, "Hereford", new DateTime(2024, 5, 22), 200, 100, 600, true, new List<Vacunacion>(), true));
 		_animales.Add(new Bovino(TipoAlimentacion.Grano, TipoGenero.Hembra, "Angus", new DateTime(2024, 4, 18), 180, 90, 550, false, new List<Vacunacion>(), true));
 		_animales.Add(new Bovino(TipoAlimentacion.Pastura, TipoGenero.Macho, "Simmental", new DateTime(2024, 3, 15), 250, 120, 480, false, new List<Vacunacion>(), true));
-		_animales.Add(new Bovino(TipoAlimentacion.Pastura, TipoGenero.Hembra, "Brahman", new DateTime(2024, 2, 10), 220, 110, 500, false, new List<Vacunacion>(), true));
-		_animales.Add(new Bovino(TipoAlimentacion.Grano, TipoGenero.Macho, "Limousin", new DateTime(2024, 1, 5), 230, 115, 490, true, new List<Vacunacion>(), true));
+		_animales.Add(new Bovino(TipoAlimentacion.Pastura, TipoGenero.Hembra, "Brahman", new DateTime(2024, 2, 10), 220, 110, 500, false, new List<Vacunacion>(), false));
+		_animales.Add(new Bovino(TipoAlimentacion.Grano, TipoGenero.Macho, "Limousin", new DateTime(2024, 1, 5), 230, 115, 490, true, new List<Vacunacion>(), false));
 		_animales.Add(new Bovino(TipoAlimentacion.Pastura, TipoGenero.Hembra, "Charolais", new DateTime(2023, 12, 1), 210, 105, 520, false, new List<Vacunacion>(), true));
 		_animales.Add(new Bovino(TipoAlimentacion.Pastura, TipoGenero.Macho, "Aberdeen Angus", new DateTime(2023, 10, 27), 240, 125, 470, false, new List<Vacunacion>(), true));
-		_animales.Add(new Bovino(TipoAlimentacion.Pastura, TipoGenero.Hembra, "Gyr", new DateTime(2023, 9, 23), 200, 100, 540, true, new List<Vacunacion>(), true));
+		_animales.Add(new Bovino(TipoAlimentacion.Pastura, TipoGenero.Hembra, "Gyr", new DateTime(2023, 9, 23), 200, 100, 540, true, new List<Vacunacion>(), false));
 		_animales.Add(new Bovino(TipoAlimentacion.Grano, TipoGenero.Macho, "Holstein", new DateTime(2023, 8, 19), 260, 130, 460, false, new List<Vacunacion>(), true));
 		_animales.Add(new Bovino(TipoAlimentacion.Pastura, TipoGenero.Hembra, "Jersey", new DateTime(2023, 7, 15), 190, 95, 570, false, new List<Vacunacion>(), true));
-		_animales.Add(new Bovino(TipoAlimentacion.Pastura, TipoGenero.Macho, "Wagyu", new DateTime(2023, 6, 10), 280, 140, 450, true, new List<Vacunacion>(), true));
+		_animales.Add(new Bovino(TipoAlimentacion.Pastura, TipoGenero.Macho, "Wagyu", new DateTime(2023, 6, 10), 280, 140, 450, true, new List<Vacunacion>(), false));
 		_animales.Add(new Bovino(TipoAlimentacion.Pastura, TipoGenero.Hembra, "Normando", new DateTime(2023, 5, 6), 170, 85, 580, false, new List<Vacunacion>(), true));
-		_animales.Add(new Bovino(TipoAlimentacion.Pastura, TipoGenero.Macho, "Friesian", new DateTime(2023, 4, 1), 300, 150, 440, false, new List<Vacunacion>(), true));
+		_animales.Add(new Bovino(TipoAlimentacion.Pastura, TipoGenero.Macho, "Friesian", new DateTime(2023, 4, 1), 300, 150, 440, false, new List<Vacunacion>(), false));
 		_animales.Add(new Bovino(TipoAlimentacion.Grano, TipoGenero.Hembra, "Angus", new DateTime(2023, 2, 25), 170, 75, 600, true, new List<Vacunacion>(), true));
-		_animales.Add(new Bovino(TipoAlimentacion.Pastura, TipoGenero.Macho, "Hereford", new DateTime(2023, 5, 22), 180, 80, 590, false, new List<Vacunacion>(), true));
+		_animales.Add(new Bovino(TipoAlimentacion.Pastura, TipoGenero.Macho, "Hereford", new DateTime(2023, 5, 22), 180, 80, 590, false, new List<Vacunacion>(), false));
 		_animales.Add(new Bovino(TipoAlimentacion.Grano, TipoGenero.Macho, "Limousin", new DateTime(2023, 4, 18), 190, 85, 580, true, new List<Vacunacion>(), true));
-		_animales.Add(new Bovino(TipoAlimentacion.Pastura, TipoGenero.Hembra, "Charolais", new DateTime(2023, 3, 15), 200, 90, 570, false, new List<Vacunacion>(), true));
+		_animales.Add(new Bovino(TipoAlimentacion.Pastura, TipoGenero.Hembra, "Charolais", new DateTime(2023, 3, 15), 200, 90, 570, false, new List<Vacunacion>(), false));
 		_animales.Add(new Bovino(TipoAlimentacion.Pastura, TipoGenero.Macho, "Aberdeen Angus", new DateTime(2023, 2, 10), 210, 95, 560, true, new List<Vacunacion>(), true));
 		_animales.Add(new Bovino(TipoAlimentacion.Pastura, TipoGenero.Hembra, "Gyr", new DateTime(2023, 1, 5), 220, 100, 550, false, new List<Vacunacion>(), true));
 		_animales.Add(new Bovino(TipoAlimentacion.Grano, TipoGenero.Macho, "Holstein", new DateTime(2023, 12, 1), 230, 105, 540, true, new List<Vacunacion>(), true));
@@ -565,7 +613,7 @@ public class Sistema
 		_animales.Add(new Bovino(TipoAlimentacion.Pastura, TipoGenero.Hembra, "Normando", new DateTime(2023, 8, 19), 260, 120, 510, false, new List<Vacunacion>(), true));
 		_animales.Add(new Bovino(TipoAlimentacion.Grano, TipoGenero.Macho, "Friesian", new DateTime(2023, 7, 15), 270, 125, 500, true, new List<Vacunacion>(), true));
 		_animales.Add(new Bovino(TipoAlimentacion.Pastura, TipoGenero.Hembra, "Chianina", new DateTime(2023, 6, 10), 280, 130, 490, false, new List<Vacunacion>(), true));
-		_animales.Add(new Bovino(TipoAlimentacion.Grano, TipoGenero.Macho, "Hereford", new DateTime(2023, 5, 6), 290, 135, 480, true, new List<Vacunacion>(), true));
+		_animales.Add(new Bovino(TipoAlimentacion.Grano, TipoGenero.Macho, "Hereford", new DateTime(2023, 5, 6), 290, 135, 480, true, new List<Vacunacion>(), false));
 		_animales.Add(new Bovino(TipoAlimentacion.Pastura, TipoGenero.Hembra, "Brahman", new DateTime(2023, 4, 1), 300, 140, 470, false, new List<Vacunacion>(), true));
 		_animales.Add(new Bovino(TipoAlimentacion.Grano, TipoGenero.Macho, "Simmental", new DateTime(2023, 2, 25), 310, 145, 460, true, new List<Vacunacion>(), true));
 

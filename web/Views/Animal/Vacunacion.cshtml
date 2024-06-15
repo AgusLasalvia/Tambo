@@ -1,0 +1,113 @@
+@* Animal Select para vacunacion *@
+@if (ViewBag.VacunacionExito != null)
+{
+    <p class="alert alert-success">@ViewBag.VacunacionExito</p>
+}
+
+<div class="back-button d-flex justify-content-center align-items-center position-absolute"
+    style="top: 40px; left: 100px; background-color: #48bf78; width: 100px; height: 50px; border-radius: 10px;">
+    <a href="~/Peon/Home"
+        class="d-flex justify-content-center align-items-center text-white text-decoration-none fw-bold"
+        style="gap: 5px;">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" style="width: 20px; height: 20px;">
+            <path fill="#ffffff"
+                d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z" />
+        </svg>
+        Volver
+    </a>
+</div>
+
+<section class="d-flex flex-column justify-content-center align-items-center ">
+    <div>
+        <article>
+            <h2 class="text-center">Registrar Bovino</h2>
+            @if (ViewBag.Error != null)
+            {
+                <div class="alert alert-danger">@ViewBag.Error</div>
+            }
+            @if (ViewBag.Exito != null)
+            {
+                <div class="alert alert-success">@ViewBag.Exito</div>
+            }
+            <form action="~/Animal/AgregarVacuancion" method="post">
+                <select class="form-control" name="id">
+                    @foreach (Animal a in ViewBag.Animales)
+                    {
+                        <option value="@a.Id">ID: @a.Id || Tipo: @a.GetTipo() || Peso: @a.PesoActual || Sexo: @a.Genero ||
+                            Ganancia Posible: @a.CalcularGanancia() </option>
+                    }
+                </select>
+
+                <select class="form-control" name="nombre">
+                    @foreach (Vacuna v in ViewBag.Vacunas)
+                    {
+                        <option value="@v.Nombre">Nombre: @v.Nombre || Descripción: @v.Descripcion || Patogeno: @v.Patogeno
+                        </option>
+                    }
+                </select>
+
+                <label for="">Fecha de vacunación</label>
+                <input type="date" class="form-control" name="fVacunacion">
+
+                <label for="">Fecha de vencimiento</label>
+                <input class="form-control" type="date" name="fVencimiento">
+
+                <input type="submit" class="btn btn-primary" value="Registrar">
+            </form>
+        </article>
+    </div>
+</section>
+
+
+<style>
+    body {
+        font-family: sans-serif;
+        background: url("https://images.unsplash.com/photo-1440428099904-c6d459a7e7b5?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") center center no-repeat;
+        background-size: cover;
+    }
+
+    section {
+        width: 100%;
+        min-height: 80vh;
+        margin: 2rem 0;
+    }
+
+
+    section>div {
+        width: 100%;
+        max-width: 600px;
+        background-color: #e2e2e2;
+        padding: 3rem 2rem;
+        border-radius: 8px;
+    }
+
+    article {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    form input[type="text"],
+    form input[type="password"] {
+        margin-top: .5rem;
+        width: 100%;
+    }
+
+    form input[type="submit"] {
+        margin-top: 2rem;
+        width: 100%;
+        background-color: #48bf78;
+        border-color: #48bf78;
+    }
+
+    form label {
+        font-weight: 600;
+        padding: 1rem 0 .5rem 0;
+
+    }
+
+    form input[type="submit"]:hover {
+        background-color: #3c9e63;
+        border-color: #3c9e63;
+    }
+</style>
