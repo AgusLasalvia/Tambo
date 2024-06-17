@@ -9,11 +9,15 @@ namespace Dominio
         private DateTime _fechaVencimiento;
 
         //Constructor
-        public Vacunacion(Vacuna tipoVacuna)
+        public Vacunacion(Vacuna tipoVacuna, DateTime fVacunacion)
         {
             _tipoVacuna = tipoVacuna;
             _fechaVacunacion = DateTime.Today;
             _fechaVencimiento = new DateTime(DateTime.Now.Year + 1, DateTime.Now.Month, DateTime.Now.Day);
+        }
+
+        public Vacunacion(Vacuna tipoVacuna, DateTime fVacunacion, DateTime fVencimiento) : this(tipoVacuna, fVacunacion)
+        {
         }
 
         //Funcion Validar() que valida los datos ingresados por el usuario

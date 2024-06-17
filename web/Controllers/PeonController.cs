@@ -42,7 +42,6 @@ public class PeonController : Controller
 	public IActionResult PeonEspecifico(string email)
 	{
 		Peon? peon = sistema.PeonEspecifico(email);
-		Console.WriteLine(peon);
 		if (peon == null) ViewBag.Error = "Peon no encontrado";
 		else ViewBag.Peon = peon;
 		return View();

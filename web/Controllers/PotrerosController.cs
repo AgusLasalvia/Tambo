@@ -23,8 +23,9 @@ public class PotrerosController : Controller
     public IActionResult AnimalAPotrero()
     {
         ViewBag.Potreros = miSistema.ObtenerPotrerosDisponibles();
-        if (TempData["AsignarExito"] != null) ViewBag.Exito = TempData["AsignarExito"];
-        if (TempData["AsignarError"] != null) ViewBag.Error = TempData["AsignarError"];
+        ViewBag.Animales = miSistema.ListadoAnimalesLibre();
+        if (TempData["Exito"] != null) ViewBag.Exito = TempData["Exito"];
+        if (TempData["Error"] != null) ViewBag.Error = TempData["Error"];
         return View();
     }
 
@@ -33,21 +34,19 @@ public class PotrerosController : Controller
     // POST's
     // ------------------------------------------------------------------// 
 
-    [HttpPost]
-    public IActionResult AnimalAPotrero(string id, int potrero)
+    [HttpGet]
+    public IActionResult AsignarAnimalAPotrero(string id, int potrero)
     {
         if (!miSistema.AnimalEspecificoLibre(id))
         {
-            TempData["AsignarError"] = "El animal no esta disponible";
-            return Redirect("Asignar");
+            TempData["Error"] = "El animal no esta disponible";
         }
         if (!miSistema.LugarEnPotreroDisponible(potrero))
         {
-            TempData["AsignarError"] = "El potrero ya esta lleno";
-            return Redirect("Asignar");
+            TempData["Error"] = "El potrero ya esta lleno";
         }
 
         miSistema.AgregarAnimalAPotrero(id, potrero);
-        return View();
+        return RedirectToAction("AnimalAPotrero");
     }
 }

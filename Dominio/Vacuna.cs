@@ -16,6 +16,10 @@ namespace Dominio
             _patogenoPreviene = patogenoPreviene;
         }
 
+        public string Nombre { get => _nombre; }
+        public string Descripcion { get => _descripcion; }
+        public string Patogeno { get => _patogenoPreviene; }
+
 
         //Funcion Validar() que valida los datos ingresados por el usuario
         public void Validar()
