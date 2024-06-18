@@ -110,11 +110,6 @@ namespace Dominio
 			return comparacion;
 		}
 
-		public int ObtenerIdPotrero()
-		{
-			return _id;
-		}
-
 		public double PosiblePrecioVentaPotrero()
 		{
 			foreach (Animal a in _animales)
