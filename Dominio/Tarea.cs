@@ -1,7 +1,7 @@
 namespace Dominio
 {
 	// Clase Tarea
-	public class Tarea : IValidable
+	public class Tarea : IValidable, IComparable<Tarea>
 	{
 		// Propiedades de clase Tarea
 		private int _id = 0;
@@ -88,11 +88,15 @@ namespace Dominio
 			return base.Equals(obj);
 		}
 
-		// public override int GetHashCode()
+		public int CompareTo(Tarea other)
+		{
+			return this._fechaPactada.CompareTo(other._fechaPactada);
+		}
+
+		// public int Compare(Tarea? x, Tarea? y)
 		// {
-		// 	return base.GetHashCode();
+		// 	x = this;
+		// 	return x._fechaPactada.CompareTo(y._fechaPactada);
 		// }
-
-
 	}
 }

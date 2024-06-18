@@ -44,8 +44,8 @@
 			<tr>
 				<td>@u.Id</td>
 				<td>@u.Descripcion</td>
-				<td>@u.FechaPactada.ToString("dd/mm/yyyy")</td>
-				<td>@u.FechaCierre.ToString("dd/mm/yyyy")</td>
+				<td>@u.FechaPactada.ToString("dd/MM/yyyy")</td>
+				<td>@u.FechaCierre.ToString("dd/MM/yyyy")</td>
 				<td class="d-flex">
 					<form action="~/tarea/CambioEstado" method="get">
 						<input type="text" name="id" value="@u.Id" hidden>
