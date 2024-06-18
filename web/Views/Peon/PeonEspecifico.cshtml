@@ -58,6 +58,19 @@
 			<label for="fechaIngreso">Fecha Ingreso</label><br>
 			value="@ViewBag.Peon.FechaIngreso.ToString("dd/MM/yyyy")" readonly> *@
 		</div>
+
+		@if (@ViewBag.Peon.Reside)
+		{
+			<div class="reside-div">
+				<p class="alert alert-success reside">Residente</p>
+			</div>
+		}
+		@if (!@ViewBag.Peon.Reside)
+		{
+			<div class="reside-div">
+				<p class="alert alert-danger reside">No reside</p>
+			</div>
+		}
 	</div>
 	<br>
 
@@ -90,6 +103,15 @@
 <style>
 	h1 {
 		margin-top: 100px;
+	}
+
+	.reside-div {
+		margin: 30px 0;
+	}
+
+	.reside {
+		display: inline;
+		font-weight: bold;
 	}
 
 	.grid {
