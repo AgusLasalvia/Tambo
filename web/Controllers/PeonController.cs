@@ -18,6 +18,7 @@ public class PeonController : Controller
 	[HttpGet]
 	public ActionResult ListaPeones()
 	{
+		if (HttpContext.Session.GetString("TipoUsuario") != "Capataz") { return RedirectToAction("Login", "Usuario"); }
 		ViewBag.Listado = sistema.ListarPeones();
 		if (TempData["Error"] != null) ViewBag.Error = TempData["Error"];
 		if (TempData["Exito"] != null) ViewBag.Exito = TempData["Exito"];
@@ -28,6 +29,7 @@ public class PeonController : Controller
 	[HttpGet]
 	public IActionResult DatosPeon(string email)
 	{
+		if (HttpContext.Session.GetString("TipoUsuario") == null) { return RedirectToAction("Login", "Usuario"); }
 		Peon? p = sistema.PeonEspecifico(email);
 		if (p == null)
 		{
@@ -41,6 +43,7 @@ public class PeonController : Controller
 	[HttpGet]
 	public IActionResult PeonEspecifico(string email)
 	{
+		if (HttpContext.Session.GetString("TipoUsuario") == null) { return RedirectToAction("Login", "Usuario"); }
 		Peon? peon = sistema.PeonEspecifico(email);
 		if (peon == null) ViewBag.Error = "Peon no encontrado";
 		else ViewBag.Peon = peon;

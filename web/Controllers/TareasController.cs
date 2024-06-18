@@ -12,9 +12,12 @@ public class TareaController : Controller
 	// GET'S
 	// ----------------------------------------------------------------------- //
 
+
+
 	[HttpGet]
 	public IActionResult TareasAPeon()
 	{
+		if (HttpContext.Session.GetString("TipoUsuario") != "Peon") { return RedirectToAction("Login", "Usuario"); }
 		ViewBag.ListaPeones = sistema.ListarPeones();
 		return View();
 	}
@@ -22,6 +25,7 @@ public class TareaController : Controller
 	[HttpGet]
 	public IActionResult AsignarTarea(string id)
 	{
+		if (HttpContext.Session.GetString("TipoUsuario") != "Capataz") { return RedirectToAction("Login", "Usuario"); }
 		ViewBag.PeonEspecifico = sistema.PeonEspecifico(id);
 		return View();
 	}
@@ -29,6 +33,8 @@ public class TareaController : Controller
 	[HttpGet]
 	public IActionResult TareasIncompletas()
 	{
+		if (HttpContext.Session.GetString("TipoUsuario") != "Peon") { return RedirectToAction("Usuario", "Login"); }
+
 		if (TempData["Error"] != null) ViewBag.Error = TempData["Error"];
 		if (TempData["Exito"] != null) ViewBag.Exito = TempData["Exito"];
 		ViewBag.ListaTareasSinTerminar = sistema.TareasIncompletas(HttpContext.Session.GetString("Email"));
@@ -38,6 +44,8 @@ public class TareaController : Controller
 	[HttpGet]
 	public IActionResult CambioEstado(int id, string comentario)
 	{
+		if (HttpContext.Session.GetString("TipoUsuario") != "Peon") { return RedirectToAction("Login", "Usuario"); }
+
 		try
 		{
 			if (comentario == "") throw new Exception("Se debe ingresar un comentario");
@@ -58,6 +66,8 @@ public class TareaController : Controller
 	[HttpPost]
 	public IActionResult AsignarTarea(string email, string descripcion, DateTime fechaIngreso, DateTime fechaCierre)
 	{
+		if (HttpContext.Session.GetString("TipoUsuario") != "Capataz") { return RedirectToAction("Login", "Usuario"); }
+
 		try
 		{
 			if (string.IsNullOrEmpty(descripcion) || string.IsNullOrEmpty(email)) throw new Exception("Datos nulos, revisar");
@@ -71,11 +81,4 @@ public class TareaController : Controller
 			return RedirectToAction("AsignarTarea/", "Peon");
 		}
 	}
-
-	// [HttpPost]
-	// public IActionResult CambiarEstadoTarea()
-	// {
-
-	// }
-
 }

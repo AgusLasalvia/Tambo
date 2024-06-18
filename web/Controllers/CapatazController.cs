@@ -9,6 +9,7 @@ public class CapatazController : Controller
 
     public IActionResult Home()
     {
+        if (HttpContext.Session.GetString("TipoUsuario") != "Capataz") { return RedirectToAction("Login", "Usuario"); }
         return View();
     }
 

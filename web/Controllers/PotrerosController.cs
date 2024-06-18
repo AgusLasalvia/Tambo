@@ -14,7 +14,8 @@ public class PotrerosController : Controller
     [HttpGet]
     public IActionResult ListaPotreros()
     {
-        ViewBag.Potreros = miSistema.Potreros;
+        if (HttpContext.Session.GetString("TipoUsuario") != "Capataz") { return RedirectToAction("Login", "Usuario"); }
+        ViewBag.Potreros = miSistema.ListaPotreros();
         ViewBag.Potreros.Sort();
         return View();
     }
@@ -22,6 +23,7 @@ public class PotrerosController : Controller
     [HttpGet]
     public IActionResult AnimalAPotrero()
     {
+        if (HttpContext.Session.GetString("TipoUsuario") != "Capataz") { return RedirectToAction("Login", "Usuario"); }
         ViewBag.Potreros = miSistema.ObtenerPotrerosDisponibles();
         ViewBag.Animales = miSistema.ListadoAnimalesLibre();
         if (TempData["Exito"] != null) ViewBag.Exito = TempData["Exito"];
@@ -37,6 +39,8 @@ public class PotrerosController : Controller
     [HttpGet]
     public IActionResult AsignarAnimalAPotrero(string id, int potrero)
     {
+        if (HttpContext.Session.GetString("TipoUsuario") != "Capataz") { return RedirectToAction("Login", "Usuario"); }
+
         if (!miSistema.AnimalEspecificoLibre(id))
         {
             TempData["Error"] = "El animal no esta disponible";

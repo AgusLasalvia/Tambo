@@ -3,14 +3,22 @@ namespace Dominio
 	public class Potrero : IComparable<Potrero>, IValidable
 	{
 		private int _id;
-		private int s_ultId = 1;
+		private static int s_ultId = 1;
 		private string _descripcion;
 		private int _cantidadHectareas;
 		private int _cantidadMaxAnimales;
 		private int _cantidadAnimalesPastan;
+		private double _posiblePrecioVenta = 0;
 
 		private List<Animal>? _animales;
 
+		public double PosiblePrecioVenta
+		{
+			get
+			{
+				return _posiblePrecioVenta;
+			}
+		}
 		public int Id { get { return _id; } }
 		public int CantidadHectareas
 		{
@@ -42,7 +50,6 @@ namespace Dominio
 		//Constructor
 		public Potrero(string descripcion, int cantidadHectareas, int cantidadMaxAnimales, List<Animal> animales)
 		{
-
 			_id = s_ultId;
 			s_ultId++;
 			_descripcion = descripcion;
@@ -101,6 +108,21 @@ namespace Dominio
 			}
 
 			return comparacion;
+		}
+
+		public int ObtenerIdPotrero()
+		{
+			return _id;
+		}
+
+		public double PosiblePrecioVentaPotrero()
+		{
+			foreach (Animal a in _animales)
+			{
+				_posiblePrecioVenta += a.CalcularGanancia();
+			}
+
+			return _posiblePrecioVenta;
 		}
 	}
 }

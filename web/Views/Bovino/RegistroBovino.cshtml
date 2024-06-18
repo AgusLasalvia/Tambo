@@ -17,7 +17,7 @@
             <h2 class="text-center">Registrar Bovino</h2>
             <form action="~/Usuario/AltaBovino" method="post">
                 <div>
-                    <input type="text" class="form-control " name="raza" placeholder="Raza" />
+                    <input type="text" class="form-control " name="raza" placeholder="Raza" required/>
                 </div>
                 <div>
                     <label for="genero">Genero</label>
@@ -28,18 +28,18 @@
                 </div>
                 <div>
                     <label for="fechaNacimiento">Fecha de nacimiento</label>
-                    <input type="date" class="form-control " name="fechaNacimiento" placeholder="" />
+                    <input type="date" class="form-control " name="fechaNacimiento" placeholder="" required/>
                 </div>
                 <div>
                     <input type="text" class="form-control " name="costoAdquisicion"
-                        placeholder="Costo de adquisición" />
+                        placeholder="Costo de adquisición" required />
                 </div>
                 <div>
                     <input type="text" class="form-control " name="costoAlimentacion"
-                        placeholder="Costo de alimentación" />
+                        placeholder="Costo de alimentación" required/>
                 </div>
                 <div>
-                    <input type="text" class="form-control " name="pesoActual" placeholder="Peso actual" />
+                    <input type="text" class="form-control " name="pesoActual" placeholder="Peso actual" required/>
                 </div>
                 <div>
                     <label for="genero">¿Es hibrido?</label>

@@ -1,3 +1,16 @@
+<div class="back-button d-flex justify-content-center align-items-center position-absolute"
+    style="top: 40px; left: 100px; background-color: #48bf78; width: 100px; height: 50px; border-radius: 10px;">
+    <a href="~/Capataz/Home"
+        class="d-flex justify-content-center align-items-center text-white text-decoration-none fw-bold"
+        style="gap: 5px;">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" style="width: 20px; height: 20px;">
+            <path fill="#ffffff"
+                d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z" />
+        </svg>
+        Volver
+    </a>
+</div>
+
 <h1>Lista de Potreros</h1>
 
 <table class="table table-striped">
@@ -5,21 +18,25 @@
         <tr>
             <th>ID</th>
             <th>Descripción</th>
-            <th>Cant Hectareas</th>
-            <th>Max Animales</th>
-            <th>Cant Actual Animales</th>
+            <th>Cantidad de Animales</th>
+            <th>Posible Ganancia</th>
         </tr>
     </thead>
     <tbody>
         @foreach (Potrero p in ViewBag.Potreros)
         {
             <tr>
-                <td>@p.Id</td>
+                <td>@p.ObtenerIdPotrero()</td>
                 <td>@p.Descripcion</td>
-                <td>@p.CantidadHectareas</td>
-                <td>@p.CantidadMaxAnimales</td>
                 <td>@p.CantidadAnimalesPastan</td>
+                <td>@p.PosiblePrecioVentaPotrero()</td>
             </tr>
         }
     </tbody>
 </table>
+
+<style>
+    h1 {
+        margin-top: 100px;
+    }
+</style>
