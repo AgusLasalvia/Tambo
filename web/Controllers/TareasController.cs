@@ -38,6 +38,7 @@ public class TareaController : Controller
 		if (TempData["Error"] != null) ViewBag.Error = TempData["Error"];
 		if (TempData["Exito"] != null) ViewBag.Exito = TempData["Exito"];
 		ViewBag.ListaTareasSinTerminar = sistema.TareasIncompletas(HttpContext.Session.GetString("Email"));
+		ViewBag.ListaTareasSinTerminar.Sort();
 		return View();
 	}
 

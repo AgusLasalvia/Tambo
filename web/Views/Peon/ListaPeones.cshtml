@@ -45,7 +45,17 @@ else
                 <td>@u.Nombre</td>
                 <td>@u.Email</td>
                 <td>@u.FechaIngreso.ToString("dd/MM/yyyy")</td>
-                <td>@u.Reside</td>
+                    <td>
+                        @if (u.Reside)
+                        {
+                            <span>Si</span>
+                        }
+                        else
+                        {
+                            <span>No</span>
+                        }
+
+                    </td>
                     <td><a class="btn btn-primary" href="~/Peon/PeonEspecifico?email=@u.Email">Detalles</a></td>
                     <td><a class="btn btn-primary" href="~/tarea/AsignarTarea/@u.Email">Asignar Tarea</a></td>
             </tr>

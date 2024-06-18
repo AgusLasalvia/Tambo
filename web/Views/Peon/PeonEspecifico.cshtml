@@ -92,7 +92,17 @@
 					<td>@t.Descripcion</td>
 					<td>@t.FechaPactada.ToString("dd/MM/yyyy")</td>
 					<td>@t.FechaCierre.ToString("dd/MM/yyyy")</td>
-					<td>@t.Estado</td>
+					<td>
+						@if (t.Estado)
+                        {
+                            <span>Terminada</span>
+                        }
+                        else
+                        {
+                            <span>Sin hacer</span>
+                        }
+						
+					</td>
 				</tr>
 			}
 		</tbody>
