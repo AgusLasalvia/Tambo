@@ -1,4 +1,5 @@
-﻿using System.Net.Mail;
+﻿using System.Data.Common;
+using System.Net.Mail;
 
 namespace Dominio;
 // Clase Principal del Sistema
@@ -287,7 +288,6 @@ public class Sistema
 	public void RegistrarVacunacion(string id, string nombre, DateTime fVacunacion, DateTime fVencimiento)
 	{
 		Vacuna vacuna = ObtenerVacuna(nombre);
-		if (vacuna == null && fVacunacion > fVencimiento) throw new Exception("Datos incorrectos, verifique");
 		Animal a = null;
 		int i = 0;
 		while (a != null && i <= a.Vancunas.Count)
@@ -309,24 +309,17 @@ public class Sistema
 	}
 
 
-	// public void AgregarVacunacion(string id, Vacuna vacuna)
-	// {
-	// 	int index = 0;
-	// 	bool verificacion = false;
-	// 	while (!verificacion && index < _animales.Count)
-	// 	{
-	// 		if (_animales[index].Id == id)
-	// 		{
-	// 			_animales[index].AgregarVacunacion(vacuna);
-	// 			verificacion = true;
-	// 		}
-	// 		index++;
-	// 	}
-	// }
-
-
-
 	//METODOS PARA POTRERO
+
+	public List<Potrero> ListaPotreros()
+	{
+		List<Potrero> buscados = new List<Potrero>();
+		foreach (Potrero p in _potreros)
+		{
+			buscados.Add(p);
+		}
+		return buscados;
+	}
 
 	public bool LugarEnPotreroDisponible(int id)
 	{

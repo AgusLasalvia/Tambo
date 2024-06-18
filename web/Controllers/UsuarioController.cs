@@ -1,5 +1,6 @@
 using Dominio;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 
 namespace web.Controllers;
 
@@ -21,13 +22,18 @@ public class UsuarioController : Controller
 
 
 	// Funciones para el Login
+
 	[HttpGet]
 	public IActionResult Login()
 	{
+		if (HttpContext.Session.GetString("TipoUsuario") == "Peon") { return RedirectToAction("Home", "Peon"); }
+		if (HttpContext.Session.GetString("TipoUsuario") == "Capataz") { return RedirectToAction("Home", "Capataz"); }
+
 		if (TempData["AltaExito"] != null) ViewBag.Exito = TempData["AltaExito"];
 		if (TempData["LoginError"] != null) ViewBag.Error = TempData["LoginError"];
 		return View();
 	}
+
 
 	[HttpGet]
 	public IActionResult Logout()
@@ -41,6 +47,8 @@ public class UsuarioController : Controller
 	[HttpGet]
 	public IActionResult Registro()
 	{
+		if (HttpContext.Session.GetString("TipoUsuario") == "Peon") { return RedirectToAction("Peon", "Home"); }
+		if (HttpContext.Session.GetString("TipoUsuario") == "Capataz") { return RedirectToAction("Capataz", "Home"); }
 		if (TempData["AltaError"] != null) ViewBag.Error = TempData["AltaError"];
 		return View();
 	}
@@ -69,7 +77,7 @@ public class UsuarioController : Controller
 		}
 		HttpContext.Session.SetString("NombreUsuario", empleado.Nombre);
 		HttpContext.Session.SetString("Email", empleado.Email);
-		HttpContext.Session.SetString("TipoUsuario", empleado.Email);
+		HttpContext.Session.SetString("TipoUsuario", empleado.GetTipo());
 		return RedirectToAction("Home", "Capataz");
 
 	}

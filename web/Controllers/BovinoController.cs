@@ -17,6 +17,7 @@ public class BovinoController : Controller
 	[HttpGet]
 	public IActionResult RegistroBovino()
 	{
+		if (HttpContext.Session.GetString("TipoUsuario") != "Capataz") { return RedirectToAction("Login", "Usuario"); }
 		if (TempData["AltaBovinoError"] != null) ViewBag.Error = TempData["AltaBovinoError"];
 		if (TempData["AltaBovinoExito"] != null) ViewBag.Exito = TempData["AltaBovinoExito"];
 		return View();
@@ -31,6 +32,7 @@ public class BovinoController : Controller
 	[HttpPost]
 	public IActionResult AltaBovino(TipoAlimentacion tipoAliemntacion, TipoGenero genero, string raza, DateTime fechaNacimiento, double costoAdquisicion, double costoAlimentacion, double pesoActual, bool hibrido, List<Vacunacion> vacunas, bool estado)
 	{
+        if (HttpContext.Session.GetString("TipoUsuario") != "Capataz") { return RedirectToAction("Login", "Usuario"); }
 		Bovino b = new Bovino(tipoAliemntacion, genero, raza, fechaNacimiento, costoAdquisicion, costoAlimentacion, pesoActual, hibrido, vacunas, estado);
 
 		if (b == null)

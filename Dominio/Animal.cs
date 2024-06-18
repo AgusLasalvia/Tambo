@@ -12,7 +12,7 @@ namespace Dominio
         protected double _costoAlimentacion;
         protected double _pesoActual;
         protected bool _hibrido;
-        protected double _ganancia = 0;
+        protected static double _ganancia = 0;
         protected List<Vacunacion>? _vacunas;
         protected bool _estado;
 
