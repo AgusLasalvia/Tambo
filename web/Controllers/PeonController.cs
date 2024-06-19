@@ -12,6 +12,8 @@ public class PeonController : Controller
 	[HttpGet]
 	public IActionResult Home()
 	{
+		if (HttpContext.Session.GetString("TipoUsuario") == null) { return RedirectToAction("Login", "Usuario"); }
+
 		return View();
 	}
 

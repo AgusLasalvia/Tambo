@@ -227,6 +227,18 @@ public class Sistema
 		}
 	}
 
+	public List<Animal> AnimalesParaVacunar()
+	{
+		List<Animal> buscados = new List<Animal>();
+		foreach (Animal a in _animales)
+		{
+			if (DateTime.Today.Month - a.FechaNacimiento.Month >= 3 || (DateTime.Today.Month - a.FechaNacimiento.Month) <= 3 && a.FechaNacimiento.Year != DateTime.Today.Year) buscados.Add(a);
+		}
+
+		return buscados;
+	}
+
+
 	//Metodo para agregar animal libre a un potrero en espesifico
 	public void AgregarAnimalAPotrero(string a, int p)
 	{
@@ -236,10 +248,10 @@ public class Sistema
 		{
 			if (LugarEnPotreroDisponible(p) && AnimalEspecificoLibre(a) && _potreros[i].Id == p)
 			{
-				_potreros[i]?.Animales?.Add(animal);
-				_potreros[i].CantidadAnimalesPastan++;
+				_potreros[i]?.AgregarAnimal(animal);
 				animal.Estado = true;
 			}
+			i++;
 		}
 	}
 
@@ -285,7 +297,7 @@ public class Sistema
 
 
 
-	public void RegistrarVacunacion(string id, string nombre, DateTime fVacunacion, DateTime fVencimiento)
+	public void RegistrarVacunacion(string id, string nombre, DateTime fVacunacion)
 	{
 		Vacuna vacuna = ObtenerVacuna(nombre);
 		Animal a = null;
@@ -294,7 +306,7 @@ public class Sistema
 		{
 			if (a.Id == id)
 			{
-				a.Vancunas.Add(new Vacunacion(ObtenerVacuna(nombre), fVacunacion, fVencimiento));
+				a.Vancunas.Add(new Vacunacion(ObtenerVacuna(nombre), fVacunacion));
 			}
 		}
 	}

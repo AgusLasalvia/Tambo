@@ -69,6 +69,14 @@ namespace Dominio
             }
         }
 
+        public DateTime FechaNacimiento
+        {
+            get
+            {
+                return _fechaNacimiento;
+            }
+        }
+
         // Constructor de la clase Animal
         public Animal(TipoGenero genero, string raza, DateTime fechaNacimiento, double costoAdquisicion, double costoAlimentacion, double pesoActual, bool hibrido, List<Vacunacion> vacunas, bool estado)
         {

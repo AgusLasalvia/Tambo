@@ -15,7 +15,7 @@
     <div>
         <article>
             <h2 class="text-center">Registrar Bovino</h2>
-            <form action="~/Usuario/AltaBovino" method="post">
+            <form action="~/Bovino/AltaBovino" method="post">
                 <div>
                     <input type="text" class="form-control " name="raza" placeholder="Raza" required/>
                 </div>
@@ -39,7 +39,7 @@
                         placeholder="Costo de alimentación" required/>
                 </div>
                 <div>
-                    <input type="text" class="form-control " name="pesoActual" placeholder="Peso actual" required/>
+                    <input type="text" class="form-control " name="pesoActual" placeholder="Peso actual KG" required />
                 </div>
                 <div>
                     <label for="genero">¿Es hibrido?</label>
@@ -52,8 +52,7 @@
                     <label for="genero">Tipo de alimentación</label>
                     <select name="genero" class="form-control" aria-placeholder="Genero">
                         <option value="1">Pastura</option>
-                        <option value="2">Concentrado</option>
-                        <option value="3">Mezcla</option>
+                        <option value="2">Grano</option>
                     </select>
                 </div>
 

@@ -19,16 +19,18 @@
 		<article>
 			<h1>Asignar animal libre a potrero</h1>
 
-			@if (ViewBag.Error != null)
-			{
-				<div class="alert alert-danger">@ViewBag.Error</div>
-					}
-			@if (ViewBag.Exito != null)
-			{
-				<div class="alert alert-success">@ViewBag.Exito</div>
-			}
 
-			<form action="~/Potreros/AsignarAnimalAPotrero" method="get">
+
+			<form action="~/Potreros/AsignarAnimalAPotrero" method="post">
+				<select name="codigo" class="form-control">
+					@foreach (Animal a in ViewBag.Animales)
+					{
+						<option value="@a.Id">Tipo:@a.GetTipo() || Peso Actual:@a.PesoActual ||
+							Sexo:@a.Genero || Ganancia Posible: @a.CalcularGanancia()</option>
+					}
+				</select>
+
+
 				<select name="potrero" class="form-control">
 					@foreach (Potrero p in ViewBag.Potreros)
 					{
@@ -38,15 +40,16 @@
 				</select>
 
 
-				<select name="id" class="form-control">
-					@foreach (Animal a in ViewBag.Animales)
-					{
-						<option value="@a.Id">Tipo:@a.GetTipo() || Peso Actual:@a.PesoActual ||
-							Sexo:@a.Genero || Ganancia Posible: @a.CalcularGanancia()</option>
-					}
-				</select>
-
 				<input type="submit" class="btn btn-primary" value="Ingresar">
+
+				@if (ViewBag.Error != null)
+				{
+					<div class="alert alert-danger">@ViewBag.Error</div>
+				}
+				@if (ViewBag.Exito != null)
+				{
+					<div class="alert alert-success">@ViewBag.Exito</div>
+				}
 			</form>
 		</article>
 	</div>
@@ -81,22 +84,16 @@
 	article {
 		display: flex;
 		flex-direction: column;
-		gap: 2rem;
+		gap: 1rem;
 	}
 
-	form input[type="text"] {
-		margin-top: .5rem;
-	}
-
-	form input[type="password"] {
-		margin-top: .5rem;
-	}
 
 	form>input[type="submit"] {
 		margin-top: 2rem;
 		width: 100%;
 		background-color: #48bf78;
 		border-color: #48bf78;
+		margin-bottom: 1rem;
 	}
 
 	form>input[type="submit"]:hover {

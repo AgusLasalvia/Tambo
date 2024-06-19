@@ -36,21 +36,22 @@ public class PotrerosController : Controller
     // POST's
     // ------------------------------------------------------------------// 
 
-    [HttpGet]
-    public IActionResult AsignarAnimalAPotrero(string id, int potrero)
+    [HttpPost]
+    public IActionResult AsignarAnimalAPotrero(string codigo, int potrero)
     {
         if (HttpContext.Session.GetString("TipoUsuario") != "Capataz") { return RedirectToAction("Login", "Usuario"); }
 
-        if (!miSistema.AnimalEspecificoLibre(id))
-        {
-            TempData["Error"] = "El animal no esta disponible";
-        }
-        if (!miSistema.LugarEnPotreroDisponible(potrero))
-        {
-            TempData["Error"] = "El potrero ya esta lleno";
-        }
+        // if (!miSistema.AnimalEspecificoLibre(codigo))
+        // {
+        //     TempData["Error"] = "El animal no esta disponible";
+        // }
+        // if (!miSistema.LugarEnPotreroDisponible(potrero))
+        // {
+        //     TempData["Error"] = "El potrero ya esta lleno";
+        // }
 
-        miSistema.AgregarAnimalAPotrero(id, potrero);
+        miSistema.AgregarAnimalAPotrero(codigo, potrero);
+        TempData["Exito"] = "Animal asignado correctamente";
         return RedirectToAction("AnimalAPotrero");
     }
 }

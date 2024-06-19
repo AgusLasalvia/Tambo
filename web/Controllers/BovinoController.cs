@@ -38,11 +38,11 @@ public class BovinoController : Controller
 		if (b == null || fechaNacimiento > DateTime.Today || costoAdquisicion < 0 || costoAlimentacion < 0 || pesoActual < 0)
 		{
 			TempData["Error"] = "Bovino no creado exitosamente, revise datos";
-			return Redirect("RegistroBovino");
+			return RedirectToAction("RegistroBovino");
 		}
 		sistema.AltaBovino(b);
 		TempData["Exito"] = "Bovino creado exitosamente!!";
-		return Redirect("RegistroBovino");
+		return RedirectToAction("RegistroBovino");
 
 	}
 }

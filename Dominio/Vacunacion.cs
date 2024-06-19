@@ -16,10 +16,6 @@ namespace Dominio
             _fechaVencimiento = new DateTime(DateTime.Now.Year + 1, DateTime.Now.Month, DateTime.Now.Day);
         }
 
-        public Vacunacion(Vacuna tipoVacuna, DateTime fVacunacion, DateTime fVencimiento) : this(tipoVacuna, fVacunacion)
-        {
-        }
-
         //Funcion Validar() que valida los datos ingresados por el usuario
         public void Validar()
         {

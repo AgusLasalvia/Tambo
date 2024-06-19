@@ -44,7 +44,6 @@ namespace Dominio
 		public List<Animal>? Animales
 		{
 			get { return _animales; }
-			set { _animales = value; }
 		}
 
 		//Constructor

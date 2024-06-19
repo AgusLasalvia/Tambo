@@ -11,15 +11,10 @@ public class AnimalController : Controller
     [HttpGet]
     public IActionResult Vacunacion()
     {
-        try
-        {
-
-        }
-        catch (Exception ex) { }
         if (HttpContext.Session.GetString("TipoUsuario") != "Peon") { return RedirectToAction("Login", "Usuario"); }
         if (TempData["Exito"] != null) ViewBag.Exito = TempData["Exito"];
         if (TempData["Error"] != null) ViewBag.Error = TempData["Error"];
-        ViewBag.Animales = sistema.Animales;
+        ViewBag.Animales = sistema.AnimalesParaVacunar();
         ViewBag.Vacunas = sistema.Vacunas;
         return View();
     }
@@ -41,12 +36,12 @@ public class AnimalController : Controller
     }
 
     [HttpPost]
-    public IActionResult AgregarVacuancion(string id, string nombre, DateTime fVacunacion, DateTime fVencimiento)
+    public IActionResult AgregarVacuancion(string id, string nombre, DateTime fVacunacion)
     {
         if (HttpContext.Session.GetString("TipoUsuario") != "Peon") { return View("Login", "Usuario"); }
-        sistema.RegistrarVacunacion(id, nombre, fVacunacion, fVencimiento);
+        sistema.RegistrarVacunacion(id, nombre, fVacunacion);
 
-        if (fVacunacion >= fVencimiento || fVacunacion > DateTime.Today)
+        if (fVacunacion > DateTime.Today)
         {
             TempData["Error"] = "Datos mal, verifique";
         }
