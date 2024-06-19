@@ -25,7 +25,7 @@
 				<select name="codigo" class="form-control">
 					@foreach (Animal a in ViewBag.Animales)
 					{
-						<option value="@a.Id">Tipo:@a.GetTipo() || Peso Actual:@a.PesoActual ||
+						<option value="@a.Id">ID: @a.Id || Tipo:@a.GetTipo() || Peso Actual:@a.PesoActual ||
 							Sexo:@a.Genero || Ganancia Posible: @a.CalcularGanancia()</option>
 					}
 				</select>
@@ -34,7 +34,7 @@
 				<select name="potrero" class="form-control">
 					@foreach (Potrero p in ViewBag.Potreros)
 					{
-						<option value="@p.Id">Desc:@p.Descripcion || CantAnimales:@p.CantidadAnimalesPastan ||
+						<option value="@p.Id">Descripcion:@p.Descripcion || CantAnimales:@p.CantidadAnimalesPastan ||
 							MaxAnimales:@p.CantidadMaxAnimales</option>
 					}
 				</select>

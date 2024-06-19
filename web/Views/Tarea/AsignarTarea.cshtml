@@ -29,6 +29,13 @@ else
     <p><strong>Email: </strong>@p.Email</p>
     <p><strong>Fecha de ingreso: </strong>@p.FechaIngreso.ToString("dd/MM/yyyy")</p>
 
+
+    @if (ViewBag.Error != null)
+    {
+        <div class="alert alert-danger">@ViewBag.Error</div>
+    }
+
+
     <form action="AsignarTarea" method="post">
     <input type="text" name="email" value="@p.Email" hidden>
     <label for="">Descripción</label>

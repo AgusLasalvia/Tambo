@@ -27,6 +27,8 @@ public class TareaController : Controller
 	{
 		if (HttpContext.Session.GetString("TipoUsuario") != "Capataz") { return RedirectToAction("Login", "Usuario"); }
 		ViewBag.PeonEspecifico = sistema.PeonEspecifico(id);
+		if (TempData["Error"] != null) ViewBag.Error = TempData["Error"];
+		if (TempData["Exito"] != null) ViewBag.Exito = TempData["Exito"];
 		return View();
 	}
 
@@ -78,8 +80,8 @@ public class TareaController : Controller
 		}
 		catch (Exception ex)
 		{
-			TempData["Error"] = ex.Message;
-			return RedirectToAction("AsignarTarea/", "Peon");
+			TempData["Error"] = "Datos mal, verifique";
+			return Redirect("~/Tarea/AsignarTarea/" + email);
 		}
 	}
 }
