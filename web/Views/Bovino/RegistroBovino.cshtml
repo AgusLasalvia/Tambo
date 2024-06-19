@@ -1,3 +1,4 @@
+@using Dominio
 <div class="back-button d-flex justify-content-center align-items-center position-absolute"
     style="top: 40px; left: 100px; background-color: #48bf78; width: 100px; height: 50px; border-radius: 10px;">
     <a href="~/Capataz/Home"
@@ -17,7 +18,7 @@
             <h2 class="text-center">Registrar Bovino</h2>
             <form action="~/Bovino/AltaBovino" method="post">
                 <div>
-                    <input type="text" class="form-control " name="raza" placeholder="Raza" required/>
+                    <input type="text" class="form-control " name="raza" placeholder="Raza" required />
                 </div>
                 <div>
                     <label for="genero">Genero</label>
@@ -28,15 +29,15 @@
                 </div>
                 <div>
                     <label for="fechaNacimiento">Fecha de nacimiento</label>
-                    <input type="date" class="form-control " name="fechaNacimiento" placeholder="" required/>
+                    <input type="date" class="form-control " name="fechaNacimiento" placeholder="" required />
                 </div>
                 <div>
-                    <input type="text" class="form-control " name="costoAdquisicion"
-                        placeholder="Costo de adquisición" required />
+                    <input type="text" class="form-control " name="costoAdquisicion" placeholder="Costo de adquisición"
+                        required />
                 </div>
                 <div>
                     <input type="text" class="form-control " name="costoAlimentacion"
-                        placeholder="Costo de alimentación" required/>
+                        placeholder="Costo de alimentación" required />
                 </div>
                 <div>
                     <input type="text" class="form-control " name="pesoActual" placeholder="Peso actual KG" required />

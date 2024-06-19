@@ -1,3 +1,4 @@
+@using Dominio
 <div class="back-button d-flex justify-content-center align-items-center position-absolute"
     style="top: 40px; left: 100px; background-color: #48bf78; width: 100px; height: 50px; border-radius: 10px;">
     <a href="~/Capataz/Home"
@@ -11,16 +12,17 @@
     </a>
 </div>
 <h1>Filtrar animales segun peso</h1>
-
-<form action="~/Animal/ListaAnimalesPorPeso" method="get">
-    <label for="">Tipo de animal</label>
-    <select class="form-control" name="tipoAnimal">
-        <option value="Ovino">Ovino</option>
-        <option value="Bovino">Bovino</option>
-    </select>
-    <label for="">Peso</label>
-    <input class="form-control " type="number" name="peso">
-    <input type="submit" class="btn btn-primary" value="Buscar">
+using Dominio;
+#line default
+m action="~/Animal/ListaAnimalesPorPeso" method="get">
+<label for="">Tipo de animal</label>
+<select class="form-control" name="tipoAnimal">
+    <option value="Ovino">Ovino</option>
+    <option value="Bovino">Bovino</option>
+</select>
+<label for="">Peso</label>
+<input class="form-control " type="number" name="peso">
+<input type="submit" class="btn btn-primary" value="Buscar">
 </form>
 
 @if (ViewBag.Animales == null || ViewBag.Animales.Count == 0)
@@ -29,29 +31,29 @@
 }
 else
 {
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Tipo de animal</th>
-            <th>Peso Actual</th>
-            <th>Sexo</th>
-            <th>Posible ganancia</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (Animal a in ViewBag.Animales)
-        {
+    <table class="table table-striped">
+        <thead>
             <tr>
-                <td>@a.Id</td>
-                <td>@a.GetTipo()</td>
-                <td>@a.PesoActual</td>
-                <td>@a.Genero</td>
-                <td>@a.CalcularGanancia()</td>
+                <th>ID</th>
+                <th>Tipo de animal</th>
+                <th>Peso Actual</th>
+                <th>Sexo</th>
+                <th>Posible ganancia</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (Animal a in ViewBag.Animales)
+            {
+                <tr>
+                    <td>@a.Id</td>
+                    <td>@a.GetTipo()</td>
+                    <td>@a.PesoActual</td>
+                    <td>@a.Genero</td>
+                    <td>@a.CalcularGanancia()</td>
+                </tr>
+            }
+        </tbody>
+    </table>
 }
 
 <style>
