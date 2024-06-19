@@ -108,10 +108,6 @@ namespace Dominio
 
         }
 
-        // public void AgregarVacunacion(Vacuna vacuna){
-        //     _vacunas?.Add(new Vacunacion(vacuna));
-        // }
-
 
         // Funcion para Validar los datos del animal
         public virtual void Validar()

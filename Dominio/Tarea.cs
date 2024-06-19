@@ -71,8 +71,6 @@ namespace Dominio
 
 			if (_fechaCierre < _fechaPactada) throw new Exception("La fecha de cierre no puede ser anterior a la fecha pactada");
 
-			// if (_estado == null) throw new Exception("La tarea debe tener un estado");
-
 			if (string.IsNullOrEmpty(_comentario)) throw new Exception("La tarea debe tener un comentario");
 		}
 
@@ -92,11 +90,5 @@ namespace Dominio
 		{
 			return this._fechaPactada.CompareTo(other._fechaPactada);
 		}
-
-		// public int Compare(Tarea? x, Tarea? y)
-		// {
-		// 	x = this;
-		// 	return x._fechaPactada.CompareTo(y._fechaPactada);
-		// }
 	}
 }
