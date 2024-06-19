@@ -41,14 +41,14 @@ public class PotrerosController : Controller
     {
         if (HttpContext.Session.GetString("TipoUsuario") != "Capataz") { return RedirectToAction("Login", "Usuario"); }
 
-        // if (!miSistema.AnimalEspecificoLibre(codigo))
-        // {
-        //     TempData["Error"] = "El animal no esta disponible";
-        // }
-        // if (!miSistema.LugarEnPotreroDisponible(potrero))
-        // {
-        //     TempData["Error"] = "El potrero ya esta lleno";
-        // }
+        if (!miSistema.AnimalEspecificoLibre(codigo))
+        {
+            TempData["Error"] = "El animal no esta disponible";
+        }
+        if (!miSistema.LugarEnPotreroDisponible(potrero))
+        {
+            TempData["Error"] = "El potrero ya esta lleno";
+        }
 
         miSistema.AgregarAnimalAPotrero(codigo, potrero);
         TempData["Exito"] = "Animal asignado correctamente";
