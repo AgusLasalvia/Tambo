@@ -3,7 +3,7 @@
 This was the final project for the subject **Programming 2** at **Universidad ORT Uruguay**.
 
 📋 **Description**  
-Tambo is a desktop application focused on the **management of livestock** and **staff administration**. It allows the user to:
+Tambo is a web application focused on the **management of livestock** and **staff administration**. It allows the user to:
 
 - 🐮 Register and manage cattle.
 - 👤 Add and remove personnel.
