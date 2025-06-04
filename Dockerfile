@@ -17,7 +17,7 @@ COPY . .
 RUN dotnet publish "web/web.csproj" -c Release -o /app/publish
 
 # Etapa final
-FROM mcr.microsoft.com/dotnet/aspnet:7.0
+FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /app
 COPY --from=build /app/publish .
 EXPOSE 80
